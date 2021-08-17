@@ -23,6 +23,9 @@ As vanteagens de utilizar determinda tecnologia em detrimento de outra sempre ge
 <h2>Como o Node Funciona</h2>
 
 
-Assim como qualquer ferramenta que compila e interpreta uma linguagem de programação, o Node precisa de um motor que interprete os códigos escritos em JavaScript e os converta em código nativo ou machine code. Portanto, a ferramenta foi criada tendo a engine V8 do Google Chrome como base, ou seja, da mesma forma que o Chrome interpreta o JavaScript em aplicações Web, uma CPU passa a ser capaz graças ao Node. 
+Assim como qualquer ferramenta que compila e interpreta uma linguagem de programação, o Node precisa de um motor que interprete os códigos escritos em JavaScript e os converta em código nativo ou machine code. Portanto, a ferramenta foi criada tendo a engine V8 do Google Chrome como base, ou seja, da mesma forma que o Chrome interpreta o JavaScript para o navegador, o Node interpreta para a CPU. 
 
-Dessa forma, o Node possui uma arquitetura não bloqueante de single-thread baseada em eventos, que faz uso intenso dos pilares estruturais do JavaScript, como o conceito de Call Stack(responsável por registrar e empilhar as chamadas de funções), o Callback Queue(responsável por tratar os Callbacks) e o Event Loop(responsável por verificar os disparos dos eventos e executar suas respectivas callbacks como resposta). Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thread para tornar a interagir com a aplicação, o que consite em uma arquitetura assíncrona, dando ao Node uma performance bastante eficiente.
+Dessa forma, o Node possui uma arquitetura não bloqueante de single-thread baseada em eventos, que faz uso intenso dos pilares estruturais do JavaScript, como o conceito de Call Stack(responsável por registrar e empilhar as chamadas de funções), Callback Queue(responsável por tratar os Callbacks) e Event Loop(responsável por verificar os disparos dos eventos e executar suas respectivas callbacks como resposta). Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thread para tornar a interagir com a aplicação, o que dá ao Node uma performance assíncrona bastante eficiente.
+
+
+<h2>Intalação</h2>
