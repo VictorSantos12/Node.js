@@ -4,5 +4,5 @@
 </div>
 
 <br>
-<img src="https://img.shields.io/static/v1?label=Node.js&message=Framework&color=green&style=for-the-badge&logo=Mode"/>
+<img src="https://img.shields.io/static/v1?label=Node.js&message=Framework&color=green&style=for-the-badge&logo=Node"/>
 
