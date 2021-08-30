@@ -20,10 +20,10 @@ Há uma série de formas de aplicar o Node, seja no server-side, no client-side,
 As vantagens de utilizar determinda tecnologia em detrimento de outra sempre geram questionamento, mas, na prática, escolher um framework, um ambiente de desenvolvimento ou mesmo uma linguagem específica se dá pela demanda do sistema que será criado. Pode-se dizer que do Node é possível extrair resultados rápidos e com uma alta escalabilidade; o Node possui um ecosistema bastante robusto graças ao npm(Node Package Manager) que dá a possibilidade de ter acesso a recursos para tratar diversas necessidades, como requisições http, operações em bases de dados e entre outros.
 
 
-<h2>Intalação</h2>
+<h2>Instalação</h2>
 
 
-Para instalar o Node.js basta seguir as recomendações da plataforma oficial da ferramenta encontrada no link que será a seguir:
+Para instalar o Node.js basta seguir as recomendações da plataforma oficial da ferramenta encontrada no link a seguir:
 
 [nodejs.org](https://nodejs.org/en/)
 
@@ -37,7 +37,7 @@ Após o fim da instalação, use o comando a seguir para verificar se o processo
 <h2>Node CLI</h2>
 
 
-Se usarmos o comando <b>node</b> no terminal, podemos ter acesso a Command line interface do Node, com a qual já é possível executar algumas linhas de código JavaScript. Experimente executar a seguinte operação:
+Se usarmos o comando <b><i>node</i></b> no terminal, podemos ter acesso a Command line interface do Node, com a qual já é possível executar algumas linhas de código JavaScript. Experimente executar a seguinte operação:
 
     > var a = "Hello, world!"
     undefined
