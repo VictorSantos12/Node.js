@@ -37,6 +37,24 @@ Após o fim da instalação, use o comando a seguir para verificar a versão ins
     node -v
 
 
+<h2>Como o Node Funciona</h2>
+
+
+Assim como qualquer ferramenta que compila e interpreta uma linguagem de programação, o Node precisa de um motor que interprete os códigos escritos e os converta em código nativo ou machine code. Portanto, a ferramenta foi criada tendo a engine V8 do Google Chrome como base, ou seja, da mesma forma que o Chrome interpreta o JavaScript para o navegador, o Node interpreta para a CPU. 
+
+O Node possui uma arquitetura não bloqueante de single-thread baseada em eventos, que faz uso intenso dos pilares estruturais do JavaScript. Eles são:
+
+- Call Stack(responsável por registrar e empilhar as chamadas de funções)
+- Callback Queue(responsável por tratar os Callbacks)
+- Event Loop(responsável por verificar os disparos dos eventos e executar suas respectivas callbacks como resposta)
+
+Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thread para tornar a interagir com a aplicação, o que dá ao Node uma performance assíncrona bastante eficiente. A imagem a seguir ilustra como esse processo ocorre:
+
+<div align="center">
+ <img src="https://user-images.githubusercontent.com/61476935/129991583-7aac7517-8373-43a2-94b9-41afc968a545.png">
+</div>
+
+
 <h2>Hello World</h2>
 
 
@@ -74,21 +92,83 @@ Uma simples chamada de variável permite entender como o Node independe de qualq
     Uncaught ReferenceError: document is not defined
 
 
-<h2>Como o Node Funciona</h2>
+<h2>Módulos</h2>
 
 
-Assim como qualquer ferramenta que compila e interpreta uma linguagem de programação, o Node precisa de um motor que interprete os códigos escritos e os converta em código nativo ou machine code. Portanto, a ferramenta foi criada tendo a engine V8 do Google Chrome como base, ou seja, da mesma forma que o Chrome interpreta o JavaScript para o navegador, o Node interpreta para a CPU. 
+O node por si só executa o código Javascript exatamente da mesma forma que qualquer navegador, como já foi dito. Mas o que diferencia a ferramenta são os recursos restritos a ela, sendo a modularização um deles.
 
-O Node possui uma arquitetura não bloqueante de single-thread baseada em eventos, que faz uso intenso dos pilares estruturais do JavaScript. Eles são:
+Não sendo um padrão Javascript, criar módulos onde cada parte do código permanesse acessível e separada das demais, é bastante usual e recomendado, já que torna a construção de um projeto muito mais prática e eficaz. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
 
-- Call Stack(responsável por registrar e empilhar as chamadas de funções)
-- Callback Queue(responsável por tratar os Callbacks)
-- Event Loop(responsável por verificar os disparos dos eventos e executar suas respectivas callbacks como resposta)
+Para entender os modularização organizacional no Node, imageine o seguinte cenário:
 
-Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thread para tornar a interagir com a aplicação, o que dá ao Node uma performance assíncrona bastante eficiente. A imagem a seguir ilustra como esse processo ocorre:
+Você precisa criar um sistema capaz de converter o valor a sua moeda nacional em dolar, euro e libra. Isso poderia se dar da seguinte forma:
 
-<div align="center">
- <img src="https://user-images.githubusercontent.com/61476935/129991583-7aac7517-8373-43a2-94b9-41afc968a545.png">
-</div>
+Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva as seguintes linhas de código:
 
+
+    var real = 10;
+    
+    function dolar(coin) {
+    
+      return coin / 5.39;
+    
+    }
+    
+    function euro(coin) {
+      
+      return coin / 6.30;
+    
+    }
+    
+    function libra(coin) {
+    
+      return coin / 7.38;
+      
+    }
+    
+    console.log(dolar(real));
+    console.log(euro(real));
+    console.log(libra(real));
+
+
+Uma variável representando uma quantia em reais é passada como parâmetro em três funções distintas, cada uma com um operador representado o valor das moedas que as nomeiam em relação ao real nos dias de hoje. Ao executar o script temos o seguinte resultado:
+
+
+    1.855287569573284
+    1.5873015873015874
+    1.3550135501355014
+
+
+Agora digamos que o código gerado seja considerado muito grande para ser mantido em um único arquivo do projeto, e foi recomendado a você quebrar o código em partes distintas. Para começar faremos as seguintes alteraçãos:
+
+Recorte a função <i>dolar</i> do arquivo coin.js, crie um novo arquivo chamado de dolar.js, e nele cole a função. Em seguida defina a função como um módulo exportável usando os atributos <i>module</i> e <i>exports</i> do Node: 
+
+   
+    module.exports.dolar = dolar;
+
+
+Agora que é possível importar e fazer uso da função <i>dolar</i> em qualquer parte do diretório. Para fazer isso, no arquivo <i>coin.js</i>, defina a const a seguir:
+
+
+    const dolar = require('./dolar');
+
+
+O path definido na função require define o caminho para o arquivo dolar.js, e o que definido como export nele, passa a ser acessível através da const dolar. Em seguida atualizae o console.log:
+
+    
+    console.log(dolar(real));
+
+
+Em seguida, após repetir o mesmo processo com as demais funções, temos o arquivo principal modularizado:
+
+
+    const dolar = require('./dolar');
+    const euro = require('./euro');
+    const libra = require('./libra')
+    
+    var real = 10;
+    
+    console.log(dolar.dolar(real));
+    console.log(euro.euro(real));
+    console.log(libra.libra(real));
 
