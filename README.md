@@ -248,9 +248,7 @@ O método createServer() por sua vez é definido pelo Node como:
 
     function createServer(requestListener?: http.RequestListener): http.Server (+1 overload)
 
-Retorna uma nova instância do Server.
-
-O requestListener é uma função adicionada automaticamente ao evento 'request'.
+A função createServer retorna uma nova instância do Server. Já o parâmetro requestListener é uma função adicionada automaticamente ao evento 'request'.
 
 Nele também iremos definir o uso do método <i>listen()</i>, passando uma porta na qual o servidor estrá ativo:
     
