@@ -185,3 +185,138 @@ Após repetir o mesmo processo com as demais funções, temos o arquivo principa
     1.855287569573284
     1.5873015873015874
     1.3550135501355014
+
+
+<h2>HTTP</h2>
+
+
+O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. Para entender como aplicar e como funciona o básico das requisições HTTP com o Node, vamos a um exemplo:
+
+Em um diretório, crie um arquivo <i>app.js</i>, nele iremos fazer um riquire do módulo http do Node:
+
+    const http = require('http');
+
+O módulo http é definido pelo Node como: 
+
+(alias) module "http"
+import http
+
+Para usar o servidor e cliente HTTP é necessário requerer ('http').
+
+As interfaces HTTP em Node.js são projetadas para oferecer suporte a muitos recursos do protocolo que são tradicionalmente difíceis de usar. Em particular, mensagens grandes, possivelmente codificadas por blocos. A interface tem o cuidado de nunca armazenar em buffer solicitações ou respostas inteiras, para que o usuário possa transmitir dados.
+
+Os cabeçalhos das mensagens HTTP são representados por um objeto como este:
+
+    { 
+      'content-length': '123',
+      'content-type': 'text/plain',
+      'connection': 'keep-alive',
+      'host': 'mysite.com',
+      'accept': '*'
+     }
+
+As chaves estão em minúsculas. Os valores não são modificados.
+
+Para oferecer suporte a todo o espectro de aplicativos HTTP possíveis, a API HTTP Node.js é de nível muito baixo. Ele lida apenas com o tratamento de fluxo e análise de mensagem. Ele analisa uma mensagem em cabeçalhos e corpo, mas não analisa os cabeçalhos reais ou o corpo.
+
+Consulte message.headers para obter detalhes sobre como os cabeçalhos duplicados são tratados.
+
+Os cabeçalhos brutos à medida que forem recebidos são retidos na propriedade rawHeaders, que é uma matriz de [chave, valor, chave2, valor2, ...]. Por exemplo, o objeto de cabeçalho da mensagem anterior pode ter uma rawHeaderslist como a seguinte:
+
+    [
+      'ConTent-Length', '123456',
+      'content-LENGTH', '123',
+      'content-type', 'text/plain',
+      'CONNECTION', 'keep-alive',
+      'Host', 'mysite.com',
+      'accepT', '*' 
+    ]
+
+Em seguida defina a chamada do método <i>createServer()</i> através da const que recebe o módulo http:
+
+     http.createServer()
+
+O método createServer() por sua vez é definido pelo Node como:
+
+    function createServer(requestListener?: http.RequestListener): http.Server (+1 overload)
+
+Retorna uma nova instância do Server.
+
+O requestListener é uma função adicionada automaticamente ao evento 'request'.
+
+Nele também iremos definir o uso do método <i>listen()</i>, passando uma porta na qual o servidor estrá ativo:
+    
+     http.createServer().listen(8080);
+
+O método listen() é definido como: 
+
+    (method) Server.listen(port?: number, hostname?: string, backlog?: number, listeningListener?: () => void): http.Server (+8 overloads)
+
+Método que inicia um servidor ouvindo conexões. Um net.Server pode ser um servidor TCP ou IPC dependendo do que se escuta.
+
+Assinaturas possíveis:
+
+- server.listen(handle[, backlog][, callback])
+- server.listen(options[, callback])
+- server.listen(path[, backlog][, callback]) for IPC servers
+- server.listen([port[, host[, backlog]]][, callback]) for TCP servers
+
+Esta função é assíncrona. Quando o servidor começar a 'escutar', o evento listening será emitido. O último parâmetro de retorno de chamada será adicionado como um ouvinte para o evento de listening.
+
+Todos os métodos listen () podem usar um parâmetro de backlog para especificar o comprimento máximo da fila de conexões pendentes. O comprimento real será determinado pelo sistema operacional por meio de configurações sysctl, como tcp_max_syn_backlog e somaxconnon Linux. O valor padrão deste parâmetro é 511 (não 512).
+
+Todos os soquetes são configurados para SO_REUSEADDR (veja soquete (7) para detalhes).
+
+O método server.listen() pode ser chamado novamente se e somente se houve um erro durante a primeira chamada de server.listen() ou server.close() foi chamado. Caso contrário, um erro ERR_SERVER_ALREADY_LISTEN será lançado.
+
+Um dos erros mais comuns levantados durante a escuta é o EADDRINUSE. Isso acontece quando outro servidor já está escutando na porta / caminho / identificador solicitado. Uma maneira de lidar com isso seria tentar novamente após um determinado período:
+
+    server.on('error', (e) => {
+      if (e.code === 'EADDRINUSE') {
+        console.log('Address in use, retrying...');
+        setTimeout(() => {
+          server.close();
+          server.listen(PORT, HOST);
+        }, 1000);
+      }
+    });
+
+Agora que temos uma estrutura básica e sua definição, basta fazer o run do script no terminal de comando, basicamente sem nenhum resultado, o console apenas define uma operação em execução.
+
+Para melhorar esta chamada, faça a seguinte inclusão:
+
+    const http = require('http');
+    
+    http.createServer().listen(8080);
+    
+    console.log("Servido Ativo na porta 8080"); <
+
+Encerre o servidor com Ctrl + C e torne a executá-lo. Perceba que a mensagem definida passa a estar aparente, mostrando a ativação do servidor.
+
+Com o servidor ativo, é possível acessá-lo pelo navegador da seguinte forma:
+
+    localhost: 8080
+
+Ao defnir um localhost, está sendo dito que um servidor ativo localmente, em uma port específica, será acessado. Mas perceba que não há qualquer retorno do navegador. Com isso, dentro do método <i>createServe()</i>, defina uma response inicial para quem o acessar:
+
+    function(req, res) {
+       
+       res.end("<h1>Welcome</h1>")
+    }
+
+Por definição a função end, atribuída ao parâmetro res, é:
+
+    (method) internal.Writable.end(chunk: any, cb?: () => void): void (+2 overloads)
+
+O método writable.end() ou sua chamada sinaliza que nenhum outro dado será gravado no Writable. O fragmento opcional e os argumentos de codificação permitem que um fragmento adicional final de dados seja gravado imediatamente antes de fechar o fluxo.
+
+Chamar o método write após chamar end gerará um erro.
+
+    // Write 'hello, ' and then end with 'world!'.
+    const fs = require('fs');
+    const file = fs.createWriteStream('example.txt');
+    file.write('hello, ');
+    file.end('world!');
+    // Writing more now is not allowed!
+
+Encerre o server e torne a executá-lo, tendo como resposta a mensagem atribuída ao parâmetro res da função criada. Este é seu primeiro HTTP server criado como o Node.
