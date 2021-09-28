@@ -463,16 +463,9 @@ Para definir uma rota inicial de acesso ao servidor anteriormente criado, faça 
 <h2>GET</h2>
 
 
-O médodo get(), disponibilizado pelo Express, possui dois parâmetros: O path inicial que precisa ser chamado para executar a requisição, sendo este '/'; e uma função com os parâmetros req e res, que respectivamente definem informações sobre o request e a response que será dada ao chamar a rota definida.
+O médodo get(), disponibilizado pelo Express, possui dois parâmetros: O path inicial que precisa ser chamado para executar a requisição, sendo este '/'; e uma função com os parâmetros req e res, que respectivamente definem as informações enviadas no request e a response resultante da requisição.
 
-Tendo uma rota inicial criada, é preciso definir uma resposta para esta chamada. Veja a seguir:
-
-    app.get('/', (req, res) => {
-    
-      res.send('<h1>Welcome to my app!</h1>')
-    
-    });
-
+Tendo uma rota inicial criada, é preciso definir uma resposta para a chamad desta. Veja a seguir:
 
 <h2>send()</h2>
 
@@ -484,7 +477,15 @@ A propriedade send define uma resposta para qualquer requisição na qual ela é
     res.send('<p>some html</p>');
     res.status(404).send('Sorry, cant find that');
 
-Ao reiniciar o servidor e acessá-lo no navegador temos a respose definda no lugar do Cannot GET /, visto anteriormente. Para frizar o conceito de rotas, siga criando mais delas, como por exemplo:
+Para aplicar uma definição de response na rota inicial do seu servidor, faça a seguinte inserção:
+
+    app.get('/', (req, res) => {
+    
+      res.send('<h1>Welcome to my app!</h1>');
+    
+    });
+
+Ao reiniciar o servidor e acessá-lo no navegador não notamos mais a presença do erro Cannot GET / visto que criamos uma chamada get e a ela foi dada uma response de retorno. Agora, para frisar o conceito de rotas, siga criando mais delas, como por exemplo:
 
     app.get('/home', (req, res) => {
        
@@ -532,3 +533,32 @@ Após fazer qualquer modificação, o servidor será reiniciado automaticamente:
     [nodemon] restarting due to changes...
     [nodemon] starting `node index.js`
     Servidor ativo
+
+
+<h2>Parâmetros em Rota</h2>
+
+
+O processo de request muitas vezes conta com a necessidade de envio de certas informações do usuário para que o mesmo tenha uma resposta satisfatória. Um exempplo seria uma tela de login, onde as informações registradas em uma etapa de cadastro anterior são necessárias para ter acesso a tela de home, perfil e etc. Essas informações podem compor o body de uma requisição ou podem eviadas como parâmetro na própria rota. 
+
+Para um melhor entendimento, crie uma nova rota para representar a tela de login:
+
+    app.get('/login', (req, res) => {
+    
+      res.send('<h1>This is my login page</h1>');
+
+    });
+
+Com isso é possível definir parâmetros que serão recebidos quando a rota for chamada. Isso é feito da seguinte forma:
+
+    app.get('/login/:email/:password', (req, res) => {
+    
+      res.send('<h1>This is my login page</h1>');
+
+    });
+
+Agora, caso a rota de /login seja chamada no navegador, é possível notar que o servidor não reconhece a chamada. Isso se dá pois, uma vez que os parâmetros são definidos, eles devem ser respeitados, logo, as informações devem ser concedidas para que possa haver uma resposta. Por exemplo: 
+
+    localhost:3000/login/dev123@gmail.com/123456
+
+Com os parâmetros definidos em rota, é possível ter a resposta da requisição.
+

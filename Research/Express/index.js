@@ -7,17 +7,22 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/login/:email/:password', (req, res) => {
+
+   res.send('<h1>This is my login page</h1>')
+});
+
 app.get('/home', (req, res) => {
    
    res.send('<h1>This is the home page</h1>');
 
-})
+});
 
 app.get('/home/profile', (req, res) => {
 
   res.send('<h1>This is my profile</h1>');
 
-})
+});
 
 app.listen(3000, function(error) {
 
