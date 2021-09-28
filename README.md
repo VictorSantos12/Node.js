@@ -196,6 +196,10 @@ Em um diretório, crie um arquivo <i>app.js</i>, nele iremos fazer um riquire do
 
     const http = require('http');
 
+
+<h2>http Module</h2>
+
+
 O módulo http é definido pelo Node como: 
 
 (alias) module "http"
@@ -236,6 +240,10 @@ Em seguida defina a chamada do método <i>createServer()</i> através da const q
 
      http.createServer()
 
+
+<h2>createServer()</h2>
+
+
 O método createServer() por sua vez é definido pelo Node como:
 
     function createServer(requestListener?: http.RequestListener): http.Server (+1 overload)
@@ -248,9 +256,14 @@ Nele também iremos definir o uso do método <i>listen()</i>, passando uma porta
     
      http.createServer().listen(8080);
 
+
+<h2>listen()</h2>
+
+
 O método listen() é definido como: 
 
-    (method) Server.listen(port?: number, hostname?: string, backlog?: number, listeningListener?: () => void): http.Server (+8 overloads)
+    (method) Server.listen(port?: number, hostname?: string, backlog?: number, listeningListener?: () => void)
+    : http.Server (+8 overloads)
 
 Método que inicia um servidor ouvindo conexões. Um net.Server pode ser um servidor TCP ou IPC dependendo do que se escuta.
 
@@ -319,4 +332,4 @@ Chamar o método write após chamar end gerará um erro.
     file.end('world!');
     // Writing more now is not allowed!
 
-Encerre o server e torne a executá-lo, tendo como resposta a mensagem atribuída ao parâmetro res da função criada. Este é seu primeiro HTTP server criado como o Node.
+Encerre o server e torne a executá-lo, tendo como resposta a mensagem atribuída ao parâmetro res da função criada. Este é seu primeiro HTTP server criado com o Node.
