@@ -447,8 +447,88 @@ Esse erro se dá pois ainda não há uma definição de rota para o acesso inici
 <h2>Routing</h2>
 
 
-O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respondem aos requests do client. Um endpoint é definido por uma URl(ou path) e um método de request HTTP específico, seja um GET, POST e entre outros. Quando cada parte da aplicação é acessada, se nela houver a chamda de uma rota, um novo request é lançado na API, retornando as informações definidas. Observe o exemplo a seguir para melhor entender:
+O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respondem aos requests do client. Um endpoint é definido por uma URl(ou path) e um método de request HTTP específico, seja um GET, POST e entre outros. Quando cada parte da aplicação é acessada, se o acesso a ela define a chamada de uma rota, um novo request é lançado na API, retornando as informações definidas como response. Observe o exemplo a seguir para melhor entender:
 
 <div align="center">
  <img src="https://user-images.githubusercontent.com/61476935/135111233-d4ceb01b-96d4-48fe-a68f-d4a9f24a6728.png">
 </div>
+
+Para definir uma rota inicial de acesso ao servidor anteriormente criado, faça a seguinte inserção:
+
+    app.get('/', (req, res) => {
+        
+    });
+
+
+<h2>GET</h2>
+
+
+O médodo get(), disponibilizado pelo Express, possui dois parâmetros: O path inicial que precisa ser chamado para executar a requisição, sendo este '/'; e uma função com os parâmetros req e res, que respectivamente definem informações sobre o request e a response que será dada ao chamar a rota definida.
+
+Tendo uma rota inicial criada, é preciso definir uma resposta para esta chamada. Veja a seguir:
+
+    app.get('/', (req, res) => {
+    
+      res.send('<h1>Welcome to my app!</h1>')
+    
+    });
+
+
+<h2>send()</h2>
+
+
+A propriedade send define uma resposta para qualquer requisição na qual ela é declarada, seja um objeto json, uma mensagem de erro e entre outras. Exemplos:
+
+    res.send(new Buffer('wahoo'));
+    res.send({ some: 'json' });
+    res.send('<p>some html</p>');
+    res.status(404).send('Sorry, cant find that');
+
+Ao reiniciar o servidor e acessá-lo no navegador temos a respose definda no lugar do Cannot GET /, visto anteriormente. Para frizar o conceito de rotas, siga criando mais delas, como por exemplo:
+
+    app.get('/home', (req, res) => {
+       
+       res.send('<h1>This is the home page</h1>');
+    
+    })
+    
+    app.get('/home/profile', (req, res) => {
+    
+      res.send('<h1>This is my profile</h1>');
+    
+    })
+
+Ao definir o acesso a cada rota na URL uma resposta distinta irá aparecer em tela, definindo partes diferentes com funções distintas na mesma aplicação, isso graças ao Express Routing.
+
+
+<h2>Automatizando com o Nodemon</h2>
+
+
+O Nodemon é um Node module responsável por automatizar o processo de atualização de um servidor em execução, evitando a necessidade de derrubá-lo e torná-lo ativo sempre que o código for atualizado, já que o mesmo detecta e aplica qualquer alteração salva. Para fazer a instalação e configurar seu uso observe os passos a seguir:
+
+    npm install nodemon -g
+
+Após o fim da instalação é possível iniciar o monitoramento de mudaças através do comando:
+
+    nodemon index.js
+
+Tendo como resultado:
+
+    [nodemon] 2.0.13
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `node index.js`
+    Servidor ativo
+
+Após fazer qualquer modificação, o servidor será reiniciado automaticamente:
+
+    [nodemon] 2.0.13
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `node index.js`
+    Servidor ativo
+    [nodemon] restarting due to changes...
+    [nodemon] starting `node index.js`
+    Servidor ativo
