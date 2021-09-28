@@ -37,24 +37,6 @@ Após o fim da instalação, use o comando a seguir para verificar a versão ins
     node -v
 
 
-<h2>Como o Node Funciona</h2>
-
-
-Assim como qualquer ferramenta que compila e interpreta uma linguagem de programação, o Node precisa de um motor que interprete os códigos escritos e os converta em código nativo ou machine code. Portanto, a ferramenta foi criada tendo a engine V8 do Google Chrome como base, ou seja, da mesma forma que o Chrome interpreta o JavaScript para o navegador, o Node interpreta para a CPU. 
-
-O Node possui uma arquitetura não bloqueante de single-thread baseada em eventos, que faz uso intenso dos pilares estruturais do JavaScript. Eles são:
-
-- Call Stack(responsável por registrar e empilhar as chamadas de funções)
-- Callback Queue(responsável por tratar os Callbacks)
-- Event Loop(responsável por verificar os disparos dos eventos e executar suas respectivas callbacks como resposta)
-
-Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thread para tornar a interagir com a aplicação, o que dá ao Node uma performance assíncrona bastante eficiente. A imagem a seguir ilustra como esse processo ocorre:
-
-<div align="center">
- <img src="https://user-images.githubusercontent.com/61476935/129991583-7aac7517-8373-43a2-94b9-41afc968a545.png">
-</div>
-
-
 <h2>Hello World</h2>
 
 
@@ -90,6 +72,24 @@ Uma simples chamada de variável permite entender como o Node independe de qualq
 
     > document
     Uncaught ReferenceError: document is not defined
+
+
+<h2>Como o Node Funciona</h2>
+
+
+Assim como qualquer ferramenta que compila e interpreta uma linguagem de programação, o Node precisa de um motor que interprete os códigos escritos e os converta em código nativo ou machine code. Portanto, a ferramenta foi criada tendo a engine V8 do Google Chrome como base, ou seja, da mesma forma que o Chrome interpreta o JavaScript para o navegador, o Node interpreta para a CPU. 
+
+O Node possui uma arquitetura não bloqueante de single-thread baseada em eventos, que faz uso intenso dos pilares estruturais do JavaScript. Eles são:
+
+- Call Stack(responsável por registrar e empilhar as chamadas de funções)
+- Callback Queue(responsável por tratar os Callbacks)
+- Event Loop(responsável por verificar os disparos dos eventos e executar suas respectivas callbacks como resposta)
+
+Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thread para tornar a interagir com a aplicação, o que dá ao Node uma performance assíncrona bastante eficiente. A imagem a seguir ilustra como esse processo ocorre:
+
+<div align="center">
+ <img src="https://user-images.githubusercontent.com/61476935/129991583-7aac7517-8373-43a2-94b9-41afc968a545.png">
+</div>
 
 
 <h1>Conceitos Básicos</h1>
@@ -334,3 +334,121 @@ Chamar o método write após chamar end gerará um erro.
     // Writing more now is not allowed!
 
 Encerre o server e torne a executá-lo, tendo como resposta a mensagem atribuída ao parâmetro res da função criada. Este é seu primeiro HTTP server criado com o Node.
+
+
+<h1>Destrinchando o Express</h1>
+
+
+O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript.
+
+
+<h2>Por que o Express ?</h2>
+
+
+O Node por si só fornece recursos o sufiente para criar um ambiente de desenvolvimento mínimo, sendo um desses recursos o anteriomente visto HTTP module. Além de contar com um sistema próprio de roteamento, middlewares e entre outros, o Express dá um boost em termos de funcionalidades a qualquer módulo padrão do Node, inclusive no próprio http. Além da capacidade de interação com os bancos de dados mais populares, seguindo modelos relacionais e não relacionais, como o MySQL e o MongoDb.
+
+O link a seguir direciona para a documentação oficial do Express:
+
+[expressjs.com](https://expressjs.com/)
+
+
+<h2>npm</h2>
+
+
+O npm, ou Node Package Manager, é um gerenciador de pacotes padão do Node.js e bastante utilizado em framework e libs Javascript. Com o npm é possível instalar os mais divérsos packages em um projeto, estes estando agrupados na node_modules folder, sobre a qual falaremos mais a frente. Ele vem junto do Node no processo de instalação, portanto, neste momento você já pode fazer unso do mesmo. Para verificar a versão instalada faça o run do comando a seguir no terminal de comando:
+
+    npm -v
+
+Para saber mais sobre o npm, verifique o link a seguir:
+
+[npmjs.com](https://www.npmjs.com/)
+
+
+<h2>Instalando o Express</h2>
+
+
+Antes de instalar uma ferramenta utilizada em projetos node, é preciso ter o projeto em si. Logo, use o comando a seguir para inicializar um projeto com o npm:
+
+    npm init
+
+Em seguida, uma série de questões sobre o projeto serão iniciadas, podendo ser respondidas ou puladas, da forma que você bem entender. No final será gerado um package.json contendo essas informações e, por fim, o projeto será criado.
+
+
+<h2>package.json</h2>
+
+
+O json, ou JavaScript Object Notation, é um formato de intercâmbio de dados leve, bastante utilizado na Web como modelo comunicacional entre o servidor e o cliente. Neste arquivo são registradas as informações referentes ao seu projeto, além de declarar todos os pacotes que forem instalados seguindo o modelo de texto do json:
+
+    {
+      "name": "expr",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "author": "",
+      "license": "ISC"
+    }
+
+Após termos um projeto em mãos, já é possível fazer a instação do Express através do comando:
+
+    npm install express --save
+
+O trecho --save define que os arquivos gerados na instalação serão salvos do diretório do projeto. Assim temos o Express instalado e pronto para uso, sendo este declarado como dependencie no package.json:
+
+    {
+      "name": "expr",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "author": "",
+      "license": "ISC",
+      "dependencies": {
+        "express": "^4.17.1" <
+      }
+    }
+
+Um arquivo e uma pasta adicionais também foram gerados com a instalação, eles são o package-lock.json, que basicamente tem a função de ser mais detalhista que o package.json com relação aos pacotes instalados, e o node_modules(anterormente mencionado), onde estão disponíveis todas as bibliotecas npm, inclusive o Express.
+
+
+<h2>Iniciando um Projeto Express</h2>
+
+
+Ao iniciar um projeto Express, por padão, é criado um index.js como arquivo principal, onde toda a aplicação será iniciada. Nele iremos fazer as seguintes inserções:
+
+    const express = require('express');
+    const app = express();
+
+Basicamente o módulo Express está sendo atribuído à const express, e à const app todas as funcionalidade desse módulo. Para inicializar um servidor com o Express, basta chamar o método listen() através da const app:
+
+    app.listen(3000, function(error) {
+
+     if(error) {
+
+       console.log(error);
+
+     } else {
+
+       console.log('Servidor ativo');
+
+     }
+
+Também é adicionada uma function que define uma resposta caso a ação seja bem sucedida ou caso haja um erro. Ao fazer uma chamada localhost no navegador da porta definida você terá o seguinte erro:
+
+    Cannot GET /
+
+Esse erro se dá pois ainda não há uma definição de rota para o acesso inicial ao servidor, assunto que será abordado a seguir.
+
+
+<h2>Routing</h2>
+
+
+O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respondem aos requests do client. Um endpoint é definido por uma URl(ou path) e um método de request HTTP específico, seja um GET, POST e entre outros. Quando cada parte da aplicação é acessada, se nela houver a chamda de uma rota, um novo request é lançado na API, retornando as informações definidas. Observe o exemplo a seguir para melhor entender:
+
+<div align="center">
+ <img src="https://user-images.githubusercontent.com/61476935/135110095-c77c762d-a816-4883-a588-0b238bc0691b.png">
+</div>
