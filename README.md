@@ -127,7 +127,7 @@ Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva 
     console.log(libra(real));
 
 
-Uma variável representando uma quantia em reais é passada como parâmetro em três funções distintas, cada uma com um operador representado o valor das moedas que as nomeiam em relação ao real nos dias de hoje. Ao executar o script temos o seguinte resultado:
+Uma variável representando uma quantia em reais é passada como parâmetro em três funções distintas, cada uma com um operador representando o valor das moedas que as nomeiam em relação ao real nos dias de hoje. Ao executar o script temos o seguinte resultado:
 
 
     1.855287569573284
@@ -135,27 +135,33 @@ Uma variável representando uma quantia em reais é passada como parâmetro em t
     1.3550135501355014
 
 
-Agora digamos que o código gerado seja considerado muito grande para ser mantido em um único arquivo do projeto, e foi recomendado a você quebrar o código em partes distintas. Para começar faremos as seguintes alteraçãos:
+Agora, digamos que o código gerado seja considerado muito grande para ser mantido em um único arquivo do projeto, e foi recomendado a você quebrar o código em partes distintas. Para começar, faremos as seguintes alteraçãos:
 
 Recorte a função <i>dolar</i> do arquivo coin.js, crie um novo arquivo chamado de dolar.js, e nele cole a função. Em seguida defina a função como um módulo exportável usando os atributos <i>module</i> e <i>exports</i> do Node: 
 
-   
-    module.exports.dolar = dolar;
+
+    function dolar(coin) {
+    
+      return coin / 5.39;
+    
+    }
+
+    module.exports.dolar = dolar; <
 
 
-Agora que é possível importar e fazer uso da função <i>dolar</i> em qualquer parte do diretório. Para fazer isso, no arquivo <i>coin.js</i>, defina a const a seguir:
+Com isso é possível importar e fazer uso da função <i>dolar</i> em qualquer parte do diretório. Para fazer isso, no arquivo <i>coin.js</i>, defina a const a seguir:
 
 
     const dolar = require('./dolar');
 
 
-O path definido na função require define o caminho para o arquivo dolar.js, e o que definido como export nele, passa a ser acessível através da const dolar. Em seguida atualizae o console.log:
+O path definido na função require define o caminho para o arquivo dolar.js, e o que é definido como export nele passa a ser acessível através da const dolar. Em seguida atualiza o console.log:
 
     
     console.log(dolar(real));
 
 
-Em seguida, após repetir o mesmo processo com as demais funções, temos o arquivo principal modularizado:
+Após repetir o mesmo processo com as demais funções, temos o arquivo principal modularizado, sem perder o resultado anteriormente mostrado como output:
 
 
     const dolar = require('./dolar');
@@ -167,4 +173,9 @@ Em seguida, após repetir o mesmo processo com as demais funções, temos o arqu
     console.log(dolar.dolar(real));
     console.log(euro.euro(real));
     console.log(libra.libra(real));
+    
+    //OutPut:
 
+    1.855287569573284
+    1.5873015873015874
+    1.3550135501355014
