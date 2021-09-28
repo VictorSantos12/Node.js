@@ -450,5 +450,5 @@ Esse erro se dá pois ainda não há uma definição de rota para o acesso inici
 O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respondem aos requests do client. Um endpoint é definido por uma URl(ou path) e um método de request HTTP específico, seja um GET, POST e entre outros. Quando cada parte da aplicação é acessada, se nela houver a chamda de uma rota, um novo request é lançado na API, retornando as informações definidas. Observe o exemplo a seguir para melhor entender:
 
 <div align="center">
- <img src="https://user-images.githubusercontent.com/61476935/135110095-c77c762d-a816-4883-a588-0b238bc0691b.png">
+ <img src="https://user-images.githubusercontent.com/61476935/135111233-d4ceb01b-96d4-48fe-a68f-d4a9f24a6728.png">
 </div>
