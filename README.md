@@ -101,7 +101,7 @@ Não sendo um padrão Javascript, criar módulos onde cada parte do código perm
 
 Para entender os modularização organizacional no Node, imageine o seguinte cenário: Você precisa criar um sistema capaz de converter certo quantia de reais em dolares, euros e libras. Isso poderia ser feito da seguinte forma:
 
-- Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva as seguintes linhas de código:
+Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva as seguintes linhas de código:
 
 
     var real = 10;
