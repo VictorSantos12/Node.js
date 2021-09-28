@@ -92,12 +92,18 @@ Uma simples chamada de variável permite entender como o Node independe de qualq
     Uncaught ReferenceError: document is not defined
 
 
+<h1>Conceitos Básicos</h1>
+
+
+O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios. Portanto, antes de iniciarmos com o a criação de um projeto real, iremos abordar esses conceitos e entendeer sua importância:
+
+
 <h2>Módulos</h2>
 
 
-Não sendo um padrão Javascript, criar módulos onde cada parte do código permanece acessível e separada das demais, é bastante usual e recomendado, já que torna a construção de um projeto muito mais prática e eficaz. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
+Não sendo um padrão do Javascript, criar módulos onde cada parte do código permanece acessível e separada das demais, é bastante usual e recomendado, já que atribui a um projeto um maior nível de oraganização, praticidade e eficácia. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
 
-Para entender q modularização organizacional no Node, imagene o seguinte cenário: Você precisa criar um sistema símples capaz de converter reais em dolares, euros e libras. Isso poderia ser feito da seguinte forma:
+Para entender a modularização organizacional no Node, imagene o seguinte cenário: Você precisa criar um sistema símples capaz de converter reais em dolares, euros e libras. Isso poderia ser feito da seguinte forma:
 
 Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva as seguintes linhas de código:
 
