@@ -311,7 +311,12 @@ Ao defnir um localhost, está sendo dito que um servidor ativo localmente, em um
     function(req, res) {
        
        res.end("<h1>Welcome</h1>")
+
     }
+
+
+<h2>end()</h2>
+
 
 Por definição a função end, atribuída ao parâmetro res, é:
 
