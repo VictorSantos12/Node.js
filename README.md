@@ -97,13 +97,11 @@ Uma simples chamada de variável permite entender como o Node independe de qualq
 
 O node por si só executa o código Javascript exatamente da mesma forma que qualquer navegador, como já foi dito. Mas o que diferencia a ferramenta são os recursos restritos a ela, sendo a modularização um deles.
 
-Não sendo um padrão Javascript, criar módulos onde cada parte do código permanesse acessível e separada das demais, é bastante usual e recomendado, já que torna a construção de um projeto muito mais prática e eficaz. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
+Não sendo um padrão Javascript, criar módulos onde cada parte do código permanece acessível e separada das demais, é bastante usual e recomendado, já que torna a construção de um projeto muito mais prática e eficaz. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
 
-Para entender os modularização organizacional no Node, imageine o seguinte cenário:
+Para entender os modularização organizacional no Node, imageine o seguinte cenário: Você precisa criar um sistema capaz de converter certo quantia de reais em dolares, euros e libras. Isso poderia ser feito da seguinte forma:
 
-Você precisa criar um sistema capaz de converter o valor a sua moeda nacional em dolar, euro e libra. Isso poderia se dar da seguinte forma:
-
-Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva as seguintes linhas de código:
+- Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva as seguintes linhas de código:
 
 
     var real = 10;
