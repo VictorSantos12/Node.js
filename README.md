@@ -532,7 +532,7 @@ Para definir uma rota inicial de acesso ao servidor anteriormente criado, faça 
 <h2>GET</h2>
 
 
-O médodo get(), disponibilizado pelo Express, possui dois parâmetros: O path inicial que precisa ser chamado para executar a requisição, sendo este '/'; e uma função com os parâmetros req e res, que respectivamente definem as informações enviadas no request e a response resultante.
+O médodo get(), disponibilizado pelo Express, possui dois parâmetros: O path inicial que precisa ser chamado para executar a requisição, sendo este '/'; e uma função HANDLER com os parâmetros req e res, que respectivamente definem as informações enviadas no request e a response resultante.
 
 Tendo uma rota inicial criada, é preciso definir uma resposta para a chamada desta. Veja a seguir:
 
