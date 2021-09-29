@@ -17,7 +17,7 @@ Há uma série de formas de aplicar o Node, seja no server-side, no client-side,
 <h2>Por que o Node ?</h2>
 
 
-As vantagens de utilizar determinda tecnologia em detrimento de outra sempre geram questionamento, mas, na prática, escolher um framework, um ambiente de desenvolvimento ou mesmo uma linguagem específica se dá pela demanda do sistema que será criado. Pode-se dizer que do Node é possível extrair resultados rápidos e com uma alta escalabilidade; o Node possui um ecosistema bastante robusto graças ao npm(Node Package Manager) que dá a possibilidade de ter acesso a recursos para tratar diversas necessidades, como requisições http, operações em bases de dados e entre outros, além de ser bastente leve em comparação a outras ferramentas.
+As vantagens de utilizar determinda tecnologia em detrimento de outra sempre geram questionamento, mas, na prática, escolher um framework, um ambiente de desenvolvimento ou mesmo uma linguagem de programação se dá pela demanda do sistema que será criado. Pode-se dizer que do Node é possível extrair resultados rápidos e com uma alta escalabilidade; o Node possui um ecosistema bastante robusto graças ao npm(Node Package Manager) que dá a possibilidade de ter acesso a recursos para tratar diversas necessidades, como requisições http, operações em bases de dados e entre outros, além de ser bastente leve em comparação a outras ferramentas.
 
 
 <h2>Instalação</h2>
@@ -40,7 +40,7 @@ Após o fim da instalação, use o comando a seguir para verificar a versão ins
 <h2>Hello World</h2>
 
 
-Para executar o popular Hello World através do Node.js, basta criar um diretório que irá conter o arquivo referente e executá-lo na linha de comando. Com isso, crie uma pasta no local desejado e nela o arquivo <i>app.js</i>. Nesse arquivo escreva as seguinte linha de código:
+Para executar o popular Hello World através do Node.js basta criar um diretório que irá conter o arquivo referente e executá-lo na linha de comando. Com isso, crie uma pasta no local desejado e nela o arquivo <i>app.js</i>. Neste arquivo escreva as seguinte linha de código:
 
 
     console.log('Hello World!');
@@ -67,7 +67,7 @@ Se usarmos o comando <b><i>node</i></b> no terminal, podemos ter acesso a Comman
     'Hello, world!'
 
 
-Uma simples chamada de variável permite entender como o Node independe de qualquer navegador para executar códigos JavaScript. Entretanto, há algumas diferenças entre o browser e uma Cli, e tentar acessar estruturas como a árvore DOM por exemplo, não produz resultado. Observe:
+Uma simples chamada de variável permite entender como o Node independe de qualquer navegador para executar códigos JavaScript. Entretanto, há algumas diferenças entre o browser e a Node Cli, e tentar acessar estruturas como a árvore DOM por exemplo, não produz resultado. Observe:
 
 
     > document
@@ -95,15 +95,15 @@ Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thre
 <h1>Conceitos Básicos</h1>
 
 
-O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios. Portanto, antes de iniciarmos com o a criação de um projeto real, iremos abordar esses conceitos e entendeer sua importância:
+O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios. Portanto, antes de iniciarmos com o a criação de um projeto real, iremos abordar esses conceitos e entender sua importância:
 
 
 <h2>Módulos</h2>
 
 
-Não sendo um padrão do Javascript, criar módulos onde cada parte do código permanece acessível e separada das demais, é bastante usual e recomendado, já que atribui a um projeto um maior nível de oraganização, praticidade e eficácia. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
+Não sendo um padrão do Javascript, criar módulos onde cada parte do código permanece acessível e separada das demais é bastante usual e recomendado, já que atribui ao projeto um maior nível de oraganização, praticidade e eficácia. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
 
-Para entender a modularização organizacional no Node, imagene o seguinte cenário: Você precisa criar um sistema símples capaz de converter reais em dolares, euros e libras. Isso poderia ser feito da seguinte forma:
+Para entender a modularização organizacional no Node imagene o seguinte cenário: Você precisa criar um sistema símples, capaz de converter reais em dolares, euros e libras. Isso poderia ser feito da seguinte forma:
 
 Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva as seguintes linhas de código:
 
@@ -152,7 +152,7 @@ Recorte a função <i>dolar</i> do arquivo coin.js, crie um novo arquivo chamado
     
     }
 
-    module.exports.dolar = dolar; <
+    module.exports.dolar = dolar; <<<
 
 
 Com isso é possível importar e fazer uso da função <i>dolar</i> em qualquer parte do diretório. Para fazer isso, no arquivo <i>coin.js</i>, defina a const a seguir:
@@ -167,7 +167,7 @@ O path definido na função require define o caminho para o arquivo dolar.js, e 
     console.log(dolar(real));
 
 
-Após repetir o mesmo processo com as demais funções, temos o arquivo principal modularizado, sem perder o resultado anteriormente mostrado como output:
+Após repetir o mesmo processo com as demais funções, temos o arquivo principal modularizado, mantendo o resultado anteriormente mostrado como output:
 
 
     const dolar = require('./dolar');
@@ -219,11 +219,15 @@ Os cabeçalhos das mensagens HTTP são representados por um objeto como este:
       'accept': '*'
      }
 
-As chaves estão em minúsculas. Os valores não são modificados.
+<div align="center">
+  <h5>As chaves são declaradas em minúsculas e valores não são modificados.</h5>
+</div>
 
-Para oferecer suporte a todo o espectro de aplicativos HTTP possíveis, a API HTTP Node.js é de nível muito baixo. Ele lida apenas com o tratamento de fluxo e análise de mensagem. Ele analisa uma mensagem em cabeçalhos e corpo, mas não analisa os cabeçalhos reais ou o corpo.
+Para oferecer suporte a todo o espectro de aplicativos HTTP possíveis, a API HTTP Node.js é de nível muito baixo. Ela lida apenas com o tratamento de fluxo e análise de mensagem. Ela analisa uma mensagem em cabeçalhos e corpo, mas não analisa os cabeçalhos reais ou o corpo.
 
-Consulte message.headers para obter detalhes sobre como os cabeçalhos duplicados são tratados.
+<div align="center">
+  <h5>Consulte message.headers para obter detalhes sobre como os cabeçalhos duplicados são tratados.</h5>
+</div>
 
 Os cabeçalhos brutos à medida que forem recebidos são retidos na propriedade rawHeaders, que é uma matriz de [chave, valor, chave2, valor2, ...]. Por exemplo, o objeto de cabeçalho da mensagem anterior pode ter uma rawHeaderslist como a seguinte:
 
@@ -236,7 +240,7 @@ Os cabeçalhos brutos à medida que forem recebidos são retidos na propriedade 
       'accepT', '*' 
     ]
 
-Em seguida defina a chamada do método <i>createServer()</i> através da const que recebe o módulo http:
+Para prosseguir com o exercicio defina a chamada do método <i>createServer()</i> através da const que recebe o módulo http:
 
      http.createServer()
 
@@ -270,11 +274,9 @@ Assinaturas possíveis:
 - server.listen(path[, backlog][, callback]) for IPC servers
 - server.listen([port[, host[, backlog]]][, callback]) for TCP servers
 
-Esta função é assíncrona. Quando o servidor começar a 'escutar', o evento listening será emitido. O último parâmetro de retorno de chamada será adicionado como um ouvinte para o evento de listening.
+Esta função é assíncrona. Quando o servidor começar a 'escutar', o evento listening será emitido. O último parâmetro de retorno de chamada será adicionado como um listener para o evento de listening.
 
-Todos os métodos listen () podem usar um parâmetro de backlog para especificar o comprimento máximo da fila de conexões pendentes. O comprimento real será determinado pelo sistema operacional por meio de configurações sysctl, como tcp_max_syn_backlog e somaxconnon Linux. O valor padrão deste parâmetro é 511 (não 512).
-
-Todos os soquetes são configurados para SO_REUSEADDR (veja soquete (7) para detalhes).
+Todos os métodos listen() podem usar um parâmetro de backlog para especificar o comprimento máximo da fila de conexões pendentes. O comprimento real será determinado pelo sistema operacional por meio de configurações sysctl, como tcp_max_syn_backlog e somaxconnon Linux. O valor padrão deste parâmetro é 511 (não 512).
 
 O método server.listen() pode ser chamado novamente se e somente se houve um erro durante a primeira chamada de server.listen() ou server.close() foi chamado. Caso contrário, um erro ERR_SERVER_ALREADY_LISTEN será lançado.
 
@@ -290,7 +292,7 @@ Um dos erros mais comuns levantados durante a escuta é o EADDRINUSE. Isso acont
       }
     });
 
-Agora que temos uma estrutura básica e sua definição, basta fazer o run do script no terminal de comando, basicamente sem nenhum resultado, o console apenas define uma operação em execução.
+Agora que temos uma estrutura básica e sua definição, basta fazer o run do script no terminal de comando, tendo basicamente sem nenhum resultado, o console apenas define uma operação em execução.
 
 Para melhorar esta chamada, faça a seguinte inclusão:
 
@@ -298,7 +300,7 @@ Para melhorar esta chamada, faça a seguinte inclusão:
     
     http.createServer().listen(8080);
     
-    console.log("Servido Ativo na porta 8080"); <
+    console.log("Servido Ativo na porta 8080"); <<<
 
 Encerre o servidor com Ctrl + C e torne a executá-lo. Perceba que a mensagem definida passa a estar aparente, mostrando a ativação do servidor.
 
@@ -333,13 +335,13 @@ Chamar o método write após chamar end gerará um erro.
     file.end('world!');
     // Writing more now is not allowed!
 
-Encerre o server e torne a executá-lo, tendo como resposta a mensagem atribuída ao parâmetro res da função criada. Este é seu primeiro HTTP server criado com o Node.
+Com isso, encerre o server e torne a executá-lo, tendo como resposta a mensagem atribuída ao parâmetro res da função criada. E pronto, este é seu primeiro HTTP server criado com o Node.
 
 
 <h1>Destrinchando o Express</h1>
 
 
-O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript.
+O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript e, sem dívida, a mais popular vinculada ao Node.
 
 
 <h2>Por que o Express ?</h2>
@@ -347,21 +349,17 @@ O Express é um framework Web que auxilia no desenvolvimento de aplicações Bac
 
 O Node por si só fornece recursos o sufiente para criar um ambiente de desenvolvimento mínimo, sendo um desses recursos o anteriomente visto HTTP module. Além de contar com um sistema próprio de roteamento, middlewares e entre outros, o Express dá um boost em termos de funcionalidades a qualquer módulo padrão do Node, inclusive no próprio http. Além da capacidade de interação com os bancos de dados mais populares, seguindo modelos relacionais e não relacionais, como o MySQL e o MongoDb.
 
-O link a seguir direciona para a documentação oficial do Express:
-
-[expressjs.com](https://expressjs.com/)
+O link a seguir direciona para a documentação oficial do Express: [expressjs.com](https://expressjs.com/)
 
 
 <h2>npm</h2>
 
 
-O npm, ou Node Package Manager, é um gerenciador de pacotes padão do Node.js e bastante utilizado em framework e libs Javascript. Com o npm é possível instalar os mais divérsos packages em um projeto, estes estando agrupados na node_modules folder, sobre a qual falaremos mais a frente. Ele vem junto do Node no processo de instalação, portanto, neste momento você já pode fazer unso do mesmo. Para verificar a versão instalada faça o run do comando a seguir no terminal de comando:
+O npm, ou Node Package Manager, é um gerenciador de pacotes padão do Node.js e é basicamente obrigatório em frameworks e libs Javascript. Com o npm é possível instalar os mais diversos packages em um projeto, estes estando agrupados na node_modules folder, sobre a qual falaremos mais a frente. Ele vem como um adicional no processo de instalação do Node, visto que seu uso é inevitável. Logo, neste momento você já pode fazer uso do mesmo. Para verificar a versão instalada faça o run do comando a seguir no terminal:
 
     npm -v
 
-Para saber mais sobre o npm, verifique o link a seguir:
-
-[npmjs.com](https://www.npmjs.com/)
+Para saber mais sobre o npm, verifique o link a seguir: [npmjs.com](https://www.npmjs.com/)
 
 
 <h2>Instalando o Express</h2>
@@ -371,7 +369,7 @@ Antes de instalar uma ferramenta utilizada em projetos node, é preciso ter o pr
 
     npm init
 
-Em seguida, uma série de questões sobre o projeto serão iniciadas, podendo ser respondidas ou puladas, da forma que você bem entender. No final será gerado um package.json contendo essas informações e, por fim, o projeto será criado.
+Em seguida, uma série de questões sobre o projeto serão iniciadas, as quais podem ser ignoradas no momento. No final será gerado um package.json contendo as informações dadas e, por fim, o projeto será criado.
 
 
 <h2>package.json</h2>
@@ -395,7 +393,7 @@ Após termos um projeto em mãos, já é possível fazer a instação do Express
 
     npm install express --save
 
-O trecho --save define que os arquivos gerados na instalação serão salvos do diretório do projeto. Assim temos o Express instalado e pronto para uso, sendo este declarado como dependencie no package.json:
+O trecho <i>--save</i> define que os arquivos gerados na instalação serão salvos no diretório do projeto. Assim temos o Express instalado e pronto para uso, sendo este declarado como dependencie no package.json:
 
     {
       "name": "expr",
@@ -412,7 +410,7 @@ O trecho --save define que os arquivos gerados na instalação serão salvos do 
       }
     }
 
-Um arquivo e uma pasta adicionais também foram gerados com a instalação, eles são o package-lock.json, que basicamente tem a função de ser mais detalhista que o package.json com relação aos pacotes instalados, e o node_modules(anterormente mencionado), onde estão disponíveis todas as bibliotecas npm, inclusive o Express.
+Um arquivo e uma pasta adicionais também foram gerados com a instalação, eles são o package-lock.json, que basicamente tem a função de ser mais detalhista que o package.json quanto aos pacotes instalados, e o node_modules(anterormente mencionado), onde estão disponíveis todas as bibliotecas npm, inclusive o Express.
 
 
 <h2>Iniciando um Projeto Express</h2>
@@ -423,7 +421,7 @@ Ao iniciar um projeto Express, por padão, é criado um index.js como arquivo pr
     const express = require('express');
     const app = express();
 
-Basicamente o módulo Express está sendo atribuído à const express, e à const app todas as funcionalidade desse módulo. Para inicializar um servidor com o Express, basta chamar o método listen() através da const app:
+Basicamente o módulo Express está sendo atribuído à const express, e à const app todas as funcionalidade desse módulo. Para inicializar um servidor com o Express basta chamar o método listen() através da const app:
 
     app.listen(3000, function(error) {
 
@@ -437,7 +435,7 @@ Basicamente o módulo Express está sendo atribuído à const express, e à cons
 
      }
 
-Também é adicionada uma function que define uma resposta caso a ação seja bem sucedida ou caso haja um erro. Ao fazer uma chamada localhost no navegador da porta definida você terá o seguinte erro:
+Também é adicionada uma function que define uma resposta caso a ação seja bem sucedida ou caso haja um erro. Ao fazer uma chamada localhost no navegador e na porta definida você terá o seguinte erro:
 
     Cannot GET /
 
@@ -447,7 +445,7 @@ Esse erro se dá pois ainda não há uma definição de rota para o acesso inici
 <h2>Routing</h2>
 
 
-O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respondem aos requests do client. Um endpoint é definido por uma URl(ou path) e um método de request HTTP específico, seja um GET, POST e entre outros. Quando cada parte da aplicação é acessada, se o acesso a ela define a chamada de uma rota, um novo request é lançado na API, retornando as informações definidas como response. Observe o exemplo a seguir para melhor entender:
+O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respondem aos requests do client. Um endpoint é definido por uma URL(ou path) e um método de request HTTP específico, seja um GET, POST e entre outros. Quando cada parte da aplicação é acessada, se o acesso a ela define a chamada de uma rota, um novo request é lançado na API, retornando as informações definidas como response. Para melhor entender observe o exemplo a seguir:
 
 <div align="center">
  <img src="https://user-images.githubusercontent.com/61476935/135111233-d4ceb01b-96d4-48fe-a68f-d4a9f24a6728.png">
@@ -463,9 +461,10 @@ Para definir uma rota inicial de acesso ao servidor anteriormente criado, faça 
 <h2>GET</h2>
 
 
-O médodo get(), disponibilizado pelo Express, possui dois parâmetros: O path inicial que precisa ser chamado para executar a requisição, sendo este '/'; e uma função com os parâmetros req e res, que respectivamente definem as informações enviadas no request e a response resultante da requisição.
+O médodo get(), disponibilizado pelo Express, possui dois parâmetros: O path inicial que precisa ser chamado para executar a requisição, sendo este '/'; e uma função com os parâmetros req e res, que respectivamente definem as informações enviadas no request e a response resultante.
 
-Tendo uma rota inicial criada, é preciso definir uma resposta para a chamad desta. Veja a seguir:
+Tendo uma rota inicial criada, é preciso definir uma resposta para a chamada desta. Veja a seguir:
+
 
 <h2>send()</h2>
 
@@ -485,7 +484,7 @@ Para aplicar uma definição de response na rota inicial do seu servidor, faça 
     
     });
 
-Ao reiniciar o servidor e acessá-lo no navegador não notamos mais a presença do erro Cannot GET / visto que criamos uma chamada get e a ela foi dada uma response de retorno. Agora, para frisar o conceito de rotas, siga criando mais delas, como por exemplo:
+Ao reiniciar o servidor e acessá-lo no navegador não notamos mais a presença do erro Cannot GET /, visto que criamos uma chamada get e a ela foi dada uma response de retorno. Agora, para frisar o conceito de rotas, siga criando mais delas, como por exemplo:
 
     app.get('/home', (req, res) => {
        
@@ -499,13 +498,13 @@ Ao reiniciar o servidor e acessá-lo no navegador não notamos mais a presença 
     
     })
 
-Ao definir o acesso a cada rota na URL uma resposta distinta irá aparecer em tela, definindo partes diferentes com funções distintas na mesma aplicação, isso graças ao Express Routing.
+Ao definir o acesso a cada rota na URL, a resposta correspondente irá aparecer em tela, definindo partes diferentes com funções distintas na mesma aplicação, isso graças ao Express Routing.
 
 
 <h2>Automatizando com o Nodemon</h2>
 
 
-O Nodemon é um Node module responsável por automatizar o processo de atualização de um servidor em execução, evitando a necessidade de derrubá-lo e torná-lo ativo sempre que o código for atualizado, já que o mesmo detecta e aplica qualquer alteração salva. Para fazer a instalação e configurar seu uso observe os passos a seguir:
+O Nodemon é um Node module responsável por automatizar o processo de atualização de um servidor em execução, evitando a necessidade de derrubá-lo e torná-lo ativo sempre que o código for atualizado, já que o mesmo detecta e aplica qualquer alteração salva. Para fazer a instalação e configurar seu uso, observe os passos a seguir:
 
     npm install nodemon -g
 
@@ -538,7 +537,7 @@ Após fazer qualquer modificação, o servidor será reiniciado automaticamente:
 <h2>Parâmetros em Rota</h2>
 
 
-O processo de request muitas vezes conta com a necessidade de envio de certas informações do usuário para que o mesmo tenha uma resposta satisfatória. Um exempplo seria uma tela de login, onde as informações registradas em uma etapa de cadastro anterior são necessárias para ter acesso a tela de home, perfil e etc. Essas informações podem compor o body de uma requisição ou podem eviadas como parâmetro na própria rota. 
+O processo de request muitas vezes conta com a necessidade de envio de certas informações do usuário para que o mesmo tenha uma resposta satisfatória. Um exemplo seria uma tela de login, onde as informações registradas em uma etapa de cadastro anterior são necessárias para ter acesso a tela de home, perfil e etc. Essas informações podem compor o body de uma requisição ou podem ser eviadas como parâmetro na própria rota. 
 
 Para um melhor entendimento, crie uma nova rota para representar a tela de login:
 
@@ -556,11 +555,11 @@ Com isso é possível definir parâmetros que serão recebidos quando a rota for
 
     });
 
-Agora, caso a rota de /login seja chamada no navegador, é possível notar que o servidor não reconhece a chamada. Isso se dá pois, uma vez que os parâmetros são definidos, eles devem ser respeitados, logo, as informações devem ser concedidas para que possa haver uma resposta. Por exemplo: 
+Agora, caso a rota de /login seja chamada no navegador é possível notar que o servidor não reconhece a chamada. Isso se dá pois, uma vez que os parâmetros são definidos, eles devem ser respeitados, logo, as informações devem ser concedidas para que possa haver uma resposta. Por exemplo: 
 
     localhost:3000/login/dev123@gmail.com/123456
 
-Com os parâmetros definidos em rota, é possível ter a resposta da requisição. Além disso, também é possível fazer uso dos dados enviados no request por meio atributo params. Observe:
+Com os parâmetros definidos em rota, é possível ter a resposta da requisição. Além disso, também é possível fazer uso dos dados enviados no request por meio do atributo params. Observe:
 
     app.get('/login/:email/:password', (req, res) => {
     
