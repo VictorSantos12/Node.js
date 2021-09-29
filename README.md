@@ -560,5 +560,27 @@ Agora, caso a rota de /login seja chamada no navegador, é possível notar que o
 
     localhost:3000/login/dev123@gmail.com/123456
 
-Com os parâmetros definidos em rota, é possível ter a resposta da requisição.
+Com os parâmetros definidos em rota, é possível ter a resposta da requisição. Além disso, também é possível fazer uso dos dados enviados no request por meio atributo params. Observe:
 
+    app.get('/login/:email/:password', (req, res) => {
+    
+      res.send(`<h1>${req.params.email}</h1>`);
+    
+    });
+
+A resposta em tela passa a ser o valor passado como o primeiro parâmetro na rota de login, podendo ser um nome ou qualquer outra informação, sendo esta atualizada dinamicamente.
+
+
+<h2>Nullable Params</h2>
+
+
+A obrigatoriedade do envio de um valor como o parâmetro declarado em uma rota é definida no momento da declaração, porém, também é possível definir um parâmetro opicional o tornando nullable:
+
+                                    *
+    app.get('/login/:email/:password?', (req, res) => {
+    
+      res.send('<h1>This is my login page</h1>');
+    
+    });
+
+Com isso, apenas o parâmetro no-nullable é exigido quando uma requisição for executada.

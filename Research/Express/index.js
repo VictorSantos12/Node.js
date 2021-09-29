@@ -7,9 +7,11 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/login/:email/:password', (req, res) => {
+app.get('/login/:email/:password?', (req, res) => {
 
-   res.send('<h1>This is my login page</h1>')
+  //  res.send('<h1>This is my login page</h1>')
+  res.send(`<h1>${req.params.email}</h1>`);
+
 });
 
 app.get('/home', (req, res) => {
