@@ -583,3 +583,6 @@ A obrigatoriedade do envio de um valor como o parâmetro declarado em uma rota �
     });
 
 Com isso, apenas o parâmetro no-nullable é exigido quando uma requisição for executada.
+
+
+<h2>Route methods</h2>
