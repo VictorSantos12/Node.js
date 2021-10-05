@@ -714,7 +714,6 @@ O Rest ainda um suporte diveros em termos de formato de dados como retorno, send
 
 A definição básica de uma Api Rest é que ela segue todos os padrões listados anteriormente. Porém, uma Api Restful precisa seguir outros mais para receber essa designação, eles são:
 
-
 - Nível 0 - Aplicar apenas um endPoint central
 - Nível 1 - Definição e uso de recursos/entidades(produto, usuário, categoria, etc)
 - Nível 2 - Aplicar o verbos HTTP
