@@ -672,3 +672,36 @@ Com isso, apenas o parâmetro no-nullable é exigido quando uma requisição for
 
 
 <h1>Rest</h1>
+
+
+O Rest, ou Representational State Transfer, é um padrão de desenvolvimento de WebServices que segue um modelo de desenvolvimento mais comum e recomendado. O modelo Rest segue um padão guiado por alguns pilares que pretendem tornar a aplicação mais eficiente:
+
+
+<h2>Client ou Server</h2>
+
+
+O Rest mantém isoladas as duas porções de um app, não permitindo que a aplicação exerça funções como a renderização de uma interface e servir os dados para consumo, ou seja, um WebService que segue o modelo Rest é totalmente independente e pode ser consumido por outra aplicação, o que a impede de ser servidor e cliente ao mesmo tempo.
+
+
+<h2>Stateless</h2>
+
+
+No modelo de Api Rest cada requisição é idependente e não mantém o state de nenhuma requisição, ou seja, nenhuma informação referente a um request ou response de um cliente é mantido após sua execução.
+
+
+<h2>Cache</h2>
+
+
+O conceito de cache é aplicado no Rest com o intuito de otimizar as interação por meio do acesso a informações que visam otimizar o envio e o recebimento de dados entre o cliente e o servidor.
+
+
+<h2>Desenvolver em Camadas</h2>
+
+
+As camadas que definem uma aplicação Rest são a definição que se dá para o isolamento de servidores distintos dentro de um sistema. Ou seja, a segurança, o carregamento de carga e entre outros não impeditivos para o funcionamento correto da Api.
+
+
+<h2>Uniformidade de Interface</h2>
+
+
+A interface de uma aplicação server-side nada mais é que as definições de escrita dadas ao endPoints, ou rotas, de umaaplicação. A uniformidade que o Rest demanda no momento de criação das rotas se refere a o quão descritivas estas são, evitando redundâncias e deixando as definições de ações para o verbos http. 
