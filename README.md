@@ -671,3 +671,4 @@ Com isso, apenas o parâmetro no-nullable é exigido quando uma requisição for
 <h2>Métodos Express</h2>
 
 
+<h1>Rest</h1>
