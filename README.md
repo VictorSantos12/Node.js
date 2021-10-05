@@ -716,6 +716,6 @@ A definição básica de uma Api Rest é que ela segue todos os padrões listado
 
 
 - Nível 0 - Aplicar apenas um endPoint central
-- Nível 1 - Definição e uso de recurso/entidades(produto, usuário, categoria, etc)
+- Nível 1 - Definição e uso de recursos/entidades(produto, usuário, categoria, etc)
 - Nível 2 - Aplicar o verbos HTTP
-- Nível 3 - Hateoas(Define na response de uma requisição quais ações podem ser ralizadas com as informações obtidas)
+- Nível 3 - Hateoas(Define na response de uma requisição quais ações podem ser ralizadas com os recursos obtidos)
