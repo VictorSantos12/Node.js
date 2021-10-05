@@ -152,7 +152,7 @@ Recorte a função <i>dolar</i> do arquivo coin.js, crie um novo arquivo chamado
     
     }
 
-    module.exports.dolar = dolar; <<<
+    module.exports.dolar = dolar; <
 
 
 Com isso é possível importar e fazer uso da função <i>dolar</i> em qualquer parte do diretório. Para fazer isso, no arquivo <i>coin.js</i>, defina a const a seguir:
@@ -358,7 +358,7 @@ Para melhorar esta chamada, faça a seguinte inclusão:
     
     http.createServer().listen(8080);
     
-    console.log("Servido Ativo na porta 8080"); <<<
+    console.log("Servido Ativo na porta 8080"); <
 
 Encerre o servidor com Ctrl + C e torne a executá-lo. Perceba que a mensagem definida passa a estar aparente, mostrando a ativação do servidor.
 
@@ -414,7 +414,7 @@ Com isso, encerre o server e torne a executá-lo, tendo como resposta a mensagem
 <h1>Destrinchando o Express</h1>
 
 
-O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript e, sem dúvidas, a mais popular vinculada ao Node. Também é bastante popular no desenvolvimento de Rest e Restful Api's Node.
+O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript e, sem dúvidas, a mais popular vinculada ao Node. Também é bastante popular no desenvolvimento de Rest e Restful Api's em Node.
 
 
 <h2>Por que o Express ?</h2>
@@ -512,7 +512,7 @@ Também é adicionada uma function que define uma resposta caso a ação seja be
 
     Cannot GET /
 
-Esse erro se dá pois ainda não há uma definição de rota para o acesso inicial ao servidor, assunto que será abordado a seguir.
+Este erro se dá pois ainda não há uma definição de rota para o acesso inicial ao servidor, assunto que será abordado a seguir.
 
 
 <h2>Routing</h2>
@@ -659,7 +659,6 @@ A resposta em tela passa a ser o valor passado como o primeiro parâmetro na rot
 
 A obrigatoriedade do envio de um valor como o parâmetro declarado em uma rota é definida no momento da declaração, porém, também é possível definir um parâmetro opicional o tornando nullable:
 
-                                    *
     app.get('/login/:email/:password?', (req, res) => {
     
       res.send('<h1>This is my login page</h1>');
