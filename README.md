@@ -9,7 +9,7 @@
 
 O Node é um ambiente de execução de códigos JavaScript, cuja as funcionalidades e ferramentas propiciam ao desenvolvedor a estrutura necessária para criar, compilar, testar e manter aplicações utilizando o ECMAScript.
 
-Dando uma definição mais específica, o Node exerce a função de interpretar códigos JavaScript fora dos navegadores, tornando possível desvincular a linguagem do Client-side. Tal recurso abre uma série de possibilidades para desenvolver com a já conhecida sintaxe, além de um adicional de ferramentas que auxiliam na criação de aplicações robustas, como arquiteturas e modelos de desenvolvimentos versáteis.
+Dando uma definição mais específica, o Node exerce a função de interpretar códigos JavaScript fora dos navegadores, tornando possível desvincular a linguagem do Client-side. Tal recurso abre uma série de possibilidades para desenvolver com a já conhecida sintaxe, além de um adicional de ferramentas que auxiliam na criação de aplicações robustas, com arquiteturas e modelos de desenvolvimentos versáteis.
 
 Há uma série de formas de aplicar o Node, seja no server-side, no client-side, em aplicações desktop, micro serviços e entre outros, o Node possui um nível de usabilidade bastante robusto. 
 
@@ -29,7 +29,7 @@ Para instalar o Node.js basta seguir as recomendações da plataforma oficial da
 [nodejs.org](https://nodejs.org/en/)
 
 
-É recomendado ter a versão LTS instalada pois ela garante todas as funcionalidades do Node sem nenhuma restrição. Isso se dá pois a versão Current normalmente está em processo de desenvolvimento, portanto, pode conter issues em manutenção.
+É recomendado ter a versão LTS instalada, pois ela garante todas as funcionalidades do Node sem nenhuma restrição. Isso se dá pois a versão Current normalmente está em processo de desenvolvimento, portanto, pode conter issues em manutenção.
 
 Após o fim da instalação, use o comando a seguir para verificar a versão instalada e se o processo ocorreu corretamente:
 
@@ -46,13 +46,13 @@ Para executar o popular Hello World através do Node.js basta criar um diretóri
     console.log('Hello World!');
 
 
-Para executá-la basta acessar o diretório criado através do prompt de comando e fazer o run do sscript da seguinte forma:
+Para executá-la basta acessar o diretório criado através do prompt de comando e fazer o run do script da seguinte forma:
 
 
     node app.js
 
 
-E como resultado temos um Hello World escrito em Javascript e executado fora do navegador.
+E como resultado temos um Hello World escrito em Javascript e executado fora de um navegador.
 
 
 <h2>Node CLI</h2>
@@ -190,12 +190,7 @@ Após repetir o mesmo processo com as demais funções, temos o arquivo principa
 <h2>HTTP</h2>
 
 
-O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. Para entender como aplicar e como funciona o básico das requisições HTTP com o Node, vamos a um exemplo:
-
-Em um diretório, crie um arquivo <i>app.js</i>, nele iremos fazer um riquire do módulo http do Node:
-
-    const http = require('http');
-
+O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. 
 
 <h2>Métodos HTTP</h2>
 
@@ -256,6 +251,9 @@ O método TRACE solicita que o recurso de destino transfira a solicitação rece
 
 O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.
 
+Para entender como aplicar e como funciona o básico das requisições HTTP com o Node, vamos a um exemplo: Em um diretório, crie um arquivo <i>app.js</i>, nele iremos fazer um riquire do módulo http do Node:
+
+    const http = require('http');
 
 <h2>http Module</h2>
 
@@ -312,7 +310,7 @@ O método createServer() por sua vez é definido pelo Node como:
 
     function createServer(requestListener?: http.RequestListener): http.Server (+1 overload)
 
-A função createServer retorna uma nova instância do Server. Já o parâmetro requestListener é uma função adicionada automaticamente ao evento 'request'. Nele também iremos definir o uso do método <i>listen()</i>, passando uma porta na qual o servidor estrá ativo:
+A função createServer retorna uma nova instância do Server. Já o parâmetro requestListener é uma função adicionada automaticamente ao evento 'request'. Nele também iremos definir o uso do método <i>listen()</i>, passando uma porta na qual o servidor estará ativo:
     
      http.createServer().listen(8080);
 
@@ -352,7 +350,7 @@ Um dos erros mais comuns levantados durante a escuta é o EADDRINUSE. Isso acont
       }
     });
 
-Agora que temos uma estrutura básica e sua definição, basta fazer o run do script no terminal de comando, tendo basicamente sem nenhum resultado, o console apenas define uma operação em execução.
+Agora que temos uma estrutura básica e sua definição, basta fazer o run do script no terminal de comando, tendo basicamente nenhum resultado, o console apenas define uma operação em execução.
 
 Para melhorar esta chamada, faça a seguinte inclusão:
 
@@ -370,11 +368,26 @@ Com o servidor ativo, é possível acessá-lo pelo navegador da seguinte forma:
 
 Ao defnir um localhost, está sendo dito que um servidor ativo localmente, em uma port específica, será acessado. Mas perceba que não há qualquer retorno do navegador. Com isso, dentro do método <i>createServe()</i>, defina uma response inicial para quem o acessar:
 
-    function(req, res) {
-       
-       res.end("<h1>Welcome</h1>")
+    http.createServer(
 
-    }
+     function(req, res) {
+        
+        res.end("<h1>Welcome</h1>")
+     }
+
+    ).listen(8080);
+
+
+<h2>req</h2>
+
+
+O parâmetro req nada mais é quem uma forma de receber informações através de uma requisição, normalmente sendo definida como parte de uma rota e sendo enviada quando a mesma sofre uma requisição. Flaremos sobre o conceito de rotas e como definir a passagem de informações através delas mais a frente.
+
+
+<h2>res</h2>
+
+
+O parâmetro res é o oposto do req, definido uma resposta a chamda de uma requisição. Essa resposta pode ser uma mensagem de erro, sucesso ou alguma informação relevante, porém, simples. Flaremos mais sobre respostas a requests mais a frente.
 
 
 <h2>end()</h2>
@@ -401,7 +414,7 @@ Com isso, encerre o server e torne a executá-lo, tendo como resposta a mensagem
 <h1>Destrinchando o Express</h1>
 
 
-O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript e, sem dívida, a mais popular vinculada ao Node.
+O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript e, sem dúvidas, a mais popular vinculada ao Node. Também é bastante popular no desenvolvimento de Rest e Restful Api's Node.
 
 
 <h2>Por que o Express ?</h2>
@@ -656,6 +669,6 @@ A obrigatoriedade do envio de um valor como o parâmetro declarado em uma rota �
 Com isso, apenas o parâmetro no-nullable é exigido quando uma requisição for executada.
 
 
-<h2>Route methods</h2>
+<h2>Métodos Express</h2>
 
 
