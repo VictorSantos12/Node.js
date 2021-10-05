@@ -705,3 +705,17 @@ As camadas que definem uma aplicação Rest são a definição que se dá para o
 
 
 A interface de uma aplicação server-side nada mais é que as definições de escrita dadas ao endPoints, ou rotas, de umaaplicação. A uniformidade que o Rest demanda no momento de criação das rotas se refere a o quão descritivas estas são, evitando redundâncias e deixando as definições de ações para o verbos http. 
+
+O Rest ainda um suporte diveros em termos de formato de dados como retorno, sendo um deles o já citado json, além do xml, arquivos em geral e entre outros.
+
+
+<h2>O que é Restful ?</h2>
+
+
+A definição básica de uma Api Rest é que ela segue todos os padrões listados anteriormente. Porém, uma Api Restful precisa seguir outros mais para receber essa designação, eles são:
+
+
+- Nível 0 - Aplicar apenas um endPoint central
+- Nível 1 - Definição e uso de recurso/entidades(produto, usuário, categoria, etc)
+- Nível 2 - Aplicar o verbos HTTP
+- Nível 3 - Hateoas(Define na response de uma requisição quais ações podem ser ralizadas com as informações obtidas)
