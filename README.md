@@ -641,7 +641,7 @@ Com isso é possível definir parâmetros que serão recebidos quando a rota for
 
 Agora, caso a rota de /login seja chamada no navegador é possível notar que o servidor não reconhece a chamada. Isso se dá pois, uma vez que os parâmetros são definidos, eles devem ser respeitados, logo, as informações devem ser concedidas para que possa haver uma resposta. Por exemplo: 
 
-    localhost:3000/login/dev123@gmail.com/123456
+    http://localhost:3000/login/dev123@gmail.com/123456
 
 Com os parâmetros definidos em rota, é possível ter a resposta da requisição. Além disso, também é possível fazer uso dos dados enviados no request por meio do atributo params. Observe:
 
@@ -718,3 +718,173 @@ A definição básica de uma Api Rest é que ela segue todos os padrões listado
 - Nível 1 - Definição e uso de recursos/entidades(produto, usuário, categoria, etc)
 - Nível 2 - Aplicar o verbos HTTP
 - Nível 3 - Hateoas(Define na response de uma requisição quais ações podem ser ralizadas com os recursos obtidos)
+
+
+<h2>Criando uma Api Rest</h2>
+
+
+Para entender na prática como os conceitos que definem uma Rest Api podem e devem ser aplicados, iremos desenvolver um projeto simples para listar algumas informações, inicialmente vindos da própria Api, pois abordaremos o uso de bases de dados futuramente. Para começar, inicie um novo projeto com o <i>npm init</i> e inicialize o servidor como foi visto anteriormente:
+
+Neste exemplo faremos uso de duas bibliotecas, sendo uma delas o já abordado express e o body-parser:
+
+
+<h2>Body-parser</h2>
+
+
+O [body-parser](https://www.npmjs.com/package/body-parser#bodyparserjsonoptions) é uma biblioteca que auxilia no processo de leitura e exposição de um http request, ou mais especificamente, do body de um request. Ao aplicá-lo em um projeto, é possível converter o corpo de uma requisição para diversos formatos, sendo um deles o já citado json, permitindo que a aplicação mantenham um padrão de formado de texto na sua comunicação com quem a consumir.
+
+Para instalar a ferramenta, acesse o terminal de comando e faça o run do comando a seguir:
+
+    npm install body-parser --save
+
+para fazer uso do body-parser basta definir o seguinte require:
+
+    const bodyParser = require('body-parser')
+
+O body-parser possui algumas formas de analisar o corpo de uma requsição, o expondo em <b>req.body</b>, elas são:
+
+<h2>bodyParser.raw ()</h2>
+
+<h2>bodyParser.text ()</h2>
+
+<h2>bodyParser.urlencoded ()</h2>
+
+<h2>bodyParser.json ()</h2>
+
+
+<h2>Listando Usuários</h2>
+
+
+Após entender um pouco mais sobre o body-parser, logo após os requires, defina as configurações de leitura das requisições do servidor criado da seguinte forma:
+
+    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.json());
+
+Em seguida crie um variável que será responsável por simular os dados vindos da base:
+
+    var dataBase = {
+    
+       users: [
+    
+         {
+           id: '4354534636565645645645645646', 
+           name: 'Ana', 
+           age: 25
+         },
+         {
+           id: '1231214233453453453453435345', 
+           name: 'Luana', 
+           age: 18
+         },
+         {
+           id: '46453345676786798979786755543', 
+           name: 'Pedro', 
+           age: 26
+         },
+         {
+           id: '12345677867865675645747467575', 
+           name: 'Anderson', 
+           age: 46
+         },
+    
+       ]
+    }
+
+Nela foi definido um array chamado de users, este que carrega uma lista de objetos contendo as informações sobre os usuários de uma plataforma meramente esplicativa, cada um possuindo um id, nome e idade próprios. O próximo passo é definir o endPoint de acesso a essas informações usando o verbo get:
+
+    app.get('/users', (req, res) => {
+  
+    });
+
+O identificador do endPoint, ou seu "nome", é um dos aspectos que tornam uma Api Rest ou não, sendo chamado de Uniformidade de Interface, quando bem aplicado. Neste caso, foi dado ao endPoint que resulta na listagem dos usuários uma definição bastante simples e descritiva, o que se encaixa na descrição uniforme de uma interface de rota.
+
+Em seguida definiremos a res que será dada quando uma chamda na rota users for feita, sendo os dados vindos da <i>dataBase</i>:
+
+    app.get('/users', (req, res) => {
+       res.json(dataBase.users);
+    });
+
+À res é atribuido o formato json definido pelo body-parser, que pode ser vista na resposta a chamada quando esta for feita no namegador ou em alguma ferramenta de Rest Api Client, como o Insomnia, Postman ou Thunder Client:
+
+    [
+      {
+        "id": "4354534636565645645645645646",
+        "name": "Ana",
+        "age": 25
+      },
+      {
+        "id": "1231214233453453453453435345",
+        "name": "Luana",
+        "age": 18
+      },
+      {
+        "id": "46453345676786798979786755543",
+        "name": "Pedro",
+        "age": 26
+      },
+      {
+        "id": "12345677867865675645747467575",
+        "name": "Anderson",
+        "age": 46
+      }
+    ]
+
+
+<h2>Listando Usuário Específico</h2>
+
+
+Para aplicar os conceitos anteriormente vistos, vamos defir um endPont que retorna um usuário específico com base no id passado como parâmetro em rota:
+
+    app.get('/users/getUser/:id', (req, res) => {
+    
+        var id = req.params.id;
+    
+        if(isString(id)) {
+          
+        } else {
+          res.statusCode = 400;
+          res.send({});
+        }
+    
+    });
+
+Veja que uma validação define o type que será passado como parâmetro como sendo obrigatoriamente do tipo String, visto que este corresponde ao id definido em cada user no objeto referente a users. Caso o valor enviado for diferente do que foi determinado, a resposta será um statusCode 400(Bad Request) e o body será apenas um objeto vazio. Em seguida faremos um "SELECT" no nosso banco de dados fictício da seguinte forma:
+
+    var user = dataBase.users.find(u => u.id == id);
+     
+    if(user != undefined) {
+
+     res.json(user);
+
+    } else {
+
+     res.statusCode = 404;
+     res.send('Not Found');
+
+    }
+
+Uma verificação através do método find é feita no array users, definindo se o id encontrado corresponde ao id passado via endPont. Em seguida uma validação define que, caso a informação encontrada exista, o user será retornado, e caso não exista, o retorno será um status code 404(Not found). Exemplo:
+
+User encontrado:
+
+Request: http://localhost:3000/users/getUser/4354534636565645645645645646
+
+retorno:
+
+    {
+      "id": "4354534636565645645645645646",
+      "name": "Ana",
+      "age": 25
+    }
+
+User não encontrado:
+
+Request: http://localhost:3000/users/getUser/435453463656564564564564564
+
+retorno:
+
+    Status: 404
+
+    Not Found
+
+Definir como passar um body com o req.body
