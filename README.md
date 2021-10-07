@@ -133,6 +133,7 @@ Um request, ou requisição, é basicamente uma solicitação de comunicação u
 
 Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou até mesmo de aplicação em aplicação. Essas informações podem ser o protocólo http em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de headers bastante comuns:
 
+
 <h2>Cabeçalhos Gerais</h2>
 
 
@@ -163,6 +164,10 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |   Accept-Language  |  Inroma ao servidor a linguagem na qual é espera a resposta.                                         |
 
 
+<h2>Body</h2>
+
+
+
 <h2>Status Code</h2>
 
 
@@ -172,9 +177,9 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 <h2>Informativo</h2>
 
 
-|        Code              |                                        Descrição                                               |
+|           Code           |                                        Descrição                                               |
 | -----------------------  | ---------------------------------------------------------------------------------------------- |
-|       100 Continue       |  Isso significa que o servidor recebeu os cabeçalhos da solicitação, e que o cliente deve proceder para enviar o corpo do pedido (no caso de haver um pedido, um corpo deve ser enviado, por exemplo, um POST pedido). Se o corpo do pedido é grande, enviando-o para um servidor, se o pedido já foi rejeitado, com base em cabeçalhos inadequados é ineficiente.|
+|       100 Continue       |  Significa que o servidor recebeu os cabeçalhos da solicitação, e que o cliente deve proceder para enviar o corpo do pedido (no caso de haver um pedido, um corpo deve ser enviado, por exemplo, um POST pedido). Se o corpo do pedido é grande, enviando-o para um servidor, se o pedido já foi rejeitado, com base em cabeçalhos inadequados é ineficiente.|
 |  101 Switchinh Protocols |  O solicitante pediu ao servidor para mudar os protocolos, e o servidor está reconhecendo que irá fazê-lo.|
 |      102 Processing      |  Como uma solicitação WebDAV pode conter muitos sub-pedidos que envolvam operações de arquivo, pode demorar muito tempo para concluir o pedido. Este código indica que o servidor recebeu e está processando a solicitação.|
 
@@ -182,59 +187,31 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 <h2>Sucesso</h2>
 
 
-
-<h3>200 OK</h3>
-
-O pedido resultou na resposta esperada pela operação, sem qualquer tipo de erro.
-
-
-<h3>201 Created</h3>
-
-O pedido foi cumprido e resultou em um novo recurso que está sendo criado.
-
-
-<h3>202 Accepted</h3>
-
-O pedido foi aceito para processamento, mas o tratamento não foi concluído. O pedido poderá ou não vir a ser posta em prática, pois pode ser anulado quando o processamento ocorre realmente.
+|          Code            |                                           Descrição                                            |
+| -----------------------  | ---------------------------------------------------------------------------------------------- |
+|         200 OK           |  O pedido resultou na resposta esperada pela operação, sem qualquer tipo de erro.              |
+|      201 Created         |  O pedido foi cumprido e resultou em um novo recurso que está sendo criado.                    |
+|     202 Accepted         |  O pedido foi aceito para processamento, mas o tratamento não foi concluído. O pedido poderá ou não vir a ser posta em prática, pois pode ser anulado quando o processamento ocorre realmente.|
 
 
 <h2>Erros do Client</h2>
 
 
-<h3>400 Bad Request</h3>
-
-O pedido não pôde ser entregue devido à sintaxe incorreta.
-
-
-<h3>401 Unauthorized</h3>
-
-Definido quando a autenticação de acesso ao servidor não foi fornecida.
-
-
-<h3>404 Not Found</h3>
-
-O recurso requisitado não foi encontrado, mas pode ser disponibilizado novamente no futuro. As solicitações subsequentes pelo cliente são permitidas.
+|          Code            |                                           Descrição                                            |
+| -----------------------  | ---------------------------------------------------------------------------------------------- |
+|     400 Bad Request      |  O pedido não pôde ser entregue devido à sintaxe incorreta.                                    |
+|    401 Unauthorized      |  Definido quando a autenticação de acesso ao servidor não foi fornecida.                       |
+|     404 Not Found        |  O recurso requisitado não foi encontrado, mas pode ser disponibilizado novamente no futuro. As solicitações subsequentes pelo cliente são permitidas.|
 
 
 <h2>Erros no Server</h2>
 
-
-<h3>500 Internal Server Error</h3>
-
-Indica um erro do servidor ao processar a solicitação. Na grande maioria dos casos está relacionada as permissões dos arquivos ou pastas do software ou script que o usuário tenta acessar e não foram configuradas no momento da programação/construção do site ou da aplicação.
-
-
-<h3>501 Not Implemented</h3>
-
-O servidor ainda não suporta a funcionalidade ativada.
-
-
-<h3>503 Sevice Unavailable</h3>
-
-O servidor está em manutenção ou não consegue dar conta dos processamentos de recursos devido à sobrecarga do sistema. Isto deve ser uma condição temporária.
-
-
-<h2>Body</h2>
+ 
+|          Code               |                                        Descrição                                             |
+| --------------------------  | -------------------------------------------------------------------------------------------- |
+|  500 Internal Server Error  |  Indica um erro do servidor ao processar a solicitação. Na grande maioria dos casos está relacionada as permissões dos arquivos ou pastas do software ou script que o usuário tenta acessar e não foram configuradas no momento da programação/construção do site ou da aplicação.|
+|    501 Not Implemented      |  O servidor ainda não suporta a funcionalidade ativada.|
+|   503 Sevice Unavailable    |  O servidor está em manutenção ou não consegue dar conta dos processamentos de recursos devido à sobrecarga do sistema. Isto deve ser uma condição temporária.|
 
 
 <h2>Módulos</h2>
