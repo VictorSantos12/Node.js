@@ -126,14 +126,14 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 |  PATCH                  |   O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.                                   |
 
 
-<h1>Request</h1>
+<h1>Request & Response</h1>
 
 
-Um request, ou requisição, é basicamente uma solicitação do Client utilizando um verbo HTTP que solicita uma resposta, sendo formada por um ou mais headers e por um body opcional. A seguir temos uma definição básica da estrutura de um request:
+Um request, ou requisição, é basicamente uma solicitação do Client utilizando um verbo HTTP que solicita uma resposta, já uma response é a resposta a um request. Sendo ambos formados por um ou mais headers e por um body opcional. A seguir temos uma definição básica da estrutura de um request:
 
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/61476935/136313390-d24c494c-74f6-47b7-b455-6ff84cdc6f0b.png">
+  <img src="https://user-images.githubusercontent.com/61476935/136315683-1941959f-67a6-4a2c-96c1-55cc0d8f8cff.png">
 </div>
 
 
@@ -182,17 +182,10 @@ O body é a última porção de uma requisição, onde são passadas as informa�
 - Corpos de recurso-múltiplo, consistindo em um corpo de múltiplas partes, cada uma contendo uma porção diferente de informação. Este é tipicamente associado à Formulários HTML.
 
 
-<h1>Response</h1>
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/61476935/136313567-8edd05f3-e7f4-4096-90c3-a6fded0a76b7.png">
-</div>
-
-
 <h2>Status Code</h2>
 
 
-Cada resposta a uma requsição HTTP conta com um status code que define o resultado da requisição. Os códigos de status se divitem em grupos que definem sucesso, falha, invormativos, redirecionamento, erro do cliente e entre outros. A seguir estão listados alguns deles:
+Cada response a uma requsição HTTP conta com um status code que define o resultado da requisição. Os códigos de status se divitem em grupos que definem sucesso, falha, invormativos, redirecionamento, erro do cliente e entre outros. A seguir estão listados alguns deles:
 
 
 <h2>Informativo</h2>
