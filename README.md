@@ -126,6 +126,9 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 |  PATCH                  |   O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.                                   |
 
 
+<br>
+
+
 <h2>Requisições HTTP</h2>
 
 
