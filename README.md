@@ -133,7 +133,7 @@ Um request, ou requisição, é basicamente uma solicitação do Client utilizan
 
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/61476935/136315683-1941959f-67a6-4a2c-96c1-55cc0d8f8cff.png">
+  <img src="https://user-images.githubusercontent.com/61476935/136315896-1bad0572-e941-40d4-82b3-98b9a77732e7.png">
 </div>
 
 
