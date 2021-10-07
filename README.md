@@ -143,15 +143,24 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     Content-Type        |   O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.|
 
 
-<h2>Cabeçalhos de Autenticação</h2>
+<h2>Cabeçalhos de Solicitação</h2>
 
 
 |      Methods       |                                         Descrição                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
-|       Accept       |  O Accept informa ao servidor que tipo de conteúdo o cliente estará aceitando, como tipos de imagens, formatos de documento office, e assim por diante.|
 |   Authorization    |  Envia as credenciais de acesso ao servidor para um tipo embutido de autenticação HTTP.              |
+|       Origin       |  Origin é usado em solicitações Ajax cross-domain para indicar o domínio do qual a solicitação foi originada. |
 |      Referer       |  O cabeçalho Referer é usado para indicar a URL a partir do qual o pedido é originado.               |
 |     User-Agent     |  Provê informação sobre o navegador ou outro software cliente que originou a solicitação.            | 
+
+
+<h2>Negociação de Conteúdo</h2>
+
+|      Methods       |                                         Descrição                                                    |
+| ------------------ | ---------------------------------------------------------------------------------------------------- |
+|       Accept       |  Accept informa ao servidor que tipo de conteúdo o cliente estará aceitando, como tipos de imagens,  |
+|   Accept-Encoding  |  Accept-Encoding diz ao servidor que tipo de codificação do conteúdo o cliente estará aceitando.     |
+|   Accept-Language  |  Inroma ao servidor a linguagem na qual é espera a resposta.                                         |
 
 
 <h2>Body</h2>
