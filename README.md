@@ -107,7 +107,7 @@ O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de com
 <h2>Métodos HTTP</h2>
 
 
-Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com eles definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
+Os métodos, verbos, ou protocolos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com eles definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
 
 
 <br>
@@ -176,7 +176,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 <h2>Body</h2>
 
 
-O body é a última porção de uma requisição, onde são passadas as informações em um POST request, por exemplo. Porém, protocólos como o GET, o HEAD ou o DELETE usualmente não precisam de um body declarado. O corpo de uma requisição pode ser dividido, a grosso modo, em duas partes:
+O body é a última porção de uma requisição, onde são passadas as informações em um POST request, por exemplo. Porém, protocolos como o GET, o HEAD ou o DELETE usualmente não precisam de um body declarado. O corpo de uma requisição pode ser dividido, a grosso modo, em duas partes:
 
 - Corpos de recurso-simples, consistindo em um único arquivo, definido pelos dois cabeçalhos: Content-Type e Content-Length.
 - Corpos de recurso-múltiplo, consistindo em um corpo de múltiplas partes, cada uma contendo uma porção diferente de informação. Este é tipicamente associado à Formulários HTML.
