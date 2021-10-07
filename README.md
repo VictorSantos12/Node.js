@@ -133,11 +133,26 @@ Um request, ou requisição, é basicamente uma solicitação de comunicação u
 
 Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou até mesmo de aplicação em aplicação. Essas informações podem ser o protocólo http em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de headers bastante comuns:
 
-|                                                    Cabeçalhos Gerais                                                         |
-| ---------------------------------------------------------------------------------------------------------------------------- |
-| Connection | O header Connection diz para a outra ponta da comunicação se deve fechar a conexão TCP depois da transmissão HTTP for completada ou manter ela aberta para mensagens futuras. |
-| Content-Encoding | Especifica que tipo de codificação está sendo usada para o conteúdo do corpo da mensagem, como gzip, o qual é usada por algumas aplicações para comprimir as respostas para uma transmissão mais rápida. |
+<h2>Cabeçalhos Gerais</h2>
 
+
+|         Methods         |                                    Descrição                                            |
+| ----------------------  |  -------------------------------------------------------------------------------------- |
+|       Connection        |   O header Connection diz para a outra ponta da comunicação se deve fechar a conexão TCP depois da transmissão HTTP for completada ou manter ela aberta para mensagens futuras.|
+|||
+|||
+|||
+|||
+|||
+
+
+
+
+
+<h3>Content-Encoding</h3>
+
+
+Especifica que tipo de codificação está sendo usada para o conteúdo do corpo da mensagem, como gzip, o qual é usada por algumas aplicações para comprimir as respostas para uma transmissão mais rápida.
 
 
 <h3>Content-Type</h3>
