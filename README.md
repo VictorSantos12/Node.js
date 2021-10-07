@@ -109,6 +109,22 @@ O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de com
 
 Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com elas definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
 
+|         Methods         |                                    Descrição                                            |
+| ----------------------  |  -------------------------------------------------------------------------------------- |
+|  GET                    |   O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, ou qualquer informação que seja possível armazenar em uma base de dados.                        | 
+|  HEAD                   |     |
+|  POST                   |                                      |
+|  PUT                    |                                      |
+|  DELETE                 |                                      |
+|  CONNECT                |                                      |
+|  OPTIONS                |                                      |
+|  TRACE                  |                                      |
+|  PATCH                  |                                      |
+|                         |                                      |
+|                         |                                      |
+|                         |                                      |
+|                         |                                      |
+
 
 <h3>GET</h3>
 
