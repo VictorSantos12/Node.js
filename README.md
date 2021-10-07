@@ -142,40 +142,17 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |    Content-Encoding     |   Especifica que tipo de codificação está sendo usada para o conteúdo do corpo da mensagem, como gzip, o qual é usada por algumas aplicações para comprimir as respostas para uma transmissão mais rápida.|
 |     Content-Type        |   O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.
 |
-|||
-|||
-|||
-
-
-
-
 
 
 <h2>Cabeçalhos de Autenticação</h2>
 
 
-<h3>Accept</h3>
-
-
-O Accept informa ao servidor que tipo de conteúdo o cliente estará aceitando, como tipos de imagens, formatos de documento office, e assim por diante.
-
-
-<h3>Authorization</h3>
-
-
-Envia as credenciais de acesso ao servidor para um tipo embutido de autenticação HTTP.
-
-
-<h3>Referer</h3>
-
-
-O cabeçalho Referer é usado para indicar a URL a partir do qual o pedido é originado.
-
-
-<h3>User-Agent</h3>
-
-
-Provê informação sobre o navegador ou outro software cliente que originou a solicitação.
+|      Methods       |                                         Descrição                                                    |
+| ------------------ | ---------------------------------------------------------------------------------------------------- |
+|       Accept       |  O Accept informa ao servidor que tipo de conteúdo o cliente estará aceitando, como tipos de imagens, formatos de documento office, e assim por diante.|
+|   Authorization    |  Envia as credenciais de acesso ao servidor para um tipo embutido de autenticação HTTP.              |
+|      Referer       |  O cabeçalho Referer é usado para indicar a URL a partir do qual o pedido é originado.               |
+|     User-Agent     |  Provê informação sobre o navegador ou outro software cliente que originou a solicitação.            | 
 
 
 <h2>Body</h2>
