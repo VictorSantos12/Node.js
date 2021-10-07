@@ -98,7 +98,7 @@ Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thre
 O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios, tais como os métodos de comunição utilizados na web, as estruturas que compõem um projeto as ferramentas mais utilizadas pela comunidade de desenvolvedores. Portanto, antes de iniciarmos com o a criação de um projeto real, iremos abordar esses conceitos e entender sua importância:
 
 
-<h1>HTTP</h1>
+<h2>HTTP</h2>
 
 
 O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. 
@@ -141,7 +141,7 @@ Um request, ou requisição, é basicamente uma solicitação de comunicação u
 Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou até mesmo de aplicação em aplicação. Essas informações podem ser o protocólo http em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de headers bastante comuns:
 
 
-<h2>Headers Gerais</h2>
+<h3>Headers Gerais</h3>
 
 
 |         Header          |                                    Descrição                                            |
@@ -151,7 +151,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     Content-Type        |   O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.|
 
 
-<h2>Headers de Solicitação</h2>
+<h3>Headers de Solicitação</h3>
 
 
 |      Header        |                                         Descrição                                                    |
@@ -162,7 +162,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     User-Agent     |  Provê informação sobre o navegador ou outro software cliente que originou a solicitação.            | 
 
 
-<h2>Negociação de Conteúdo</h2>
+<h3>Negociação de Conteúdo</h3>
 
 |      Header        |                                         Descrição                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
