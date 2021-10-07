@@ -183,6 +183,9 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 <h2>Informativo</h2>
 
 
+Sinalizam informações necessárias para dar continuidade ao processo e para obter a resposta em questão, ou mesmo para informar o processamento das informações enviadas no request:
+
+
 |           Code           |                                        Descrição                                               |
 | -----------------------  | ---------------------------------------------------------------------------------------------- |
 |       100 Continue       |  Significa que o servidor recebeu os cabeçalhos da solicitação, e que o cliente deve proceder para enviar o corpo do pedido (no caso de haver um pedido, um corpo deve ser enviado, por exemplo, um POST pedido). Se o corpo do pedido é grande, enviando-o para um servidor, se o pedido já foi rejeitado, com base em cabeçalhos inadequados é ineficiente.|
@@ -191,6 +194,9 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 
 
 <h2>Sucesso</h2>
+
+
+Sinalizam o sucesso na obtenção das informações solicitadas na requisição:
 
 
 |          Code            |                                           Descrição                                            |
@@ -202,6 +208,8 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 
 <h2>Erros do Client</h2>
 
+Sinalizam alguma incoerência nas informações, formato ou métodos da requsição, não retornando a resposta desejada:
+
 
 |          Code            |                                           Descrição                                            |
 | -----------------------  | ---------------------------------------------------------------------------------------------- |
@@ -212,6 +220,9 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 
 <h2>Erros no Server</h2>
 
+
+Sinalizam problemas internos no servidor, e que as informações envidas no request estão possivelemnte corretas, porém, não foi possível retornar uma response satisfatória:
+
  
 |          Code               |                                        Descrição                                             |
 | --------------------------  | -------------------------------------------------------------------------------------------- |
@@ -219,7 +230,7 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 |    501 Not Implemented      |  O servidor ainda não suporta a funcionalidade ativada.|
 |   503 Sevice Unavailable    |  O servidor está em manutenção ou não consegue dar conta dos processamentos de recursos devido à sobrecarga do sistema. Isto deve ser uma condição temporária.|
 
-Para ver os demaia status code existentes, acesse: [http.cat](https://http.cat/)
+Para ver os demais status code existentes, acesse: [http.cat](https://http.cat/)
 
 
 <h1>Módulos</h1>
