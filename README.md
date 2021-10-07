@@ -104,7 +104,7 @@ O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicaç
 O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. 
 
 
-<h2>Métodos HTTP</h2>
+<h1>Métodos HTTP</h1>
 
 
 Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com elas definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
@@ -164,7 +164,7 @@ O método TRACE solicita que o recurso de destino transfira a solicitação rece
 O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.
 
 
-<h2>Requisições HTTP</h2>
+<h1>Requisições HTTP</h1>
 
 
 Um request, ou requisição, é basicamente uma solicitação de comunicação utilizando um verbo HTTP que espera uma resposta, sendo formada por um ou mais headers e por um body opcional. A seguir temos uma definição básica dessas duas estruturas que compõem uma requisição:
