@@ -131,17 +131,19 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 
 Um request, ou requisição, é basicamente uma solicitação do Client utilizando um verbo HTTP que solicita uma resposta, sendo formada por um ou mais headers e por um body opcional. A seguir temos uma definição básica da estrutura de um request:
 
+
 <div align="center">
   <img src="https://user-images.githubusercontent.com/61476935/136313390-d24c494c-74f6-47b7-b455-6ff84cdc6f0b.png">
 </div>
 
+
 <h2>Headers</h2>
 
 
-Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou mesmo de aplicação em aplicação. Essas informações podem ser o protocólo HTTP em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de alguns headers bastante comuns:
+Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição para requisição, ou mesmo de aplicação para aplicação. Essas informações podem ser o protocólo HTTP em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de alguns headers bastante comuns:
 
 
-<h2>Headers Gerais</h2>
+<!-- <h2>Headers Gerais</h2>
 
 
 |         Header          |                                    Descrição                                            |
@@ -168,10 +170,16 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
 |       Accept       |  Accept informa ao servidor que tipo de conteúdo o cliente estará aceitando, como tipos de imagens,  |
 |   Accept-Encoding  |  Accept-Encoding diz ao servidor que tipo de codificação do conteúdo o cliente estará aceitando.     |
-|   Accept-Language  |  Inroma ao servidor a linguagem na qual é espera a resposta.                                         |
+|   Accept-Language  |  Inroma ao servidor a linguagem na qual é espera a resposta.                                         | -->
 
 
 <h2>Body</h2>
+
+
+O body é a última porção de uma requisição, onde são passadas as informações em um POST request, por exemplo. Porém, protocólos como o GET, o HEAD ou o DELETE usualmente não precisam de um body declarado. O corpo de uma requisição pode ser dividido, a grosso modo, em duas partes:
+
+- Corpos de recurso-simples, consistindo em um único arquivo, definido pelos dois cabeçalhos: Content-Type e Content-Length.
+- Corpos de recurso-múltiplo, consistindo em um corpo de múltiplas partes, cada uma contendo uma porção diferente de informação. Este é tipicamente associado à Formulários HTML.
 
 
 <h1>Response</h1>
