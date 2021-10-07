@@ -140,9 +140,8 @@ Um request, ou requisição, é basicamente uma solicitação de comunicação u
 
 Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou até mesmo de aplicação em aplicação. Essas informações podem ser o protocólo http em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de headers bastante comuns:
 
-<div align="center">
-  <h3>Headers Gerais</h3>
-</div>
+
+<h2>Headers Gerais</h2>
 
 
 |         Header          |                                    Descrição                                            |
@@ -152,7 +151,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     Content-Type        |   O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.|
 
 
-<h3>Headers de Solicitação</h3>
+<h2>Headers de Solicitação</h2>
 
 
 |      Header        |                                         Descrição                                                    |
@@ -163,7 +162,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     User-Agent     |  Provê informação sobre o navegador ou outro software cliente que originou a solicitação.            | 
 
 
-<h3>Negociação de Conteúdo</h3>
+<h2>Negociação de Conteúdo</h2>
 
 |      Header        |                                         Descrição                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
