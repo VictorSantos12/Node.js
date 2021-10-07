@@ -138,7 +138,7 @@ Um request, ou requisição, é basicamente uma solicitação de comunicação u
 Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou mesmo de aplicação em aplicação. Essas informações podem ser o protocólo HTTP em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de alguns headers bastante comuns:
 
 
-<h3>Headers Gerais</h3>
+<h2>Headers Gerais</h2>
 
 
 |         Header          |                                    Descrição                                            |
@@ -148,7 +148,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     Content-Type        |   O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.|
 
 
-<h3>Headers de Solicitação</h3>
+<h2>Headers de Solicitação</h2>
 
 
 |      Header        |                                         Descrição                                                    |
@@ -159,7 +159,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     User-Agent     |  Provê informação sobre o navegador ou outro software cliente que originou a solicitação.            | 
 
 
-<h3>Negociação de Conteúdo</h3>
+<h2>Negociação de Conteúdo</h2>
 
 |      Header        |                                         Descrição                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
@@ -218,6 +218,8 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 |  500 Internal Server Error  |  Indica um erro do servidor ao processar a solicitação. Na grande maioria dos casos está relacionada as permissões dos arquivos ou pastas do software ou script que o usuário tenta acessar e não foram configuradas no momento da programação/construção do site ou da aplicação.|
 |    501 Not Implemented      |  O servidor ainda não suporta a funcionalidade ativada.|
 |   503 Sevice Unavailable    |  O servidor está em manutenção ou não consegue dar conta dos processamentos de recursos devido à sobrecarga do sistema. Isto deve ser uma condição temporária.|
+
+Para ver os demaia status code existentes, acesse: [http.cat](https://http.cat/)
 
 
 <h1>Módulos</h1>
