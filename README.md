@@ -109,6 +109,7 @@ O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de com
 
 Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com elas definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
 
+
 |         Methods         |                                    Descrição                                            |
 | ----------------------  |  -------------------------------------------------------------------------------------- |
 |  GET                    |   O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, ou qualquer informação que seja possível armazenar em uma base de dados.                        | 
@@ -134,7 +135,7 @@ Um request, ou requisição, é basicamente uma solicitação de comunicação u
 Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou até mesmo de aplicação em aplicação. Essas informações podem ser o protocólo http em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de headers bastante comuns:
 
 
-<h2>Cabeçalhos Gerais</h2>
+<h2>Headers Gerais</h2>
 
 
 |         Header          |                                    Descrição                                            |
@@ -144,7 +145,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     Content-Type        |   O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.|
 
 
-<h2>Cabeçalhos de Solicitação</h2>
+<h2>Headers de Solicitação</h2>
 
 
 |      Header        |                                         Descrição                                                    |
