@@ -95,7 +95,7 @@ Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thre
 <h1>Conceitos Básicos</h1>
 
 
-O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios, tais como os métodos de comunição utilizados na web, as estruturas que compõem um projeto as ferramentas mais utilizadas pela comunidade de desenvolvedores. Portanto, antes de iniciarmos com o a criação de um projeto real, iremos abordar esses conceitos e entender sua importância:
+O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios, tais como os métodos de comunição utilizados na web, as estruturas que compõem um projeto e as ferramentas mais utilizadas pela comunidade de desenvolvedores. Portanto, antes de partirmos para a prática, iremos abordar esses conceitos e entender sua importância:
 
 
 <h2>HTTP</h2>
@@ -107,7 +107,7 @@ O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de com
 <h2>Métodos HTTP</h2>
 
 
-Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com elas definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
+Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com eles definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
 
 
 <br>
@@ -129,16 +129,16 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 <h1>Request</h1>
 
 
-Um request, ou requisição, é basicamente uma solicitação de comunicação utilizando um verbo HTTP que espera uma resposta, sendo formada por um ou mais headers e por um body opcional. A seguir temos uma definição básica dessas duas estruturas que compõem uma requisição:
+Um request, ou requisição, é basicamente uma solicitação de comunicação utilizando um verbo HTTP que espera uma resposta, sendo formada por um ou mais headers e por um body opcional. A seguir temos uma definição básica das duas estruturas:
 
 
 <h2>Headers</h2>
 
 
-Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou até mesmo de aplicação em aplicação. Essas informações podem ser o protocólo http em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de headers bastante comuns:
+Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou mesmo de aplicação em aplicação. Essas informações podem ser o protocólo HTTP em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de alguns headers bastante comuns:
 
 
-<h2>Headers Gerais</h2>
+<h3>Headers Gerais</h3>
 
 
 |         Header          |                                    Descrição                                            |
@@ -148,7 +148,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     Content-Type        |   O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.|
 
 
-<h2>Headers de Solicitação</h2>
+<h3>Headers de Solicitação</h3>
 
 
 |      Header        |                                         Descrição                                                    |
@@ -159,7 +159,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |     User-Agent     |  Provê informação sobre o navegador ou outro software cliente que originou a solicitação.            | 
 
 
-<h2>Negociação de Conteúdo</h2>
+<h3>Negociação de Conteúdo</h3>
 
 |      Header        |                                         Descrição                                                    |
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
@@ -220,7 +220,7 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 |   503 Sevice Unavailable    |  O servidor está em manutenção ou não consegue dar conta dos processamentos de recursos devido à sobrecarga do sistema. Isto deve ser uma condição temporária.|
 
 
-<h2>Módulos</h2>
+<h1>Módulos</h1>
 
 
 Não sendo um padrão do Javascript, criar módulos onde cada parte do código permanece acessível e separada das demais é bastante usual e recomendado, já que atribui ao projeto um maior nível de oraganização, praticidade e eficácia. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
