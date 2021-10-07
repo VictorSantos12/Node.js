@@ -95,7 +95,136 @@ Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thre
 <h1>Conceitos Básicos</h1>
 
 
-O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios. Portanto, antes de iniciarmos com o a criação de um projeto real, iremos abordar esses conceitos e entender sua importância:
+O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios, tais como os métodos de comunição utilizados na web, as estruturas que compõem um projeto as ferramentas mais utilizadas pela comunidade de desenvolvedores. Portanto, antes de iniciarmos com o a criação de um projeto real, iremos abordar esses conceitos e entender sua importância:
+
+
+<h2>HTTP</h2>
+
+
+O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. 
+
+
+<h2>Métodos HTTP</h2>
+
+
+Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com elas definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
+
+
+<h3>GET</h3>
+
+
+O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, ou qualquer informação que seja possível armazenar em uma base de dados.
+
+
+<h3>HEAD</h3>
+
+
+O método HEAD solicita que o recurso de destino transfira uma representação de seu estado, como para uma requisição GET, mas sem os dados de representação incluídos no corpo da resposta. Isso é útil para recuperar os metadados de representação no cabeçalho da resposta, sem ter que transferir toda a representação.
+
+
+<h3>POST</h3>
+
+
+O método POST solicita o processamento da informção incluída na requisição de acordo com a semântica do recurso de destino. Por exemplo, ele é utilizado em uma solitação de acesso, como login, cadastro, assinatura, etc. Basicamente é usado para registra informações temporárias ou permanentes.
+
+
+<h3>PUT</h3>
+
+
+O método PUT solicita que a informação registrada no destino crie ou atualize seu estado com o estado definido pela representação incluída na requsição. Como em qualquer atualização de informações em uma aplicação, seja mudanças de dados do usuário e entre outros.
+
+
+<h3>DELETE</h3>
+
+
+O método DELETE solicita que o recurso de destino exclua seu estado.
+
+
+<h3>CONNECT</h3>
+
+
+O método CONNECT solicita que o intermediário estabeleça um túnel TCP / IP para o servidor de origem identificado pelo destino da solicitação. É frequentemente usado para proteger conexões por meio de um ou mais proxies HTTP com TLS.
+
+
+<h3>OPTIONS</h3>
+
+
+O método OPTIONS solicita que o recurso de destino transfira os métodos HTTP que ele suporta. Isso pode ser usado para verificar a funcionalidade de um servidor da web solicitando '*' em vez de um recurso específico.
+
+
+<h3>TRACE</h3>
+
+
+O método TRACE solicita que o recurso de destino transfira a solicitação recebida no corpo da resposta. Dessa forma, o cliente pode ver quais alterações ou acréscimos foram feitos (se houver) pelos intermediários.
+
+
+<h3>PATCH</h3>
+
+
+O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.
+
+
+<h2>Requisições HTTP</h2>
+
+
+Um request, ou requisição, é basicamente uma solicitação de comunicação utilizando um verbo HTTP que espera uma resposta, sendo formada por um ou mais headers e por um body opcional. A seguir temos uma definição básica dessas duas estruturas que compõem uma requisição:
+
+
+<h2>Headers</h2>
+
+
+Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição em requisição, ou até mesmo de aplicação em aplicação. Essas informações podem ser o protocólo http em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de headers bastante comuns:
+
+
+<h2>Cabeçalhos Gerais</h2>
+
+
+<h3>Connection</h3>
+
+
+O header Connection diz para a outra ponta da comunicação se deve fechar a conexão TCP depois da transmissão HTTP for completada ou manter ela aberta para mensagens futuras.
+
+
+<h3>Content-Encoding</h3>
+
+
+Especifica que tipo de codificação está sendo usada para o conteúdo do corpo da mensagem, como gzip, o qual é usada por algumas aplicações para comprimir as respostas para uma transmissão mais rápida.
+
+
+<h3>Content-Type</h3>
+
+
+O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.
+
+
+<h2>Cabeçalhos de Autenticação</h2>
+
+
+<h3>Accept</h3>
+
+
+O Accept informa ao servidor que tipo de conteúdo o cliente estará aceitando, como tipos de imagens, formatos de documento office, e assim por diante.
+
+
+<h3>Authorization</h3>
+
+
+Envia as credenciais de acesso ao servidor para um tipo embutido de autenticação HTTP.
+
+
+<h3>Referer</h3>
+
+
+O cabeçalho Referer é usado para indicar a URL a partir do qual o pedido é originado.
+
+
+<h3>User-Agent</h3>
+
+
+Provê informação sobre o navegador ou outro software cliente que originou a solicitação.
+
+
+<h2>Body</h2>
 
 
 <h2>Módulos</h2>
@@ -187,69 +316,6 @@ Após repetir o mesmo processo com as demais funções, temos o arquivo principa
     1.3550135501355014
 
 
-<h2>HTTP</h2>
-
-
-O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. 
-
-<h2>Métodos HTTP</h2>
-
-
-Os métodos HTTP serão um dos pilares mais importantes para desenvolver aplicações no server-side, logo, conhecê-los é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
-
-
-<h3>GET</h3>
-
-
-O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. 
-
-
-<h3>HEAD</h3>
-
-
-O método HEAD solicita que o recurso de destino transfira uma representação de seu estado, como para uma requisição GET, mas sem os dados de representação incluídos no corpo da resposta. Isso é útil para recuperar os metadados de representação no cabeçalho da resposta, sem ter que transferir toda a representação.
-
-
-<h3>POST</h3>
-
-
-O método POST solicita o processamento da informção incluída na requisição de acordo com a semântica do recurso de destino. Por exemplo, ele é utilizado em uma solitação de acesso, como login, cadastro, assinatura, etc. Basicamente é usado para registra informações temporárias ou permanentes.
-
-
-<h3>PUT</h3>
-
-
-O método PUT solicita que a informação registrada no destino crie ou atualize seu estado com o estado definido pela representação incluída na requsição. Como em qualquer atualização de informações em uma aplicação, seja mudanças de dados do usuário e entre outros.
-
-
-<h3>DELETE</h3>
-
-
-O método DELETE solicita que o recurso de destino exclua seu estado.
-
-
-<h3>CONNECT</h3>
-
-
-O método CONNECT solicita que o intermediário estabeleça um túnel TCP / IP para o servidor de origem identificado pelo destino da solicitação. É frequentemente usado para proteger conexões por meio de um ou mais proxies HTTP com TLS.
-
-
-<h3>OPTIONS</h3>
-
-
-O método OPTIONS solicita que o recurso de destino transfira os métodos HTTP que ele suporta. Isso pode ser usado para verificar a funcionalidade de um servidor da web solicitando '*' em vez de um recurso específico.
-
-
-<h3>TRACE</h3>
-
-
-O método TRACE solicita que o recurso de destino transfira a solicitação recebida no corpo da resposta. Dessa forma, o cliente pode ver quais alterações ou acréscimos foram feitos (se houver) pelos intermediários.
-
-
-<h3>PATCH</h3>
-
-
-O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.
 
 Para entender como aplicar e como funciona o básico das requisições HTTP com o Node, vamos a um exemplo: Em um diretório, crie um arquivo <i>app.js</i>, nele iremos fazer um riquire do módulo http do Node:
 
@@ -887,4 +953,5 @@ retorno:
 
     Not Found
 
+Falar sobre os componentes de uma requisição
 Definir como passar um body com o req.body
