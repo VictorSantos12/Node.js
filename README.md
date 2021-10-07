@@ -112,73 +112,14 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 |         Methods         |                                    Descrição                                            |
 | ----------------------  |  -------------------------------------------------------------------------------------- |
 |  GET                    |   O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, ou qualquer informação que seja possível armazenar em uma base de dados.                        | 
-|  HEAD                   |     |
-|  POST                   |                                      |
-|  PUT                    |                                      |
-|  DELETE                 |                                      |
-|  CONNECT                |                                      |
-|  OPTIONS                |                                      |
-|  TRACE                  |                                      |
-|  PATCH                  |                                      |
-|                         |                                      |
-|                         |                                      |
-|                         |                                      |
-|                         |                                      |
-
-
-<h3>GET</h3>
-
-
-O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, ou qualquer informação que seja possível armazenar em uma base de dados.
-
-
-<h3>HEAD</h3>
-
-
-O método HEAD solicita que o recurso de destino transfira uma representação de seu estado, como para uma requisição GET, mas sem os dados de representação incluídos no corpo da resposta. Isso é útil para recuperar os metadados de representação no cabeçalho da resposta, sem ter que transferir toda a representação.
-
-
-<h3>POST</h3>
-
-
-O método POST solicita o processamento da informção incluída na requisição de acordo com a semântica do recurso de destino. Por exemplo, ele é utilizado em uma solitação de acesso, como login, cadastro, assinatura, etc. Basicamente é usado para registra informações temporárias ou permanentes.
-
-
-<h3>PUT</h3>
-
-
-O método PUT solicita que a informação registrada no destino crie ou atualize seu estado com o estado definido pela representação incluída na requsição. Como em qualquer atualização de informações em uma aplicação, seja mudanças de dados do usuário e entre outros.
-
-
-<h3>DELETE</h3>
-
-
-O método DELETE solicita que o recurso de destino exclua seu estado.
-
-
-<h3>CONNECT</h3>
-
-
-O método CONNECT solicita que o intermediário estabeleça um túnel TCP / IP para o servidor de origem identificado pelo destino da solicitação. É frequentemente usado para proteger conexões por meio de um ou mais proxies HTTP com TLS.
-
-
-<h3>OPTIONS</h3>
-
-
-O método OPTIONS solicita que o recurso de destino transfira os métodos HTTP que ele suporta. Isso pode ser usado para verificar a funcionalidade de um servidor da web solicitando '*' em vez de um recurso específico.
-
-
-<h3>TRACE</h3>
-
-
-O método TRACE solicita que o recurso de destino transfira a solicitação recebida no corpo da resposta. Dessa forma, o cliente pode ver quais alterações ou acréscimos foram feitos (se houver) pelos intermediários.
-
-
-<h3>PATCH</h3>
-
-
-O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.
-
+|  HEAD                   |   O método HEAD solicita que o recurso de destino transfira uma representação de seu estado, como para uma requisição GET, mas sem os dados de representação incluídos no corpo da resposta. Isso é útil para recuperar os metadados de representação no cabeçalho da resposta, sem ter que transferir toda a representação.  |
+|  POST                   |   O método POST solicita o processamento da informção incluída na requisição de acordo com a semântica do recurso de destino. Por exemplo, ele é utilizado em uma solitação de acesso, como login, cadastro, assinatura, etc. Basicamente é usado para registra informações temporárias ou permanentes.                                   |
+|  PUT                    |   O método PUT solicita que a informação registrada no destino crie ou atualize seu estado com o estado definido pela representação incluída na requsição. Como em qualquer atualização de informações em uma aplicação, seja mudanças de dados do usuário e entre outros.                                   |
+|  DELETE                 |   O método DELETE solicita que o recurso de destino exclua seu estado.                                   |
+|  CONNECT                |   O método CONNECT solicita que o intermediário estabeleça um túnel TCP / IP para o servidor de origem identificado pelo destino da solicitação. É frequentemente usado para proteger conexões por meio de um ou mais proxies HTTP com TLS.                                   |
+|  OPTIONS                |   O método OPTIONS solicita que o recurso de destino transfira os métodos HTTP que ele suporta. Isso pode ser usado para verificar a funcionalidade de um servidor da web solicitando '*' em vez de um recurso específico.                                   |
+|  TRACE                  |   O método TRACE solicita que o recurso de destino transfira a solicitação recebida no corpo da resposta. Dessa forma, o cliente pode ver quais alterações ou acréscimos foram feitos (se houver) pelos intermediários.                                   |
+|  PATCH                  |   O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.                                   |
 
 <h1>Requisições HTTP</h1>
 
