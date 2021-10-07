@@ -139,26 +139,16 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |         Methods         |                                    Descrição                                            |
 | ----------------------  |  -------------------------------------------------------------------------------------- |
 |       Connection        |   O header Connection diz para a outra ponta da comunicação se deve fechar a conexão TCP depois da transmissão HTTP for completada ou manter ela aberta para mensagens futuras.|
+|    Content-Encoding     |   Especifica que tipo de codificação está sendo usada para o conteúdo do corpo da mensagem, como gzip, o qual é usada por algumas aplicações para comprimir as respostas para uma transmissão mais rápida.|
+|     Content-Type        |   O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.
+|
 |||
 |||
 |||
-|||
-|||
 
 
 
 
-
-<h3>Content-Encoding</h3>
-
-
-Especifica que tipo de codificação está sendo usada para o conteúdo do corpo da mensagem, como gzip, o qual é usada por algumas aplicações para comprimir as respostas para uma transmissão mais rápida.
-
-
-<h3>Content-Type</h3>
-
-
-O Content-Type especifica o tipo de conteúdo do corpo da mensagem, como text/html para documentos HTML.
 
 
 <h2>Cabeçalhos de Autenticação</h2>
