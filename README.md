@@ -128,7 +128,6 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 
 <br>
 
-
 <h1>Request</h1>
 
 
