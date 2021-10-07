@@ -98,7 +98,7 @@ Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thre
 O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios, tais como os métodos de comunição utilizados na web, as estruturas que compõem um projeto as ferramentas mais utilizadas pela comunidade de desenvolvedores. Portanto, antes de iniciarmos com o a criação de um projeto real, iremos abordar esses conceitos e entender sua importância:
 
 
-<h2>HTTP</h2>
+<h1>HTTP</h1>
 
 
 O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. 
@@ -129,7 +129,7 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 <br>
 
 
-<h2>Requisições HTTP</h2>
+<h1>Requisições HTTP</h1>
 
 
 Um request, ou requisição, é basicamente uma solicitação de comunicação utilizando um verbo HTTP que espera uma resposta, sendo formada por um ou mais headers e por um body opcional. A seguir temos uma definição básica dessas duas estruturas que compõem uma requisição:
