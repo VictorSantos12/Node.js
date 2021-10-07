@@ -129,7 +129,7 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 <br>
 
 
-<h1>Requisições HTTP</h1>
+<h1>Request</h1>
 
 
 Um request, ou requisição, é basicamente uma solicitação de comunicação utilizando um verbo HTTP que espera uma resposta, sendo formada por um ou mais headers e por um body opcional. A seguir temos uma definição básica dessas duas estruturas que compõem uma requisição:
@@ -173,6 +173,8 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 
 <h2>Body</h2>
 
+
+<h1>Response</h1>
 
 
 <h2>Status Code</h2>
