@@ -125,7 +125,6 @@ Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes
 |  TRACE                  |   O método TRACE solicita que o recurso de destino transfira a solicitação recebida no corpo da resposta. Dessa forma, o cliente pode ver quais alterações ou acréscimos foram feitos (se houver) pelos intermediários.                                   |
 |  PATCH                  |   O método PATCH solicita que o recurso de destino modifique seu estado de acordo com a atualização parcial definida na representação incluída na requisição.                                   |
 
-<br>
 
 <h1>Request</h1>
 
