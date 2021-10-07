@@ -129,7 +129,7 @@ Os métodos, verbos, ou protocolos HTTP, são um dos conceitos mais importantes 
 <h1>Request & Response</h1>
 
 
-Um request, ou requisição, é basicamente uma solicitação do Client utilizando um verbo HTTP que solicita uma resposta, já uma response é a resposta a um request. Sendo ambos formados por um ou mais headers e por um body opcional. A seguir temos uma definição básica da estrutura de um request:
+Um Request, ou requisição, é basicamente uma solicitação do Client utilizando um verbo HTTP que requisita uma resposta, já uma Response é a resposta a um Request. Sendo ambos formados por um ou mais headers e por um body opcional. A seguir temos uma definição básica dessa estrutura:
 
 
 <div align="center">
@@ -140,7 +140,7 @@ Um request, ou requisição, é basicamente uma solicitação do Client utilizan
 <h2>Headers</h2>
 
 
-Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, podendo variar de requisição para requisição, ou mesmo de aplicação para aplicação. Essas informações podem ser o protocólo HTTP em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de alguns headers bastante comuns:
+Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, ou uma resposta após o acesso,podendo variar de requisição para requisição, ou mesmo de aplicação para aplicação. Essas informações podem ser o protocólo HTTP em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de alguns headers bastante comuns:
 
 
 <h2>Headers Gerais</h2>
@@ -176,7 +176,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 <h2>Body</h2>
 
 
-O body é a última porção de uma requisição, onde são passadas as informações em um POST request, por exemplo. Porém, protocolos como o GET, o HEAD ou o DELETE usualmente não precisam de um body declarado. O corpo de uma requisição pode ser dividido, a grosso modo, em duas partes:
+O body é a última porção de uma requisição, onde são passadas as informações em um POST request, por exemplo. Porém, protocolos como o GET, o HEAD ou o DELETE, usualmente, não precisam de um body declarado. O corpo de uma requisição pode ser dividido, a grosso modo, em duas partes:
 
 - Corpos de recurso-simples, consistindo em um único arquivo, definido pelos dois cabeçalhos: Content-Type e Content-Length.
 - Corpos de recurso-múltiplo, consistindo em um corpo de múltiplas partes, cada uma contendo uma porção diferente de informação. Este é tipicamente associado à Formulários HTML.
@@ -185,7 +185,7 @@ O body é a última porção de uma requisição, onde são passadas as informa�
 <h2>Status Code</h2>
 
 
-Cada response a uma requsição HTTP conta com um status code que define o resultado da requisição. Os códigos de status se divitem em grupos que definem sucesso, falha, invormativos, redirecionamento, erro do cliente e entre outros. A seguir estão listados alguns deles:
+Cada response conta com um status code que define o resultado da requisição. Os códigos de status se divitem em grupos que definem sucesso, falha, retorno de informação, redirecionamento, erro do cliente e entre outros. A seguir estão listados alguns deles:
 
 
 <h2>Informativo</h2>
