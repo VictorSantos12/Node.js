@@ -104,14 +104,14 @@ O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicaç
 O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. 
 
 
-<h1>Métodos HTTP</h1>
+<h2>Métodos HTTP</h2>
 
 
 Os métodos, verbos, ou protocólos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com elas definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
 
 |         Methods         |                                    Descrição                                            |
 | ----------------------  |  -------------------------------------------------------------------------------------- |
-|  GET                    |   O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, ou qualquer informação que seja possível armazenar em uma base de dados.                        | 
+|           GET           |   O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, ou qualquer informação que seja possível armazenar em uma base de dados.                        | 
 |  HEAD                   |   O método HEAD solicita que o recurso de destino transfira uma representação de seu estado, como para uma requisição GET, mas sem os dados de representação incluídos no corpo da resposta. Isso é útil para recuperar os metadados de representação no cabeçalho da resposta, sem ter que transferir toda a representação.  |
 |  POST                   |   O método POST solicita o processamento da informção incluída na requisição de acordo com a semântica do recurso de destino. Por exemplo, ele é utilizado em uma solitação de acesso, como login, cadastro, assinatura, etc. Basicamente é usado para registra informações temporárias ou permanentes.                                   |
 |  PUT                    |   O método PUT solicita que a informação registrada no destino crie ou atualize seu estado com o estado definido pela representação incluída na requsição. Como em qualquer atualização de informações em uma aplicação, seja mudanças de dados do usuário e entre outros.                                   |
