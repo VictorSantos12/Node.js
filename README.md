@@ -172,19 +172,11 @@ Cada resposta a uma requsição HTTP conta com um status code que define o resul
 <h2>Informativo</h2>
 
 
-<h3>100 Continue</h3>
-
-Isso significa que o servidor recebeu os cabeçalhos da solicitação, e que o cliente deve proceder para enviar o corpo do pedido (no caso de haver um pedido, um corpo deve ser enviado, por exemplo, um POST pedido). Se o corpo do pedido é grande, enviando-o para um servidor, se o pedido já foi rejeitado, com base em cabeçalhos inadequados é ineficiente.
-
-
-<h3>101 Switchinh Protocols</h3>
-
-O solicitante pediu ao servidor para mudar os protocolos, e o servidor está reconhecendo que irá fazê-lo.
-
-
-<h3>102 Processing</h3>
-
-Como uma solicitação WebDAV pode conter muitos sub-pedidos que envolvam operações de arquivo, pode demorar muito tempo para concluir o pedido. Este código indica que o servidor recebeu e está processando a solicitação.
+|        Code              |                                        Descrição                                               |
+| -----------------------  | ---------------------------------------------------------------------------------------------- |
+|       100 Continue       |  Isso significa que o servidor recebeu os cabeçalhos da solicitação, e que o cliente deve proceder para enviar o corpo do pedido (no caso de haver um pedido, um corpo deve ser enviado, por exemplo, um POST pedido). Se o corpo do pedido é grande, enviando-o para um servidor, se o pedido já foi rejeitado, com base em cabeçalhos inadequados é ineficiente.|
+|  101 Switchinh Protocols |  O solicitante pediu ao servidor para mudar os protocolos, e o servidor está reconhecendo que irá fazê-lo.|
+|      102 Processing      |  Como uma solicitação WebDAV pode conter muitos sub-pedidos que envolvam operações de arquivo, pode demorar muito tempo para concluir o pedido. Este código indica que o servidor recebeu e está processando a solicitação.|
 
 
 <h2>Sucesso</h2>
