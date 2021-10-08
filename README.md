@@ -98,7 +98,7 @@ Essa arquitetura permite que o usuário não tenha que esperar o fim de uma thre
 O desenvolvimento de aplicações utilizando o Node.js, especificamente aplicações server-side, demandam alguns conhecimentos prévios, tais como os métodos de comunição utilizados na web, as estruturas que compõem um projeto e as ferramentas mais utilizadas pela comunidade de desenvolvedores. Portanto, antes de partirmos para a prática, iremos abordar esses conceitos e entender sua importância:
 
 
-<h2>HTTP</h2>
+<h1>HTTP</h1>
 
 
 O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de comunicação que definem a troca de informações entre diferentes pontos da Web. Em conjunto com o TCP-IP, forma o modelo padrão de comunicação server-client, definido em requisições atreladas ao endereço de IP de um ambiente e definindo o envio, recebimento e alteração de informações. 
@@ -137,27 +137,27 @@ Um Request, ou requisição, é basicamente uma solicitação do Client utilizan
 </div>
 
 
-<h2>Start-line</h2>
+<h1>Start-line</h1>
 
 
-A linha inicial de uma de um Request contém informações distintas das da linha inicial de uma Response. A seguir, essas estruturas são diferenciadas por meio da deinição de cada informação nelas contidas:
+A linha inicial de um Request contém informações distintas das da linha inicial de uma Response. A seguir, essas estruturas são diferenciadas por meio da definição de cada informação nelas contidas:
 
 
-<h3>Request</h3>
+<h2>Request</h2>
 
 - Um método HTTP, um verbo (como GET, PUT ou POST) ou um nome (como HEAD ou OPTIONS), que descrevem a ação a ser executada.
 - O alvo da requisição, normalmente um URL, ou o caminho absoluto do protocolo, porta e domínio são em geral caracterizados pelo contexto da requisição.
 - A  versão HTTP, que define a estrutura do restante da mensagem, atuando como um indicador da versão esperada para uso na resposta.
 
 
-<h3>Response</h3>
+<h2>Response</h2>
 
 - A versão do protocolo, normalmente HTTP/1.1.
 - Um status code, indicando o sucesso ou falha da requisição. Códigos de status comuns são 200, 404, ou 302.
 - Um texto de status. Uma descrição textual breve, puramente informativa, do código de status a fim de auxiliar o entendimento da mensagem HTTP por humanos.
 
 
-<h2>Headers</h2>
+<h1>Headers</h1>
 
 
 Um header ou cabeçalho consiste em uma concessão que define uma condição de acesso ao servidor, ou uma resposta após o acesso,podendo variar de requisição para requisição, ou mesmo de aplicação para aplicação. Essas informações podem ser o protocólo HTTP em uso, o host do servidor, o idioma aceito ou uma série de autenticações de acesso. Para melhor entender, a seguir temos a descrição de alguns headers bastante comuns:
@@ -193,7 +193,7 @@ Um header ou cabeçalho consiste em uma concessão que define uma condição de 
 |   Accept-Language  |  Inroma ao servidor a linguagem na qual é espera a resposta.                                         |
 
 
-<h2>Body</h2>
+<h1>Body</h1>
 
 
 O body é a última porção de uma requisição, onde são passadas as informações em um POST request, por exemplo. Porém, protocolos como o GET, o HEAD ou o DELETE, usualmente, não precisam de um body declarado. O corpo de uma requisição pode ser dividido, a grosso modo, em duas partes:
@@ -202,10 +202,10 @@ O body é a última porção de uma requisição, onde são passadas as informa�
 - Corpos de recurso-múltiplo, consistindo em um corpo de múltiplas partes, cada uma contendo uma porção diferente de informação. Este é tipicamente associado à Formulários HTML.
 
 
-<h2>Status Code</h2>
+<h1>Status Code</h1>
 
 
-Cada response conta com um status code que define o resultado da requisição. Os códigos de status se divitem em grupos que definem sucesso, falha, retorno de informação, redirecionamento, erro do cliente e entre outros. A seguir estão listados alguns deles:
+Como já foi visto, cada response conta com um status code que define o resultado da requisição. Os códigos de status se divitem em grupos que definem sucesso, falha, retorno de informação, redirecionamento, erro do cliente e entre outros. A seguir estão listados alguns deles:
 
 
 <h2>Informativo</h2>
@@ -264,9 +264,9 @@ Para ver os demais status code existentes, acesse: [http.cat](https://http.cat/)
 <h1>Módulos</h1>
 
 
-Não sendo um padrão do Javascript, criar módulos onde cada parte do código permanece acessível e separada das demais é bastante usual e recomendado, já que atribui ao projeto um maior nível de oraganização, praticidade e eficácia. Os módulos também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
+Criar módulos onde cada parte do código permanece acessível e separada das demais é bastante usual e recomendado, já que atribui ao projeto um maior nível de oraganização, praticidade e eficácia. Os módulos no Node também são importantes para definir o uso de bibliotecas e pacotes que farão parte da estrutura do sistema, e que serão instalados e importados através da modularização.
 
-Para entender a modularização organizacional no Node imagene o seguinte cenário: Você precisa criar um sistema símples, capaz de converter reais em dolares, euros e libras. Isso poderia ser feito da seguinte forma:
+Para entender a modularização organizacional no Node, imagene o seguinte cenário: Você precisa criar um sistema símples, capaz de converter reais em dolares, euros e libras. Isso poderia ser feito da seguinte forma:
 
 Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva as seguintes linhas de código:
 
@@ -296,7 +296,7 @@ Crie um arquivo chamado coin.js no diretório anteriormente feito, nele escreva 
     console.log(libra(real));
 
 
-Uma variável representando uma quantia em reais é passada como parâmetro em três funções distintas, cada uma com um operador representando o valor das moedas que as nomeiam em relação ao real nos dias de hoje. Ao executar o script temos o seguinte resultado:
+Uma variável representando uma quantia em reais é passada como parâmetro em três funções distintas, cada uma com um operador representando o valor das moedas que as nomeiam em relação ao real nos dias de hoje. Ao executar o script, temos o seguinte resultado:
 
 
     1.855287569573284
@@ -318,13 +318,13 @@ Recorte a função <i>dolar</i> do arquivo coin.js, crie um novo arquivo chamado
     module.exports.dolar = dolar; <
 
 
-Com isso é possível importar e fazer uso da função <i>dolar</i> em qualquer parte do diretório. Para fazer isso, no arquivo <i>coin.js</i>, defina a const a seguir:
+Com isso é possível importar e fazer uso da função <i>dolar</i> em qualquer parte do diretório. Para fazer isso, no arquivo <i>coin.js</i>, defina o require a seguir:
 
 
     const dolar = require('./dolar');
 
 
-O path definido na função require define o caminho para o arquivo dolar.js, e o que é definido como export nele passa a ser acessível através da const dolar. Em seguida atualiza o console.log:
+O path definido na função require define o caminho para o arquivo dolar.js, e o que é definido como export nele passa a ser acessível através da const dolar. Em seguida atualize o console.log:
 
     
     console.log(dolar(real));
@@ -350,24 +350,15 @@ Após repetir o mesmo processo com as demais funções, temos o arquivo principa
     1.3550135501355014
 
 
-
-Para entender como aplicar e como funciona o básico das requisições HTTP com o Node, vamos a um exemplo: Em um diretório, crie um arquivo <i>app.js</i>, nele iremos fazer um riquire do módulo http do Node:
-
-    const http = require('http');
-
 <h2>http Module</h2>
 
 
-O módulo http é definido pelo Node como: 
-
-(alias) module "http"
-import http
-
-Para usar o servidor e cliente HTTP é necessário requerer ('http').
+O módulo http permite executar requisições e definir respostas utilizando os protocólos HTTP, além de vários outros recursos, como por exemplo, subir um servidor localmente e tratar das requisições a ele. O módulo http é definido pelo Node da seguinte forma: 
 
 As interfaces HTTP em Node.js são projetadas para oferecer suporte a muitos recursos do protocolo que são tradicionalmente difíceis de usar. Em particular, mensagens grandes, possivelmente codificadas por blocos. A interface tem o cuidado de nunca armazenar em buffer solicitações ou respostas inteiras, para que o usuário possa transmitir dados.
 
 Os cabeçalhos das mensagens HTTP são representados por um objeto como este:
+
 
     { 
       'content-length': '123',
@@ -377,17 +368,15 @@ Os cabeçalhos das mensagens HTTP são representados por um objeto como este:
       'accept': '*'
      }
 
+
 <div align="center">
   <h5>As chaves são declaradas em minúsculas e valores não são modificados.</h5>
 </div>
 
 Para oferecer suporte a todo o espectro de aplicativos HTTP possíveis, a API HTTP Node.js é de nível muito baixo. Ela lida apenas com o tratamento de fluxo e análise de mensagem. Ela analisa uma mensagem em cabeçalhos e corpo, mas não analisa os cabeçalhos reais ou o corpo.
 
-<div align="center">
-  <h5>Consulte message.headers para obter detalhes sobre como os cabeçalhos duplicados são tratados.</h5>
-</div>
+Os cabeçalhos brutos, à medida que forem recebidos, são retidos na propriedade rawHeaders do módulo, que é uma matriz de [chave, valor, chave2, valor2, ...]. Por exemplo, o objeto de cabeçalho da mensagem anterior pode ter uma rawHeaderslist como a seguinte:
 
-Os cabeçalhos brutos à medida que forem recebidos são retidos na propriedade rawHeaders, que é uma matriz de [chave, valor, chave2, valor2, ...]. Por exemplo, o objeto de cabeçalho da mensagem anterior pode ter uma rawHeaderslist como a seguinte:
 
     [
       'ConTent-Length', '123456',
@@ -398,20 +387,33 @@ Os cabeçalhos brutos à medida que forem recebidos são retidos na propriedade 
       'accepT', '*' 
     ]
 
-Para prosseguir com o exercicio defina a chamada do método <i>createServer()</i> através da const que recebe o módulo http:
 
-     http.createServer()
+Para definir o uso do http module, faz-se o require do mesmo da seguinte forma:
 
+
+    const http = require('http');
+
+
+Agora que já introdusimos o http mpdule, iremos entender como aplicar e como funciona o básico das requisições HTTP com o Node: Em um diretório, crie uma file app.js, nela faça as seguinte inserções:
+
+
+    const http = require('http');
+    
+    http.createServer().listen(8080);
+    
 
 <h2>createServer()</h2>
 
 
-O método createServer() por sua vez é definido pelo Node como:
+Sendo uma instância do HTTP module, o método createServer é o responsável por subir o servidor em questão. Ele é definido pelo Node como:
+
 
     function createServer(requestListener?: http.RequestListener): http.Server (+1 overload)
 
+
 A função createServer retorna uma nova instância do Server. Já o parâmetro requestListener é uma função adicionada automaticamente ao evento 'request'. Nele também iremos definir o uso do método <i>listen()</i>, passando uma porta na qual o servidor estará ativo:
     
+
      http.createServer().listen(8080);
 
 
@@ -420,8 +422,10 @@ A função createServer retorna uma nova instância do Server. Já o parâmetro 
 
 O método listen() é definido como: 
 
+
     (method) Server.listen(port?: number, hostname?: string, backlog?: number, listeningListener?: () => void)
     : http.Server (+8 overloads)
+    
 
 Método que inicia um servidor ouvindo conexões. Um net.Server pode ser um servidor TCP ou IPC dependendo do que se escuta.
 
@@ -440,6 +444,7 @@ O método server.listen() pode ser chamado novamente se e somente se houve um er
 
 Um dos erros mais comuns levantados durante a escuta é o EADDRINUSE. Isso acontece quando outro servidor já está escutando na porta / caminho / identificador solicitado. Uma maneira de lidar com isso seria tentar novamente após um determinado período:
 
+
     server.on('error', (e) => {
       if (e.code === 'EADDRINUSE') {
         console.log('Address in use, retrying...');
@@ -450,23 +455,25 @@ Um dos erros mais comuns levantados durante a escuta é o EADDRINUSE. Isso acont
       }
     });
 
+
 Agora que temos uma estrutura básica e sua definição, basta fazer o run do script no terminal de comando, tendo basicamente nenhum resultado, o console apenas define uma operação em execução.
 
 Para melhorar esta chamada, faça a seguinte inclusão:
+    
 
-    const http = require('http');
-    
-    http.createServer().listen(8080);
-    
-    console.log("Servido Ativo na porta 8080"); <
+    console.log("Servido Ativo na porta 8080");
+
 
 Encerre o servidor com Ctrl + C e torne a executá-lo. Perceba que a mensagem definida passa a estar aparente, mostrando a ativação do servidor.
 
-Com o servidor ativo, é possível acessá-lo pelo navegador da seguinte forma:
+Com o servidor ativo, é possível acessá-lo pelo navegador fazendo a chamada a URL a seguir:
 
-    localhost: 8080
 
-Ao defnir um localhost, está sendo dito que um servidor ativo localmente, em uma port específica, será acessado. Mas perceba que não há qualquer retorno do navegador. Com isso, dentro do método <i>createServe()</i>, defina uma response inicial para quem o acessar:
+    http://localhost:8080
+
+
+Ao defnir um localhost, está sendo dito que um servidor ativo localmente, em uma port específica, será acessado. Mas perceba que não há qualquer retorno do navegador. Isto se dá pois ainda não foram declaradas respostas a chamda do servidor criado. Com isso, dentro do método <i>createServe()</i>, defina uma response inicial para quem o acessar:
+
 
     http.createServer(
 
@@ -481,13 +488,13 @@ Ao defnir um localhost, está sendo dito que um servidor ativo localmente, em um
 <h2>req</h2>
 
 
-O parâmetro req nada mais é quem uma forma de receber informações através de uma requisição, normalmente sendo definida como parte de uma rota e sendo enviada quando a mesma sofre uma requisição. Flaremos sobre o conceito de rotas e como definir a passagem de informações através delas mais a frente.
+O parâmetro req nada mais é quem uma forma de receber e tratar as informações enviadas pelo client ao fazer o request, podendo ser passada como um parâmetro em rota, ou em um request body. Flaremos sobre o conceito de rotas e como definir a passagem de informações através delas mais a frente.
 
 
 <h2>res</h2>
 
 
-O parâmetro res é o oposto do req, definido uma resposta a chamda de uma requisição. Essa resposta pode ser uma mensagem de erro, sucesso ou alguma informação relevante, porém, simples. Flaremos mais sobre respostas a requests mais a frente.
+O parâmetro res é o oposto do req, definido a resposta a chamada de uma requisição. Essa resposta pode ser um statusCode, uma mensagem de erro, sucesso ou alguma outra informação. Flaremos mais sobre respostas a requests mais a frente.
 
 
 <h2>end()</h2>
@@ -495,11 +502,14 @@ O parâmetro res é o oposto do req, definido uma resposta a chamda de uma requi
 
 Por definição a função end, atribuída ao parâmetro res, é:
 
+
     (method) internal.Writable.end(chunk: any, cb?: () => void): void (+2 overloads)
+
 
 O método writable.end() ou sua chamada sinaliza que nenhum outro dado será gravado no Writable. O fragmento opcional e os argumentos de codificação permitem que um fragmento adicional final de dados seja gravado imediatamente antes de fechar o fluxo.
 
 Chamar o método write após chamar end gerará um erro.
+
 
     // Write 'hello, ' and then end with 'world!'.
     const fs = require('fs');
@@ -508,13 +518,14 @@ Chamar o método write após chamar end gerará um erro.
     file.end('world!');
     // Writing more now is not allowed!
 
-Com isso, encerre o server e torne a executá-lo, tendo como resposta a mensagem atribuída ao parâmetro res da função criada. E pronto, este é seu primeiro HTTP server criado com o Node.
+
+Com isso, encerre o server e torne a executá-lo. Em seguida teremos como resposta a mensagem atribuída ao parâmetro res da função criada. E pronto, este é seu primeiro HTTP server criado com o Node.
 
 
 <h1>Destrinchando o Express</h1>
 
 
-O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript e, sem dúvidas, a mais popular vinculada ao Node. Também é bastante popular no desenvolvimento de Rest e Restful Api's em Node.
+O Express é um framework Web que auxilia no desenvolvimento de aplicações Back-end utilizando o Node.js. Sendo uma das ferramentas mais populares na comunidade Javascript e, sem dúvidas, a mais popular vinculada ao Node. Também é bastante popular no desenvolvimento de Rest e Restful Api's em Node, sobre as quais falaremos mais adiante.
 
 
 <h2>Por que o Express ?</h2>
@@ -528,9 +539,11 @@ O link a seguir direciona para a documentação oficial do Express: [expressjs.c
 <h2>npm</h2>
 
 
-O npm, ou Node Package Manager, é um gerenciador de pacotes padão do Node.js e é basicamente obrigatório em frameworks e libs Javascript. Com o npm é possível instalar os mais diversos packages em um projeto, estes estando agrupados na node_modules folder, sobre a qual falaremos mais a frente. Ele vem como um adicional no processo de instalação do Node, visto que seu uso é inevitável. Logo, neste momento você já pode fazer uso do mesmo. Para verificar a versão instalada faça o run do comando a seguir no terminal:
+O npm, ou Node Package Manager, é um gerenciador de pacotes padão do Node.js e é basicamente obrigatório em frameworks e libs Javascript. Com o npm é possível instalar os mais diversos packages em um projeto, estes estando agrupados na node_modules folder, sobre a qual falaremos mais a frente. Ele vem como um adicional no processo de instalação do Node, visto que seu uso é inevitável. Logo, neste momento você já pode fazer uso do npm. Para verificar a versão instalada faça o run do comando a seguir no terminal:
+
 
     npm -v
+
 
 Para saber mais sobre o npm, verifique o link a seguir: [npmjs.com](https://www.npmjs.com/)
 
@@ -540,7 +553,9 @@ Para saber mais sobre o npm, verifique o link a seguir: [npmjs.com](https://www.
 
 Antes de instalar uma ferramenta utilizada em projetos node, é preciso ter o projeto em si. Logo, use o comando a seguir para inicializar um projeto com o npm:
 
+
     npm init
+
 
 Em seguida, uma série de questões sobre o projeto serão iniciadas, as quais podem ser ignoradas no momento. No final será gerado um package.json contendo as informações dadas e, por fim, o projeto será criado.
 
@@ -548,7 +563,8 @@ Em seguida, uma série de questões sobre o projeto serão iniciadas, as quais p
 <h2>package.json</h2>
 
 
-O json, ou JavaScript Object Notation, é um formato de intercâmbio de dados leve, bastante utilizado na Web como modelo comunicacional entre o servidor e o cliente. Neste arquivo são registradas as informações referentes ao seu projeto, além de declarar todos os pacotes que forem instalados seguindo o modelo de texto do json:
+O json, ou JavaScript Object Notation, é um formato de intercâmbio de dados leve, bastante utilizado na Web como modelo comunicacional server-client. Neste arquivo são registradas as informações referentes ao projeto criado, além de declarar todos os pacotes que forem instalados seguindo o modelo de texto do json:
+
 
     {
       "name": "expr",
@@ -562,11 +578,15 @@ O json, ou JavaScript Object Notation, é um formato de intercâmbio de dados le
       "license": "ISC"
     }
 
+
 Após termos um projeto em mãos, já é possível fazer a instação do Express através do comando:
+
 
     npm install express --save
 
+
 O trecho <i>--save</i> define que os arquivos gerados na instalação serão salvos no diretório do projeto. Assim temos o Express instalado e pronto para uso, sendo este declarado como dependencie no package.json:
+
 
     {
       "name": "expr",
@@ -583,18 +603,22 @@ O trecho <i>--save</i> define que os arquivos gerados na instalação serão sal
       }
     }
 
+
 Um arquivo e uma pasta adicionais também foram gerados com a instalação, eles são o package-lock.json, que basicamente tem a função de ser mais detalhista que o package.json quanto aos pacotes instalados, e o node_modules(anterormente mencionado), onde estão disponíveis todas as bibliotecas npm, inclusive o Express.
 
 
 <h2>Iniciando um Projeto Express</h2>
 
 
-Ao iniciar um projeto Express, por padão, é criado um index.js como arquivo principal, onde toda a aplicação será iniciada. Nele iremos fazer as seguintes inserções:
+Ao iniciar um npm project, por padão, deve ser criado um index.js como arquivo principal, onde toda a aplicação será iniciada. Nele iremos fazer as seguintes inserções:
+
 
     const express = require('express');
     const app = express();
 
-Basicamente o módulo Express está sendo atribuído à const express, e à const app todas as funcionalidade desse módulo. Para inicializar um servidor com o Express basta chamar o método listen() através da const app:
+
+Basicamente o módulo Express está sendo atribuído à const express, e à const app todas as funcionalidade deste módulo. Para inicializar um servidor com o Express, basta chamar o método listen() através da const app:
+
 
     app.listen(3000, function(error) {
 
@@ -608,14 +632,17 @@ Basicamente o módulo Express está sendo atribuído à const express, e à cons
 
      }
 
+
 Também é adicionada uma function que define uma resposta caso a ação seja bem sucedida ou caso haja um erro. Ao fazer uma chamada localhost no navegador e na porta definida você terá o seguinte erro:
 
+
     Cannot GET /
+
 
 Este erro se dá pois ainda não há uma definição de rota para o acesso inicial ao servidor, assunto que será abordado a seguir.
 
 
-<h2>Routing</h2>
+<h1>Routing</h1>
 
 
 O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respondem aos requests do client. Um endpoint é definido por uma URL(ou path) e um método de request HTTP específico, seja um GET, POST e entre outros. Quando cada parte da aplicação é acessada, se o acesso a ela define a chamada de uma rota, um novo request é lançado na API, retornando as informações definidas como response. Para melhor entender observe o exemplo a seguir:
@@ -626,7 +653,9 @@ O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respo
 
 O Routing segue o modelo de definção descrito a seguir:
 
+
     app.METHOD(PATH, HANDLER)
+
 
 onde:
 
@@ -635,19 +664,18 @@ onde:
 - PATH é o path que será acessado
 - HANDLER é a função executada quando a rota é chamada
 
-Para definir uma rota inicial de acesso ao servidor anteriormente criado, faça a seguinte inserção:
+Para definir uma rota inicial de acesso ao servidor anteriormente criado, após as declarações iniciais, faça a seguinte inserção:
+
 
     app.get('/', (req, res) => {
-        
+      
     });
 
 
-<h2>GET</h2>
+A função HANDLER possui os parâmetros req e res, que respectivamente definem as informações enviadas no request e a response resultante. Tendo uma rota inicial criada, é preciso definir uma resposta para a chamada desta. Para isso, faça a seguinte inserção:
 
 
-O médodo get(), disponibilizado pelo Express, possui dois parâmetros: O path inicial que precisa ser chamado para executar a requisição, sendo este '/'; e uma função HANDLER com os parâmetros req e res, que respectivamente definem as informações enviadas no request e a response resultante.
-
-Tendo uma rota inicial criada, é preciso definir uma resposta para a chamada desta. Veja a seguir:
+    res.send('<h1>Welcome to my app!</h1>');
 
 
 <h2>send()</h2>
@@ -655,48 +683,49 @@ Tendo uma rota inicial criada, é preciso definir uma resposta para a chamada de
 
 A propriedade send define uma resposta para qualquer requisição na qual ela é declarada, seja um objeto json, uma mensagem de erro e entre outras. Exemplos:
 
+
     res.send(new Buffer('wahoo'));
     res.send({ some: 'json' });
     res.send('<p>some html</p>');
     res.status(404).send('Sorry, cant find that');
 
-Para aplicar uma definição de response na rota inicial do seu servidor, faça a seguinte inserção:
 
-    app.get('/', (req, res) => {
-    
-      res.send('<h1>Welcome to my app!</h1>');
-    
-    });
+Ao reiniciar o servidor e acessá-lo no navegador não notamos mais o retorno Cannot GET /, visto que criamos uma chamada get e a ela foi dada uma response de retorno. Agora, para frisar o conceito de rotas, siga criando mais delas, como por exemplo:
 
-Ao reiniciar o servidor e acessá-lo no navegador não notamos mais a presença do erro Cannot GET /, visto que criamos uma chamada get e a ela foi dada uma response de retorno. Agora, para frisar o conceito de rotas, siga criando mais delas, como por exemplo:
 
     app.get('/home', (req, res) => {
        
        res.send('<h1>This is the home page</h1>');
     
-    })
+    });
     
     app.get('/home/profile', (req, res) => {
     
       res.send('<h1>This is my profile</h1>');
     
-    })
+    });
+
 
 Ao definir o acesso a cada rota na URL, a resposta correspondente irá aparecer em tela, definindo partes diferentes com funções distintas na mesma aplicação, isso graças ao Express Routing.
 
 
-<h2>Automatizando com o Nodemon</h2>
+<h1>Automatizando com o Nodemon</h1>
 
 
 O Nodemon é um Node module responsável por automatizar o processo de atualização de um servidor em execução, evitando a necessidade de derrubá-lo e torná-lo ativo sempre que o código for atualizado, já que o mesmo detecta e aplica qualquer alteração salva. Para fazer a instalação e configurar seu uso, observe os passos a seguir:
 
+
     npm install nodemon -g
+
 
 Após o fim da instalação é possível iniciar o monitoramento de mudaças através do comando:
 
+
     nodemon index.js
 
+
 Tendo como resultado:
+
 
     [nodemon] 2.0.13
     [nodemon] to restart at any time, enter `rs`
@@ -705,7 +734,9 @@ Tendo como resultado:
     [nodemon] starting `node index.js`
     Servidor ativo
 
+
 Após fazer qualquer modificação, o servidor será reiniciado automaticamente:
+
 
     [nodemon] 2.0.13
     [nodemon] to restart at any time, enter `rs`
@@ -721,37 +752,43 @@ Após fazer qualquer modificação, o servidor será reiniciado automaticamente:
 <h2>Parâmetros em Rota</h2>
 
 
-O processo de request muitas vezes conta com a necessidade de envio de certas informações do usuário para que o mesmo tenha uma resposta satisfatória. Um exemplo seria uma tela de login, onde as informações registradas em uma etapa de cadastro anterior são necessárias para ter acesso a tela de home, perfil e etc. Essas informações podem compor o body de uma requisição ou podem ser eviadas como parâmetro na própria rota. 
+O processo de request muitas vezes conta com a necessidade de envio de certas informações do usuário para que o mesmo tenha uma resposta satisfatória. Protocolos como o GET e o HEAD permitem a passagem de parâmetros em rota, normalmente informações usadas para fazer uma busca específica, como o id, CPF ou outra informação.
 
-Para um melhor entendimento, crie uma nova rota para representar a tela de login:
+Para um melhor entendimento, crie uma nova rota para representar a chamada de um usuário específico:
 
-    app.get('/login', (req, res) => {
+
+    app.get('/getUser', (req, res) => {
     
-      res.send('<h1>This is my login page</h1>');
 
     });
+
 
 Com isso é possível definir parâmetros que serão recebidos quando a rota for chamada. Isso é feito da seguinte forma:
 
-    app.get('/login/:email/:password', (req, res) => {
+
+    app.get('/getUser/:id', (req, res) => {
     
-      res.send('<h1>This is my login page</h1>');
 
     });
+    
 
-Agora, caso a rota de /login seja chamada no navegador é possível notar que o servidor não reconhece a chamada. Isso se dá pois, uma vez que os parâmetros são definidos, eles devem ser respeitados, logo, as informações devem ser concedidas para que possa haver uma resposta. Por exemplo: 
+Caso a rota seja chamada no navegador, ele não irá reconhecer a chamada. Isso se dá pois, uma vez que os parâmetros são definidos, eles devem ser respeitados, logo, as informações devem ser concedidas para que possa haver uma resposta. Por exemplo: 
 
-    http://localhost:3000/login/dev123@gmail.com/123456
+
+    http://localhost:3000/getUser/123456
+
 
 Com os parâmetros definidos em rota, é possível ter a resposta da requisição. Além disso, também é possível fazer uso dos dados enviados no request por meio do atributo params. Observe:
 
-    app.get('/login/:email/:password', (req, res) => {
+
+    app.get('/getUser/:id', (req, res) => {
     
-      res.send(`<h1>${req.params.email}</h1>`);
+      res.send(`<h1>${req.params.id}</h1>`);
     
     });
 
-A resposta em tela passa a ser o valor passado como o primeiro parâmetro na rota de login, podendo ser um nome ou qualquer outra informação, sendo esta atualizada dinamicamente.
+
+A resposta em tela passa a ser o valor passado como o parâmetro na rota.
 
 
 <h2>Nullable Params</h2>
@@ -759,13 +796,15 @@ A resposta em tela passa a ser o valor passado como o primeiro parâmetro na rot
 
 A obrigatoriedade do envio de um valor como o parâmetro declarado em uma rota é definida no momento da declaração, porém, também é possível definir um parâmetro opicional o tornando nullable:
 
-    app.get('/login/:email/:password?', (req, res) => {
+
+    app.get('getUser/:id?', (req, res) => {
     
-      res.send('<h1>This is my login page</h1>');
+      res.send(`<h1>${req.params.id}</h1>`);
     
     });
 
-Com isso, apenas o parâmetro no-nullable é exigido quando uma requisição for executada.
+
+Com isso, apenas o parâmetro no-nullable é exigido quando uma requisição for executada. E é importante observar que o exemplo é meramente explicativo, já que em uma situação real, não faria sentido declarar um parâmetro opcional neste modelo de rota.
 
 
 <h2>Métodos Express</h2>
@@ -930,7 +969,7 @@ Em seguida definiremos a res que será dada quando uma chamda na rota users for 
     ]
 
 
-<h2>Listando Usuário Específico</h2>
+<h2>Listando um Usuário Específico</h2>
 
 
 Para aplicar os conceitos anteriormente vistos, vamos defir um endPont que retorna um usuário específico com base no id passado como parâmetro em rota:
@@ -967,9 +1006,9 @@ Uma verificação através do método find é feita no array users, definindo se
 
 User encontrado:
 
-Request: http://localhost:3000/users/getUser/4354534636565645645645645646
+<!-- Request: http://localhost:3000/users/getUser/4354534636565645645645645646 -->
 
-retorno:
+<!-- retorno: -->
 
     {
       "id": "4354534636565645645645645646",
@@ -977,9 +1016,9 @@ retorno:
       "age": 25
     }
 
-User não encontrado:
+<!-- User não encontrado: -->
 
-Request: http://localhost:3000/users/getUser/435453463656564564564564564
+<!-- Request: http://localhost:3000/users/getUser/435453463656564564564564564 -->
 
 retorno:
 
@@ -987,5 +1026,4 @@ retorno:
 
     Not Found
 
-Falar sobre os componentes de uma requisição
 Definir como passar um body com o req.body
