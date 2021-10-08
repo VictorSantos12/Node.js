@@ -7,11 +7,11 @@
 <img src="https://img.shields.io/static/v1?label=Node.js&message=Enviroment&color=green&style=for-the-badge&logo=Node"/>
 
 
-O Node é um ambiente de execução de códigos JavaScript, cuja as funcionalidades e ferramentas propiciam ao desenvolvedor a estrutura necessária para criar, compilar, testar e manter aplicações utilizando o ECMAScript.
+O Node é um ambiente de execução de códigos JavaScript, cuja as funcionalidades e ferramentas propiciam ao desenvolvedor a estrutura necessária para criar, compilar, testar e manter aplicações utilizando o [ECMAScript](https://github.com/VictorSantos12/JavaScript).
 
 Dando uma definição mais específica, o Node exerce a função de interpretar códigos JavaScript fora dos navegadores, tornando possível desvincular a linguagem do Client-side. Tal recurso abre uma série de possibilidades para desenvolver com a já conhecida sintaxe, além de um adicional de ferramentas que auxiliam na criação de aplicações robustas, com arquiteturas e modelos de desenvolvimentos versáteis.
 
-Há uma série de formas de aplicar o Node, seja no server-side, no client-side, em aplicações desktop, micro serviços e entre outros, o Node possui um nível de usabilidade bastante robusto. 
+Há uma série de formas de aplicar o Node, seja no server-side, no client-side, em aplicações desktop, micro serviços e entre outros, o Node possui um nível de usabilidade bastante robusto.
 
 
 <h2>Por que o Node ?</h2>
@@ -29,9 +29,9 @@ Para instalar o Node.js basta seguir as recomendações da plataforma oficial da
 [nodejs.org](https://nodejs.org/en/)
 
 
-É recomendado ter a versão LTS instalada, pois ela garante todas as funcionalidades do Node sem nenhuma restrição. Isso se dá pois a versão Current normalmente está em processo de desenvolvimento, portanto, pode conter issues em manutenção.
+É recomendado ter a versão LTS instalada, pois ela garante todas as funcionalidades do Node sem nenhuma restrição. Já a versão Current normalmente está em processo de desenvolvimento, portanto, pode conter issues em manutenção.
 
-Após o fim da instalação, use o comando a seguir para verificar a versão instalada e se o processo ocorreu corretamente:
+Após o fim da instalação, use o comando a seguir para verificar se o processo ocorreu corretamente e também a versão instalada:
 
 
     node -v
@@ -40,7 +40,7 @@ Após o fim da instalação, use o comando a seguir para verificar a versão ins
 <h2>Hello World</h2>
 
 
-Para executar o popular Hello World através do Node.js basta criar um diretório que irá conter o arquivo referente e executá-lo na linha de comando. Com isso, crie uma pasta no local desejado e nela o arquivo <i>app.js</i>. Neste arquivo escreva as seguinte linha de código:
+Para executar o popular Hello World através do Node.js basta criar um diretório que irá conter o arquivo referente e executá-lo na linha de comando. Com isso, crie uma pasta no local desejado e nela adicione o arquivo <i>app.js</i>. Neste arquivo escreva a seguinte linha de código:
 
 
     console.log('Hello World!');
@@ -67,7 +67,7 @@ Se usarmos o comando <b><i>node</i></b> no terminal, podemos ter acesso a Comman
     'Hello, world!'
 
 
-Uma simples chamada de variável permite entender como o Node independe de qualquer navegador para executar códigos JavaScript. Entretanto, há algumas diferenças entre o browser e a Node Cli, e tentar acessar estruturas como a árvore DOM por exemplo, não produz resultado. Observe:
+Uma simples chamada de variável permite entender como o Node independe de qualquer navegador para executar códigos JavaScript. Entretanto, há algumas diferenças entre o browser e a Node Cli, e tentar acessar estruturas como a árvore DOM, por exemplo, não produz resultado. Observe:
 
 
     > document
@@ -107,7 +107,7 @@ O HTTP, ou HyperText Transfer Protocol, é um dos mais antigos protocolos de com
 <h2>Métodos HTTP</h2>
 
 
-Os métodos, verbos, ou protocolos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com eles definimos a intenção de realizar uma ação que relacione o servidor em uso e uma base de dados, podendo ser a obtenção de informações, o envio, edição e etc. Logo, conhecer estes métodos é extremamente importante. A seguir temos uma definição básica dos principais métodos HTTP:
+Os métodos, verbos, ou protocolos HTTP, são um dos conceitos mais importantes para desenvolver aplicações server-side. Com eles definimos a intenção de realizar uma ação no servidor em uso, podendo ser a obtenção de informações, o envio, edição e etc. A seguir temos uma definição básica dos principais métodos HTTP:
 
 
 <br>
@@ -115,7 +115,7 @@ Os métodos, verbos, ou protocolos HTTP, são um dos conceitos mais importantes 
 
 |         Methods         |                                    Descrição                                            |
 | ----------------------  |  -------------------------------------------------------------------------------------- |
-|  GET                    |   O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, ou qualquer informação que seja possível armazenar em uma base de dados.                        | 
+|  GET                    |   O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, etc.                        | 
 |  HEAD                   |   O método HEAD solicita que o recurso de destino transfira uma representação de seu estado, como para uma requisição GET, mas sem os dados de representação incluídos no corpo da resposta. Isso é útil para recuperar os metadados de representação no cabeçalho da resposta, sem ter que transferir toda a representação.  |
 |  POST                   |   O método POST solicita o processamento da informção incluída na requisição de acordo com a semântica do recurso de destino. Por exemplo, ele é utilizado em uma solitação de acesso, como login, cadastro, assinatura, etc. Basicamente é usado para registra informações temporárias ou permanentes.                                   |
 |  PUT                    |   O método PUT solicita que a informação registrada no destino crie ou atualize seu estado com o estado definido pela representação incluída na requsição. Como em qualquer atualização de informações em uma aplicação, seja mudanças de dados do usuário e entre outros.                                   |
@@ -135,6 +135,26 @@ Um Request, ou requisição, é basicamente uma solicitação do Client utilizan
 <div align="center">
   <img src="https://user-images.githubusercontent.com/61476935/136315896-1bad0572-e941-40d4-82b3-98b9a77732e7.png">
 </div>
+
+
+<h2>Start-line</h2>
+
+
+A linha inicial de uma de um Request contém informações distintas das da linha inicial de uma Response. A seguir, essas estruturas são diferenciadas por meio da deinição de cada informação nelas contidas:
+
+
+<h3>Request</h3>
+
+- Um método HTTP, um verbo (como GET, PUT ou POST) ou um nome (como HEAD ou OPTIONS), que descrevem a ação a ser executada.
+- O alvo da requisição, normalmente um URL, ou o caminho absoluto do protocolo, porta e domínio são em geral caracterizados pelo contexto da requisição.
+- A  versão HTTP, que define a estrutura do restante da mensagem, atuando como um indicador da versão esperada para uso na resposta.
+
+
+<h3>Response</h3>
+
+- A versão do protocolo, normalmente HTTP/1.1.
+- Um status code, indicando o sucesso ou falha da requisição. Códigos de status comuns são 200, 404, ou 302.
+- Um texto de status. Uma descrição textual breve, puramente informativa, do código de status a fim de auxiliar o entendimento da mensagem HTTP por humanos.
 
 
 <h2>Headers</h2>
