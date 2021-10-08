@@ -1016,11 +1016,11 @@ User encontrado:
       "age": 25
     }
 
-<!-- User não encontrado: -->
+User não encontrado:
 
 <!-- Request: http://localhost:3000/users/getUser/435453463656564564564564564 -->
 
-retorno:
+<!-- retorno: -->
 
     Status: 404
 
