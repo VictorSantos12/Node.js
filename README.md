@@ -817,7 +817,7 @@ A função básica de um middleware é executar certo trecho de código após o 
 Além disso, possui acesso aos parâmetros de response(res) e request(req), podendo modificá-los ou usá-los como bem desejar. Também possuem um terceiro parâmetro que consiste em uma função <i>next</i>. Sendo de suma importância, já que as demais funções middleware serão chamadas a partir desta. Um exemplo básico de middleware é a função HANDLER, que declaramos como sendo executada após o recebimento de um request, sendo esta a responsável por definir o response que será enviada e seguida:
 
 
-    app.get((req, res, next) => {
+    app.get('/', (req, res, next) => {
       
       ...
 
@@ -826,11 +826,11 @@ Além disso, possui acesso aos parâmetros de response(res) e request(req), pode
     });
 
 
-O exemplo acima demonstra na prática a afirmação sobre as funções HANDLER serem middleware functions, já que é possível notar a aceitação de um terceiro parâmetro, este que corresponde a next function. Porém, esse tipo de chamada será raramente visto em uma função HANDLER, já que após sua execução não há nenhum middleware a ser executado.
+Uma observação importante é que a exemplo acima será raramente usado em um projeto, visto que, após a execução de um HANDLER não há nenhum middleware a ser chamado.
 
 Tendo definido o que é um middleware, podemos exemplificar algumas das suas funcionalidades e formas de uso através de um exemplo:
 
-Primeiro, icialize um servidor e a ele atribua duas rotas:
+Primeiro, inicialize um servidor e a ele atribua duas rotas:
 
 
     const express = require('express')
@@ -849,7 +849,7 @@ Primeiro, icialize um servidor e a ele atribua duas rotas:
     app.listen(3000, () => console.log('Servidor ativo'));
 
 
-A cada rota é atribuida uma mensagem de res e também como console.log, o que será importante mais adiante. Em seguida, iremos criar uma middleware function de logging para exemplificar suas formas de uso:
+A cada rota é atribuida uma response message que será replicada no console, o que será importante mais adiante. Em seguida, iremos criar uma middleware function de logging para exemplificar suas formas de uso:
 
 
     function loggingMiddleware(req, res, next) {
@@ -867,21 +867,21 @@ Tendo criado o primeiro middleware, é possível declará-lo como global definin
     app.use(loggingMiddleware);
 
 
-Para observar sua execução, basta subir o servidor criado e acessar, no navegador, a porta declarada. Enquanto o servidor estiver ativo, faça um refresh na página. Por ser global, a function loggingMiddleware é executada antes de qualquer HANDLER function (também middleware), logo, teremos o seguinte OutPut no console:
+Para observar sua execução, basta subir o servidor criado e acessar, no navegador, a porta definida. Enquanto o servidor estiver ativo, faça um refresh na página. Por ser global, a function loggingMiddleware é executada antes de qualquer HANDLER function (também middleware), logo, teremos o seguinte OutPut no console:
 
 
     Middleware executado
     Home Page
 
 
-A mensagem referente a middleware funtion é mostrada primeiro pois ela não está vinculada a chamada de nenhuma rota, ou seja, é idependente na linha de execução. Além disso, é ela que passa a definir a chamada da HANDLER function da rota inicial, isso graças a função next nela delcarada. O mesmo pode ser observado ao chamar a rota /users:
+A mensagem referente a middleware funtion é mostrada primeiro pois ela não está vinculada a chamada de nenhuma rota, ou seja, é independente na linha de execução. Além disso, é ela que passa a definir a chamada da HANDLER function da rota inicial, isso graças a função next nela delcarada. O mesmo pode ser observado ao chamar a rota /users:
 
 
     Middleware executado
     Users Page
 
 
-Agora, Experimete remover a chamada do próximo middleware da função loggingMiddleware:
+Agora, Experimente remover a chamada do próximo middleware da função loggingMiddleware:
 
 
     function loggingMiddleware(req, res, next) {
@@ -892,7 +892,7 @@ Agora, Experimete remover a chamada do próximo middleware da função loggingMi
 
 Após outro refresh, é possível notar que nenhuma outra middleware function será chamada, e isso demonstra a afirmação anterior sobre a ordem de execução após a criação e uso de um middleware global. Logo, um middleware global sempre deve ser declarado no início da linha de execuções.
 
-Se o uso de um middleware secundário for declarado após a chamada de um outro, este passa a ser dependende da função next. Para atestar essa afirmação, mude a chamada da app.use(loggingMiddleware) para após a rota /users e, em seguida, torne a chamá-la no navegador. 
+Um middleware secundário é aquele que só é executando após a chamada de um já existente, logo, este passa a ser dependende da função next. Para atestar essa afirmação, mude a chamada da app.use(loggingMiddleware) para após a rota /users e, em seguida, torne a chamá-la no navegador. 
 
 
     http://localhost:3000/users
