@@ -651,7 +651,7 @@ O Routing, ou roteamento, se refere a como os endpoints de uma aplicação respo
  <img src="https://user-images.githubusercontent.com/61476935/135192687-69166538-030b-47e1-8350-683f6c581d9e.png">
 </div>
 
-O Routing segue o modelo de definção descrito a seguir:
+O Routing segue o modelo de definição de rotas descrito a seguir:
 
 
     app.METHOD(PATH, HANDLER)
@@ -681,7 +681,7 @@ A função HANDLER possui os parâmetros req e res, que respectivamente definem 
 <h2>send()</h2>
 
 
-A propriedade send define uma resposta para qualquer requisição na qual ela é declarada, seja um objeto json, uma mensagem de erro e entre outras. Exemplos:
+A propriedade send define uma resposta para qualquer requisição na qual ela é declarada, seja um objeto json, uma mensagem de erro, entre outras. Exemplos:
 
 
     res.send(new Buffer('wahoo'));
@@ -690,7 +690,7 @@ A propriedade send define uma resposta para qualquer requisição na qual ela é
     res.status(404).send('Sorry, cant find that');
 
 
-Ao reiniciar o servidor e acessá-lo no navegador não notamos mais o retorno Cannot GET /, visto que criamos uma chamada get e a ela foi dada uma response de retorno. Agora, para frisar o conceito de rotas, siga criando mais delas, como por exemplo:
+Ao acessar o servidor, após reiniciá-lo, não se nota o Cannot GET / no navegador, visto que criamos uma chamada get e a ela foi dada uma response. Agora, para frisar o conceito de rotas, siga criando mais delas, como por exemplo:
 
 
     app.get('/home', (req, res) => {
@@ -807,7 +807,176 @@ A obrigatoriedade do envio de um valor como o parâmetro declarado em uma rota �
 Com isso, apenas o parâmetro no-nullable é exigido quando uma requisição for executada. E é importante observar que o exemplo é meramente explicativo, já que em uma situação real, não faria sentido declarar um parâmetro opcional neste modelo de rota.
 
 
-<h2>Métodos Express</h2>
+<h1>Métodos Express</h1>
+
+<h1>Middlewares</h1>
+
+
+A função básica de um middleware é executar certo trecho de código após o recebimento de um request e antes do envio da resposta. É, essencialmente, um tipo de função que é executada no meio do processo de requisição, por isso o nome middleware.
+
+Além disso, possui acesso aos parâmetros de response(res) e request(req), podendo modificá-los ou usá-los como bem desejar. Também possuem um terceiro parâmetro que consiste em uma função <i>next</i>. Sendo de suma importância, já que as demais funções middleware serão chamadas a partir desta. Um exemplo básico de middleware é a função HANDLER, que declaramos como sendo executada após o recebimento de um request, sendo esta a responsável por definir o response que será enviada e seguida:
+
+
+    app.get((req, res, next) => {
+      
+      ...
+
+      next();
+
+    });
+
+
+O exemplo acima demonstra na prática a afirmação sobre as funções HANDLER serem middleware functions, já que é possível notar a aceitação de um terceiro parâmetro, este que corresponde a next function. Porém, esse tipo de chamada será raramente visto em uma função HANDLER, já que após sua execução não há nenhum middleware a ser executado.
+
+Tendo definido o que é um middleware, podemos exemplificar algumas das suas funcionalidades e formas de uso através de um exemplo:
+
+Primeiro, icialize um servidor e a ele atribua duas rotas:
+
+
+    const express = require('express')
+    const app = express()
+    
+    app.get('/', (req, res) => {
+      console.log('Home Page');
+      res.send('Home Page');
+    });
+    
+    app.get('/users', (req, res) => {
+      console.log('Users Page');
+      res.send('Users Page');
+    });
+    
+    app.listen(3000, () => console.log('Servidor ativo'));
+
+
+A cada rota é atribuida uma mensagem de res e também como console.log, o que será importante mais adiante. Em seguida, iremos criar uma middleware function de logging para exemplificar suas formas de uso:
+
+
+    function loggingMiddleware(req, res, next) {
+      console.log('Middleware executado');
+      next();
+    }
+
+
+<h2>Middleware Global</h2>
+
+
+Tendo criado o primeiro middleware, é possível declará-lo como global definindo seu uso antes da declaração das rotas anteriormente criadas:
+
+
+    app.use(loggingMiddleware);
+
+
+Para observar sua execução, basta subir o servidor criado e acessar, no navegador, a porta declarada. Enquanto o servidor estiver ativo, faça um refresh na página. Por ser global, a function loggingMiddleware é executada antes de qualquer HANDLER function (também middleware), logo, teremos o seguinte OutPut no console:
+
+
+    Middleware executado
+    Home Page
+
+
+A mensagem referente a middleware funtion é mostrada primeiro pois ela não está vinculada a chamada de nenhuma rota, ou seja, é idependente na linha de execução. Além disso, é ela que passa a definir a chamada da HANDLER function da rota inicial, isso graças a função next nela delcarada. O mesmo pode ser observado ao chamar a rota /users:
+
+
+    Middleware executado
+    Users Page
+
+
+Agora, Experimete remover a chamada do próximo middleware da função loggingMiddleware:
+
+
+    function loggingMiddleware(req, res, next) {
+      console.log('Middleware executado');
+      // next();
+    }
+
+
+Após outro refresh, é possível notar que nenhuma outra middleware function será chamada, e isso demonstra a afirmação anterior sobre a ordem de execução após a criação e uso de um middleware global. Logo, um middleware global sempre deve ser declarado no início da linha de execuções.
+
+Se o uso de um middleware secundário for declarado após a chamada de um outro, este passa a ser dependende da função next. Para atestar essa afirmação, mude a chamada da app.use(loggingMiddleware) para após a rota /users e, em seguida, torne a chamá-la no navegador. 
+
+
+    http://localhost:3000/users
+
+
+O resultado no console é apenas a mensagem de reponse ao request da rota:
+
+
+    Users Page
+
+
+Isso se dá pois a next function não foi declarada no escopo da HANDLER function da rota /users. Para que seja possível executar a função loggingMiddleware, faça as seguintes inserções:
+
+                                  *
+    app.get('/users', (req, res, next) => {
+    
+      console.log('Users Page');
+      res.send('Users Page');
+      next(); *
+    
+    });
+    
+
+E após um outro refresh no navegador, temos como resultado a chamada da função loggingMiddleware tornando a acontecer:
+
+
+    Users Page
+    Middleware executado
+
+
+<h2>Single Action Middleware</h2>
+
+
+Um single action middleware é uma função atribuída a execução de uma rota específica, sendo executada antes da response correspondente ocorrer. Para melhor entender, vamos criar um middleware que simula a verificação da autenticação do usuário ao acessar uma rota que seria restrita. Para isso, crie um novo middleware seguindo o modelo a baixo: 
+
+
+    function authMiddleware(req, res, next) {
+        console.log('Authenticated');
+        next();
+      }
+
+
+Em seguida vincule o authMiddleware a rota /users:
+
+
+    app.get('/users', authMiddleware, (req, res, next) => {
+    
+      console.log('Users Page');
+      res.send('Users Page');
+    
+    });
+
+
+Ao acessar a rota /users, temos o seguinte OutPut:
+
+
+    Authenticated
+    Users Page
+
+
+<h2>Acessando Dados com um Middleware</h2>
+
+
+Como já foi dito, um middleware tem acesso aos parâmetros da requisição a qual ele é atrelado, e para melhorar o exemplo anterior, faremos uso desse recurso adicionando uma validação a função authMiddleware:
+
+
+    function authMiddleware(req, res, next) {
+      
+      if(req.query.admin === 'true') {
+        next();
+      } else {
+        res.send('Not authenticated');   
+      }
+ 
+    }
+
+
+A validação define que ao requisitar a rota /users, a qual o middleware authMiddleware está associado, será necessário atribuir true a variável admin para que seja possível acessar os demais middleware. Caso a validação não considere o valor passado no request, a mensagem 'Not authenticated' será mostrada em tela. Para passar pela validação, basta chamar a rota /users da seguinte forma:
+
+
+    http://localhost:3000/users?admin=true
+
+
+E como resultado, temos acesso a Users Page. Perceba também que a variável admin recebeu a atribuição diretamente da requisição na rota /users, logo, o parâmetro req usado na cláusula if-ele em authMiddleware nada mais é que parâmetro req declarado na prórpia rota.
 
 
 <h1>Rest</h1>
