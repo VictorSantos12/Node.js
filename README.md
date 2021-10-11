@@ -522,6 +522,46 @@ Chamar o método write após chamar end gerará um erro.
 Com isso, encerre o server e torne a executá-lo. Em seguida teremos como resposta a mensagem atribuída ao parâmetro res da função criada. E pronto, este é seu primeiro HTTP server criado com o Node.
 
 
+<h1>Automatizando com o Nodemon</h1>
+
+
+O Nodemon é um Node module responsável por automatizar o processo de atualização de um servidor em execução, evitando a necessidade de derrubá-lo e torná-lo ativo sempre que o código for atualizado, já que o mesmo detecta e aplica qualquer alteração salva. Para fazer a instalação e configurar seu uso, observe os passos a seguir:
+
+
+    npm install nodemon -g
+
+
+Após o fim da instalação é possível iniciar o monitoramento de mudaças através do comando:
+
+
+    nodemon index.js
+
+
+Tendo como resultado:
+
+
+    [nodemon] 2.0.13
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `node index.js`
+    Servidor ativo
+
+
+Após fazer qualquer modificação, o servidor será reiniciado automaticamente:
+
+
+    [nodemon] 2.0.13
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `node index.js`
+    Servidor ativo
+    [nodemon] restarting due to changes...
+    [nodemon] starting `node index.js`
+    Servidor ativo
+
+
 <h1>Destrinchando o Express</h1>
 
 
@@ -707,46 +747,6 @@ Ao acessar o servidor, após reiniciá-lo, não se nota o Cannot GET / no navega
 
 
 Ao definir o acesso a cada rota na URL, a resposta correspondente irá aparecer em tela, definindo partes diferentes com funções distintas na mesma aplicação, isso graças ao Express Routing.
-
-
-<h1>Automatizando com o Nodemon</h1>
-
-
-O Nodemon é um Node module responsável por automatizar o processo de atualização de um servidor em execução, evitando a necessidade de derrubá-lo e torná-lo ativo sempre que o código for atualizado, já que o mesmo detecta e aplica qualquer alteração salva. Para fazer a instalação e configurar seu uso, observe os passos a seguir:
-
-
-    npm install nodemon -g
-
-
-Após o fim da instalação é possível iniciar o monitoramento de mudaças através do comando:
-
-
-    nodemon index.js
-
-
-Tendo como resultado:
-
-
-    [nodemon] 2.0.13
-    [nodemon] to restart at any time, enter `rs`
-    [nodemon] watching path(s): *.*
-    [nodemon] watching extensions: js,mjs,json
-    [nodemon] starting `node index.js`
-    Servidor ativo
-
-
-Após fazer qualquer modificação, o servidor será reiniciado automaticamente:
-
-
-    [nodemon] 2.0.13
-    [nodemon] to restart at any time, enter `rs`
-    [nodemon] watching path(s): *.*
-    [nodemon] watching extensions: js,mjs,json
-    [nodemon] starting `node index.js`
-    Servidor ativo
-    [nodemon] restarting due to changes...
-    [nodemon] starting `node index.js`
-    Servidor ativo
 
 
 <h2>Parâmetros em Rota</h2>
@@ -1036,7 +1036,7 @@ Para entender na prática como os conceitos que definem uma Rest Api podem e dev
 Neste exemplo faremos uso de duas bibliotecas, sendo uma delas o já abordado express e o body-parser:
 
 
-<h2>Body-parser</h2>
+<h1>Body-parser</h1>
 
 
 O [body-parser](https://www.npmjs.com/package/body-parser#bodyparserjsonoptions) é uma biblioteca que auxilia no processo de leitura e exposição de um http request, ou mais especificamente, do body de um request. Ao aplicá-lo em um projeto, é possível converter o corpo de uma requisição para diversos formatos, sendo um deles o já citado json, permitindo que a aplicação mantenham um padrão de formado de texto na sua comunicação com quem a consumir.
