@@ -1298,9 +1298,9 @@ Seguindo a ordem de operações no banco de dados simulado, vamos executar um DE
     
     });
 
-Um parâmetro referente ao id foi incluindo para que seja possível informar o usuário a ser deletado. A difenrença principal é que estamos nos baseando no index do array de usuários, identificado a partir do método findIndex, que encontra o index do usuário que tenha um id correspondente ao enviado. Em seguida usamos o método splice para que o elemento correspondente ao index seja removido do array. 
+Um parâmetro referente ao id foi incluindo para que seja possível informar o usuário a ser deletado. A  principal diferença é que estamos nos baseando no index do array de usuários, identificado a partir do método findIndex, que encontra o index do usuário que tenha um id correspondente ao enviado. Em seguida usamos o método splice para que o elemento correspondente ao index seja removido do array. 
 
-Assim como o método POST, é preciso fazer uso de um client HTTP para executar request DELETE. Portanto, da mesma forma que no exemplo anterior, faça a chamada da rota criada alterando o request type para o tipo especificado, e incluindo o id do usuário a ser excluído:
+Assim como o método POST, é preciso fazer uso de um client HTTP para executar request DELETE. Portanto, da mesma forma que no exemplo anterior, faça a chamada da rota criada alterando o request type para o tipo especificado, e inclua o id do usuário a ser excluído:
 
     http://localhost:3000/users/delete/4354534636565645645645645646
 
@@ -1328,7 +1328,7 @@ Após o fim da requisição, torne a listar todos os usuários. O esperado é qu
 <h2>Atualizando Dados de um Usuário</h2>
 
 
-Já vismos como listar, cadastrar e excluír usuários da nossa base de dados ilustrativa, agora iremos atualizar as informações de um usuário. Antes de mais nada é importante citar que há diferentes formas de atualizar dados através de um request HTTP, podendo ser utilizados o POST, PATCH e o PUT, sendo o PUT o mais recomendado e utlizado.
+Já vimos como listar, cadastrar e excluír usuários da nossa base de dados simulada, agora iremos atualizar as informações de um usuário. Antes de mais nada, é importante citar que há diferentes formas de atualizar dados através de um request HTTP, podendo ser utilizados o POST, o PATCH e o PUT, sendo o PUT o método com função específica de atualização.
 
 Para exemplificar, crie um novo endPoint para atualizar os dados de um usuário:
 
@@ -1373,17 +1373,17 @@ Seguindo um modelo semelhante ao da rota /users/getUser/:id, a rota declarada co
 
     http://localhost:3000/users/update/1231214233453453453453435345
 
-Após definir o id do usuário que será atualizado, defina no body o dado a ser atualizado:
+Após definir o id do usuário que será atualizado, defina no body o dado a ser atualizado e o novo valor:
 
     {
       "name" : "Luana de Andrade"
     }
 
-Tendo executado o request, liste o usuário que foi atualizado através da rota /users/getUser/:id:
+Tendo executado o request, liste o usuário que foi atualizado através da rota /users/getUser/id:
 
     http://localhost:3000/users/getUser/1231214233453453453453435345
 
-O resultado esperado é a atualização do valor anterior para o definido no último PUT request:
+O resultado esperado é a atualização do valor anterior para o definido no PUT request body:
 
     {
       "id": "1231214233453453453453435345",
