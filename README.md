@@ -117,7 +117,7 @@ Os métodos, verbos, ou protocolos HTTP, são um dos conceitos mais importantes 
 | ----------------------  |  -------------------------------------------------------------------------------------- |
 |  GET                    |   O método GET solicita que o recurso de destino transfira uma representação de seu estado. As requsições GET devem apenas recuperar dados e não devem ter nenhum outro efeito. É sem dúvida o método de comunicação mais utilizado na web e pode ser notado em qualquer aplicação que liste informações, sejam elas imagens, texto, arquivos, etc.                        | 
 |  HEAD                   |   O método HEAD solicita que o recurso de destino transfira uma representação de seu estado, como para uma requisição GET, mas sem os dados de representação incluídos no corpo da resposta. Isso é útil para recuperar os metadados de representação no cabeçalho da resposta, sem ter que transferir toda a representação.  |
-|  POST                   |   O método POST solicita o processamento da informção incluída na requisição de acordo com a semântica do recurso de destino. Por exemplo, ele é utilizado em uma solitação de acesso, como login, cadastro, assinatura, etc. Basicamente é usado para registra informações temporárias ou permanentes.                                   |
+|  POST                   |   O método POST solicita o processamento da informação incluída na requisição de acordo com a semântica do recurso de destino. Por exemplo, ele é utilizado em uma solitação de acesso, como login, cadastro, assinatura, etc. Basicamente é usado para registra informações temporárias ou permanentes.                                   |
 |  PUT                    |   O método PUT solicita que a informação registrada no destino crie ou atualize seu estado com o estado definido pela representação incluída na requsição. Como em qualquer atualização de informações em uma aplicação, seja mudanças de dados do usuário e entre outros.                                   |
 |  DELETE                 |   O método DELETE solicita que o recurso de destino exclua seu estado.                                   |
 |  CONNECT                |   O método CONNECT solicita que o intermediário estabeleça um túnel TCP / IP para o servidor de origem identificado pelo destino da solicitação. É frequentemente usado para proteger conexões por meio de um ou mais proxies HTTP com TLS.                                   |
@@ -1112,7 +1112,7 @@ Em seguida definiremos a res que será dada quando uma chamda na rota users for 
        res.json(dataBase.users);
     });
 
-À res é atribuido o formato json definido pelo body-parser, que pode ser vista na resposta a chamada quando esta for feita no namegador ou em alguma ferramenta de Rest Api Client, como o Insomnia, Postman ou Thunder Client:
+À res é atribuido o formato json definido pelo body-parser, que pode ser vista na resposta a chamada quando esta for feita no namegador ou em alguma ferramenta de Rest Api Client, como o [Insomnia](https://insomnia.rest/download), [Postman](https://www.postman.com/downloads/) ou [Thunder Client](https://www.thunderclient.io/):
 
     [
       {
@@ -1196,3 +1196,197 @@ User não encontrado:
     Not Found
 
 Definir como passar um body com o req.body
+
+
+<h2>Cadastrando Usuário</h2>
+
+
+Em uma situação real, qualquer requisição estaria atrelada a uma ação na base de dados. O registro de um novo usuário não é excludente, porém, da mesma forma que estamos listando dados de um objeto declarado manualmente, e que simula a base, é possível fazer a inserção de novos valores, mesmo que estes sejam temporários. Para isso, crie uma nova rota seguindo o modelo abaixo:
+
+    app.post('/users/register', (req, res) => {
+    
+      var { name, age } = req.body;
+        
+      dataBase.users.push({
+    
+        id: '2342342342342423424327866786',
+        name,
+        age
+    
+      });
+    
+      res.statusCode = 200;
+      res.send('OK');
+    
+    });
+
+A rota de cadastro deve fazer uso do verbo HTTP post, já que a intenção é registrar as informações passadas no request, nesse caso através body. Além disso, a rota atribui ao array users os novos valores, incluindo um id genérico, criado para completar o objeto json enviado, já que em uma situação real, um id seria gerado no processo de registro. Por fim é retornado status code 200.
+
+Para testar a rota é necessário fazer uso de um serviço de HTTP client, como os já citados Insomnia, Postman ou Thunder Client, já que não é possível fazer requisições POST diretamente no navegador. Dentro dessas ferramentas é possível testar requisições HTTP, definir um body usando diferentes formatos, como json, Xml, Form, Text, além de vários outros recursos. 
+
+Para registrar um novo usúario, acesse a rota criada através do HTTP client escolhido, definindo o request type como POST:
+
+    http://localhost:3000/users/register
+
+Em seguida crie um body json e defina os dados do novo usuário:
+
+    {
+    
+      "name" : "Clara",
+      "age" : 36
+        
+    }
+
+Após executar a requisição, torner a listar os usuários através da rota /users. O resultado deve incluir os dados registrados por último:
+
+    [
+      {
+        "id": "4354534636565645645645645646",
+        "name": "Ana",
+        "age": 25
+      },
+      {
+        "id": "1231214233453453453453435345",
+        "name": "Luana",
+        "age": 18
+      },
+      {
+        "id": "46453345676786798979786755543",
+        "name": "Pedro",
+        "age": 26
+      },
+      {
+        "id": "12345677867865675645747467575",
+        "name": "Anderson",
+        "age": 46
+      },
+      {
+        "id": "2342342342342423424327866786",
+        "name": "Clara",
+        "age": 36
+      }
+    ]
+
+
+<h2>Deletando Usuário</h2>
+
+
+Seguindo a ordem de operações no banco de dados simulado, vamos executar um DELETE a partir do id do usuário, de forma bastante parecida com a listagem de um usuário específico. Logo, intuitivamente, faremos uso do protocolo HTTP DELETE. Para isso, crie um novo endPoit semelhante ao exemplo a seguir:
+
+    app.delete('/users/delete/:id', (req, res) => {
+    
+      if(isString(req.params.id)) {
+       
+       var id = parseInt(req.params.id);
+       var index = dataBase.users.findIndex(u => u.id == id);
+       
+       if(index != -1) {
+    
+        dataBase.users.splice(index, 1);
+        res.sendStatus(200);
+    
+       } else {
+    
+         res.sendStatus(404)
+    
+       }
+    
+      } else {
+        res.statusCode = 400;
+        res.send({});
+      }
+    
+    });
+
+Um parâmetro referente ao id foi incluindo para que seja possível informar o usuário a ser deletado. A difenrença principal é que estamos nos baseando no index do array de usuários, identificado a partir do método findIndex, que encontra o index do usuário que tenha um id correspondente ao enviado. Em seguida usamos o método splice para que o elemento correspondente ao index seja removido do array. 
+
+Assim como o método POST, é preciso fazer uso de um client HTTP para executar request DELETE. Portanto, da mesma forma que no exemplo anterior, faça a chamada da rota criada alterando o request type para o tipo especificado, e incluindo o id do usuário a ser excluído:
+
+    http://localhost:3000/users/delete/4354534636565645645645645646
+
+Após o fim da requisição, torne a listar todos os usuários. O esperado é que todos, exceto o que possui o id definido acima, seja listado:
+
+    [
+      {
+        "id": "1231214233453453453453435345",
+        "name": "Luana",
+        "age": 18
+      },
+      {
+        "id": "46453345676786798979786755543",
+        "name": "Pedro",
+        "age": 26
+      },
+      {
+        "id": "12345677867865675645747467575",
+        "name": "Anderson",
+        "age": 46
+      }
+    ]
+
+
+<h2>Atualizando Dados de um Usuário</h2>
+
+
+Já vismos como listar, cadastrar e excluír usuários da nossa base de dados ilustrativa, agora iremos atualizar as informações de um usuário. Antes de mais nada é importante citar que há diferentes formas de atualizar dados através de um request HTTP, podendo ser utilizados o POST, PATCH e o PUT, sendo o PUT o mais recomendado e utlizado.
+
+Para exemplificar, crie um novo endPoint para atualizar os dados de um usuário:
+
+    app.put('/users/update/:id', (req, res) => {
+
+      var id = req.params.id;
+    
+      if(isString(id)) {
+       
+       var user = dataBase.users.find(u => u.id == id);
+       
+       if(user != undefined) {
+    
+        var { name, age } = req.body;
+    
+        if(name != undefined) {
+          user.name = name;
+        }
+    
+        if(age != undefined) {
+          user.age = age;
+        }
+    
+        res.sendStatus(200);
+    
+       } else {
+    
+        res.statusCode = 404;
+        res.send('Not Found');
+    
+       }
+    
+      } else {
+        res.statusCode = 400;
+        res.send({});
+      }
+    
+    });
+
+
+Seguindo um modelo semelhante ao da rota /users/getUser/:id, a rota declarada como PUT também possui um parâmetro id, o qual será utilizado para verificar o usuário no array de users. Em seguida, o usuário encontrado será atualizado, recebendo os valores passados no body da requisição. Um detalhe importante para se ater é que nem sempre todo o objeto será atualizado, portanto, haverá uma ou outra situação em que o body irá retornar um dos campos como undefined, de outra forma, o valor será atualizado. Para testar a rota, faça a seguinte chamada no HTTP Client anteriormente utilizado:
+
+    http://localhost:3000/users/update/1231214233453453453453435345
+
+Após definir o id do usuário que será atualizado, defina no body o dado a ser atualizado:
+
+    {
+      "name" : "Luana de Andrade"
+    }
+
+Tendo executado o request, liste o usuário que foi atualizado através da rota /users/getUser/:id:
+
+    http://localhost:3000/users/getUser/1231214233453453453453435345
+
+O resultado esperado é a atualização do valor anterior para o definido no último PUT request:
+
+    {
+      "id": "1231214233453453453453435345",
+      "name": "Luana de Andrade",
+      "age": 18
+    }
