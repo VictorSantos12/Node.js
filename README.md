@@ -1390,3 +1390,115 @@ O resultado esperado é a atualização do valor anterior para o definido no PUT
       "name": "Luana de Andrade",
       "age": 18
     }
+
+
+<h1>Consumindo API Rest</h1>
+
+
+Agora que a API crida conta um bom número de endPoints com funções distintas, iremos consumir essas rotas em uma simples estrutura Font-end que irá simular a interface do usuário. Para isso, iremos utilizar a bibliotéca Axios em uma index.html file, e a partir dela iremos listar, cadastrar, excluír e atualizar usuários. Portanto, antes de abordarmos a bibliotéca que iremos consumir, crie uma pasta chamada View e nela crie o arquivo html básico:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+
+
+<h2>Axios</h2>
+
+
+O Axios é uma lib HTTP client que permite o consumo de Rest APIs, estruturando as requisições em um modelo de promises que podendem ser utilizadas no browser, consumindo e transitando dados entre uma API e o próprio navegador. Há formas distintas de utilizar o Axios, as quais são listadas em [axios](https://www.npmjs.com/package/axios), sendo uma dessas formas o consumo de uma CDN, o que pode ser aplicado diretamente a uma file html por meio da tag script como no exemplo abaixo:
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+Em seguide iremos definir a chamada ao primeiro endPont criado, para que seja possível listar os usuários registrados na base de dados simulada. Para isso crie o script a seguir na index.html file:
+
+    <script>
+    
+       axios.get().then().catch
+    
+    </script>
+
+Como foi dito, o Axios permite tratar as requisições como promises Javascript, portanto, é preciso definir as formas de tratamento paar os possíveis resultados do request. Além disso, iremos definir a chamada a URL que contém a rota de listagem dos usuários tratando os possíveis resultados:
+
+    axios.get("http://localhost:3000/users").then(response => {
+ 
+      console.log(response);
+ 
+    }).catch(error => {
+      
+      console.log(response);
+
+    });
+
+Em seguida executa a file html com no navegador e verifique o resultado no console, o qual muito porvavelmente irá se assemelhar ao seguinte:
+
+    Access to XMLHttpRequest at 'http://localhost:3000/users' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy:     No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+O que temos aqui é um impedimento por política de CORS. O CORS é um recurso de segurança para evitar o acesso externo através de requisições a uma APi, que permanece ativo até que haja interveção manual, no caso do Node. Para resolver o problema, iremos instalar uma nova lib, a qual irá permitir submeter a API às requisições externas:
+
+    npm install cors --save
+
+Após a intalação, defina o uso da lib pelo app no index.js da API:
+
+    const cors = require('cors');
+        
+    app.use(cors());
+
+Tendo isso feito, faça um refresh no browser para observar o funcionamente do Axios consumindo o primeiro endPoint da API, tendo como resultado:
+
+    {data: Array(4), status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
+    config: {transitional: {…}, transformRequest: Array(1), transformResponse: Array(1), timeout: 0, adapter: ƒ, …}
+    data: Array(4)
+     0: {id: '4354534636565645645645645646', name: 'Ana', age: 25}
+     1: {id: '1231214233453453453453435345', name: 'Luana', age: 18}
+     2: {id: '46453345676786798979786755543', name: 'Pedro', age: 26}
+     3: {id: '12345677867865675645747467575', name: 'Anderson', age: 46}
+     length: 4
+     [[Prototype]]: Array(0)
+    headers: {content-length: '252', content-type: 'application/json; charset=utf-8'}
+    request: XMLHttpRequest {onreadystatechange: null, readyState: 4, timeout: 0, withCredentials: false, upload:     XMLHttpRequestUpload, …}
+    status: 200
+    statusText: "OK"
+    [[Prototype]]: Object
+
+Todas essa informações correspondem a response a requisição, incluíndo as informações dos usuários contidos na base simulada, que em seguida podem ser exibidas no front.
+
+
+<h2>Exibindo Dados</h2>
+
+
+Para mostrar os dados obtidos no reques em tela, faremos algumas inclusões no documento html correspondente a nossa view, a começar por:
+
+     <ul id="users"></ul>
+
+Adicionamos uma tag ul de list para listar o usuários, e em seguida:
+
+    axios.get("http://localhost:3000/users").then(response => {
+ 
+      var users = response.data;
+      var list = document.getElementById('users');
+ 
+    })
+
+Substituimos o console.log que devolvia a response resultante da requisição e incluímos duas variáveis, uma que recebe os dados do retorno, e outra que recebe um instância da tag ul através so id a ela atribuído. Em seguida iremos tratar para que cada usuário tenha suas informações listadas separadamente:
+
+     users.forEach(user => {
+       var item = document.createElement('li');
+       item.innerHTML = user.name;
+       list.appendChild(item);
+     });
+
+A var users, que recebe a lista de usuários, logo é um array, receber um forEach method, definindo que cada user encontrado terá seu name atribuído a uma tag li, o qual será renderizado na tag ul crianda anteriormente da seguinte forma:
+
+- Ana
+- Luana
+- Pedro
+- Anderson
