@@ -1487,7 +1487,7 @@ Adicionamos uma tag ul de list para listar o usuários, e em seguida:
       var users = response.data;
       var list = document.getElementById('users');
  
-    })
+    });
 
 Substituimos o console.log que devolvia a response resultante da requisição e incluímos duas variáveis, uma que recebe os dados do retorno, e outra que recebe um instância da tag ul através so id a ela atribuído. Em seguida iremos tratar para que cada usuário tenha suas informações listadas separadamente:
 
