@@ -1465,7 +1465,7 @@ Tendo isso feito, faça um refresh no browser para observar o funcionamente do A
      length: 4
      [[Prototype]]: Array(0)
     headers: {content-length: '252', content-type: 'application/json; charset=utf-8'}
-    request: XMLHttpRequest {onreadystatechange: null, readyState: 4, timeout: 0, withCredentials: false, upload:     XMLHttpRequestUpload, …}
+    request: XMLHttpRequest {onreadystatechange: null, readyState: 4, timeout: 0, withCredentials: false, upload: XMLHttpRequestUpload, …}
     status: 200
     statusText: "OK"
     [[Prototype]]: Object
