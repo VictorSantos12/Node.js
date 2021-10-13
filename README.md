@@ -1497,7 +1497,7 @@ Substituimos o console.log que devolvia a response resultante da requisição e 
        list.appendChild(item);
      });
 
-A var users, que recebe a lista de usuários, logo é um array, receber um forEach method, definindo que cada user encontrado terá seu name atribuído a uma tag li, o qual será renderizado na tag ul crianda anteriormente da seguinte forma:
+A var users, que recebe a lista de usuários, logo é um array, receber um forEach method, definindo que cada user encontrado terá seu name atribuído a uma tag li, a qual será renderizada na tag ul crianda anteriormente da seguinte forma:
 
 - Ana
 - Luana
