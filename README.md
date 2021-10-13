@@ -1440,7 +1440,8 @@ Como foi dito, o Axios permite tratar as requisições como promises Javascript,
 
 Em seguida executa a file html com no navegador e verifique o resultado no console, o qual muito porvavelmente irá se assemelhar ao seguinte:
 
-    Access to XMLHttpRequest at 'http://localhost:3000/users' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy:     No 'Access-Control-Allow-Origin' header is present on the requested resource.
+    Access to XMLHttpRequest at 'http://localhost:3000/users' from origin 'http://127.0.0.1:5500' has been blocked by CORS
+    policy:     No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
 O que temos aqui é um impedimento por política de CORS. O CORS é um recurso de segurança para evitar o acesso externo através de requisições a uma APi, que permanece ativo até que haja interveção manual, no caso do Node. Para resolver o problema, iremos instalar uma nova lib, a qual irá permitir submeter a API às requisições externas:
 
