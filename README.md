@@ -1395,7 +1395,7 @@ O resultado esperado é a atualização do valor anterior para o definido no PUT
 <h1>Consumindo API Rest</h1>
 
 
-Agora que a API crida conta um bom número de endPoints com funções distintas, iremos consumir essas rotas em uma simples estrutura Font-end que irá simular a interface do usuário. Para isso, iremos utilizar a bibliotéca Axios em uma index.html file, e a partir dela iremos listar, cadastrar, excluír e atualizar usuários. Portanto, antes de abordarmos a bibliotéca que iremos consumir, crie uma pasta chamada View e nela crie o arquivo html básico:
+Agora que a API crida conta um bom número de endPoints com funções distintas, iremos consumir essas rotas em uma simples estrutura Font-end que irá simular a interface do usuário. Para isso, iremos utilizar a biblioteca Axios em uma index.html file, e a partir dela iremos listar, cadastrar, excluír e atualizar usuários. Portanto, antes de falarmos sobre o Axios em si, crie uma pasta chamada View e nela crie o arquivo html básico:
 
     <!DOCTYPE html>
     <html lang="en">
@@ -1414,11 +1414,11 @@ Agora que a API crida conta um bom número de endPoints com funções distintas,
 <h2>Axios</h2>
 
 
-O Axios é uma lib HTTP client que permite o consumo de Rest APIs, estruturando as requisições em um modelo de promises que podendem ser utilizadas no browser, consumindo e transitando dados entre uma API e o próprio navegador. Há formas distintas de utilizar o Axios, as quais são listadas em [axios](https://www.npmjs.com/package/axios), sendo uma dessas formas o consumo de uma CDN, o que pode ser aplicado diretamente a uma file html por meio da tag script como no exemplo abaixo:
+O Axios é uma lib HTTP client que permite o consumo de Rest APIs e que estrutura as requisições em um modelo de promises que podendem ser utilizadas no browser, consumindo e transmitindo dados entre uma API e o próprio navegador. Há formas distintas de utilizar o Axios, as quais são listadas em [axios](https://www.npmjs.com/package/axios), sendo uma dessas formas o consumo de uma CDN, o que pode ser aplicado diretamente a uma file html por meio da tag script, que é basicamente o que precisamos:
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-Em seguide iremos definir a chamada ao primeiro endPont criado, para que seja possível listar os usuários registrados na base de dados simulada. Para isso crie o script a seguir na index.html file:
+Em seguide iremos definir a chamada ao primeiro endPont criado, para que seja possível listar os usuários registrados na base simulada. Para isso crie o script a seguir na index.html file:
 
     <script>
     
@@ -1426,7 +1426,7 @@ Em seguide iremos definir a chamada ao primeiro endPont criado, para que seja po
     
     </script>
 
-Como foi dito, o Axios permite tratar as requisições como promises Javascript, portanto, é preciso definir as formas de tratamento paar os possíveis resultados do request. Além disso, iremos definir a chamada a URL que contém a rota de listagem dos usuários tratando os possíveis resultados:
+Como foi dito, o Axios permite tratar as requisições como promises Javascript, portanto, é preciso definir as formas de tratamento para os possíveis resultados do request. Além disso, iremos definir a chamada a URL que contém a rota de listagem dos usuários, tratando os possíveis resultados:
 
     axios.get("http://localhost:3000/users").then(response => {
  
@@ -1434,16 +1434,16 @@ Como foi dito, o Axios permite tratar as requisições como promises Javascript,
  
     }).catch(error => {
       
-      console.log(response);
+      console.log(error);
 
     });
 
-Em seguida executa a file html com no navegador e verifique o resultado no console, o qual muito porvavelmente irá se assemelhar ao seguinte:
+Em seguida executa a file html no navegador e verifique o resultado no console, o qual muito porvavelmente irá se assemelhar ao seguinte:
 
     Access to XMLHttpRequest at 'http://localhost:3000/users' from origin 'http://127.0.0.1:5500' has been blocked by CORS
     policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
-O que temos aqui é um impedimento por política de CORS. O CORS é um recurso de segurança para evitar o acesso externo através de requisições a uma APi, que permanece ativo até que haja interveção manual, no caso do Node. Para resolver o problema, iremos instalar uma nova lib, a qual irá permitir submeter a API às requisições externas:
+O que temos aqui é um impedimento por política de CORS. O CORS é um recurso de segurança para evitar o acesso externo a uma APi, que permanece ativo até que haja intervenção. Para resolver o problema, iremos instalar uma nova lib, a qual irá permitir submeter a API às requisições externas:
 
     npm install cors --save
 
@@ -1470,13 +1470,13 @@ Tendo isso feito, faça um refresh no browser para observar o funcionamente do A
     statusText: "OK"
     [[Prototype]]: Object
 
-Todas essa informações correspondem a response a requisição, incluíndo as informações dos usuários contidos na base simulada, que em seguida podem ser exibidas no front.
+Todas essa informações correspondem a response a requisição, incluíndo as informações dos usuários contidos na base simulada..
 
 
 <h2>Exibindo Dados</h2>
 
 
-Para mostrar os dados obtidos no reques em tela, faremos algumas inclusões no documento html correspondente a nossa view, a começar por:
+Para mostrar os dados obtidos no request em tela, faremos algumas inclusões no documento html correspondente a nossa view, a começar por:
 
      <ul id="users"></ul>
 
@@ -1497,7 +1497,7 @@ Substituimos o console.log que devolvia a response resultante da requisição e 
        list.appendChild(item);
      });
 
-A var users, que recebe a lista de usuários, logo é um array, receber um forEach method, definindo que cada user encontrado terá seu name atribuído a uma tag li, a qual será renderizada na tag ul crianda anteriormente da seguinte forma:
+A var users, que recebe a lista de usuários, logo é um array, recebe um forEach method, definindo que cada user encontrado terá seu name atribuído a uma tag li, a qual será renderizada na tag ul crianda anteriormente da seguinte forma:
 
 - Ana
 - Luana
